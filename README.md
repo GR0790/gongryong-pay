@@ -1,5 +1,9 @@
 # React + TypeScript + Vite
 
+🦕 **공룡페이 웹사이트** - 현금화 전문업체
+
+이 프로젝트는 공룡페이 웹사이트의 소스코드입니다.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
