@@ -465,7 +465,7 @@ const Privacy: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://open.kakao.com/o/s9GOcnBh"
+                href="https://open.kakao.com/o/sERBIYEh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors"

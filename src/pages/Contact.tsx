@@ -35,7 +35,7 @@ const Contact: React.FC = () => {
             </p>
 
             <a
-              href="https://open.kakao.com/o/s9GOcnBh"
+              href="https://open.kakao.com/o/sERBIYEh"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-yellow-400 text-gray-900 px-8 py-4 rounded-2xl text-xl font-bold hover:bg-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl mb-6"
@@ -119,7 +119,7 @@ const Contact: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://open.kakao.com/o/s9GOcnBh"
+                href="https://open.kakao.com/o/sERBIYEh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-yellow-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
