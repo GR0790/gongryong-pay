@@ -21,7 +21,7 @@ const HowToUse: React.FC = () => {
         {
           step: 1,
           title: '상담 신청 및 한도 확인',
-          description: '전화, 카카오톡, 텔레그램으로 상담 신청 후 현재 소액결제 한도를 확인합니다.',
+          description: '전화, 1:1 상담, 텔레그램으로 상담 신청 후 현재 소액결제 한도를 확인합니다.',
           details: [
             '본인 명의 휴대폰 번호 확인',
             '통신사 종류 확인 (SKT/KT/LGU+)',

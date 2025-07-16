@@ -392,12 +392,12 @@ const BlogPost: React.FC = () => {
                     공룡페이 전문 상담원이 24시간 친절하게 상담해드립니다.
                   </p>
                   <a
-                    href="https://open.kakao.com/o/s9GOcnBh"
+                    href="https://grpay.channel.io/home"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors"
                   >
-                    💬 카카오톡 상담하기
+                    💬 1:1 상담하기
                   </a>
                 </div>
               </div>

@@ -303,7 +303,7 @@ const FAQ: React.FC = () => {
                 href="#"
                 className="inline-block bg-yellow-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-colors"
               >
-                💬 카카오톡 상담
+                💬 1:1 상담하기
               </a>
               <a
                 href="#"

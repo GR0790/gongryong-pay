@@ -368,7 +368,7 @@ const Terms: React.FC = () => {
                 <div className="text-blue-700 space-y-1">
                   <p><strong>상호:</strong> 공룡페이</p>
                   <p><strong>주소:</strong> 서울특별시 강남구 테헤란로 123, 4층</p>
-                  <p><strong>고객센터:</strong> 카카오톡 상담</p>
+                  <p><strong>고객센터:</strong> 1:1 상담</p>
                   <p><strong>이메일:</strong> support@gongryongpay.com</p>
                 </div>
               </div>
@@ -402,7 +402,7 @@ const Terms: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://open.kakao.com/o/s9GOcnBh"
+                href="https://grpay.channel.io/home"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors"

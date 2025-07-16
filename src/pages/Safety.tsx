@@ -207,7 +207,7 @@ const Safety: React.FC = () => {
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">상담 및 문의</h3>
                 <p className="text-gray-600 text-sm">
-                  카카오톡으로 문의하여 상세한 설명을 듣고 의문점을 해결하세요.
+                  1:1 상담으로 문의하여 상세한 설명을 듣고 의문점을 해결하세요.
                 </p>
               </div>
               <div className="text-center">
@@ -300,7 +300,7 @@ const Safety: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://open.kakao.com/o/s9GOcnBh"
+              href="https://grpay.channel.io/home"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors"

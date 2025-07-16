@@ -73,7 +73,7 @@ const Privacy: React.FC = () => {
                 </div>
                 <div className="flex">
                   <span className="w-32 text-gray-600 font-semibold">고객센터:</span>
-                  <span className="text-gray-800">카카오톡 상담</span>
+                  <span className="text-gray-800">1:1 상담</span>
                 </div>
               </div>
             </div>
@@ -274,7 +274,7 @@ const Privacy: React.FC = () => {
                 <h3 className="text-lg font-bold text-green-800 mb-4">📞 권리 행사 방법</h3>
                 <div className="space-y-3 text-green-700">
                   <div>
-                    <p className="font-semibold">카카오톡 상담</p>
+                    <p className="font-semibold">1:1 상담</p>
                     <p className="text-sm">실시간 상담을 통한 즉시 처리</p>
                   </div>
                   <div>
@@ -465,7 +465,7 @@ const Privacy: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://open.kakao.com/o/s9GOcnBh"
+                href="https://grpay.channel.io/home"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors"

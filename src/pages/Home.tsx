@@ -30,13 +30,13 @@ const Home: React.FC = () => {
                 휴대폰 소액결제, 정보이용료, 신용카드, 상품권 현금화까지! 복잡함 없이 24시간 간편하게 비상금을 마련하세요.
               </p>
               <a
-                href="https://open.kakao.com/o/s9GOcnBh"
+                href="https://grpay.channel.io/home"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="카카오톡으로 즉시 상담 받기 - 새 탭에서 열기"
+                aria-label="1:1 상담하기 - 새 탭에서 열기"
                 className="inline-flex items-center bg-yellow-400 text-gray-900 px-6 md:px-8 py-3 md:py-4 rounded-lg text-lg md:text-xl font-semibold hover:bg-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-300"
               >
-                💬 카카오톡 즉시상담
+                💬 1:1 상담하기
                 <svg className="ml-2 w-5 md:w-6 h-5 md:h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z"/>
                 </svg>
@@ -240,7 +240,7 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">지금 바로 공룡페이에 문의하세요!</h2>
           <p className="text-lg md:text-xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">소액결제 현금화, 정보이용료 현금화, 신용카드 현금화, 상품권 현금화 등24시간 언제나 신속하고 친절하게 상담해드립니다. 궁금한 점이 있다면 망설이지 말고 공룡페이에 연락주세요!</p>
-          <a href="https://open.kakao.com/o/s9GOcnBh" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-white text-green-600 px-6 md:px-8 py-3 md:py-4 rounded-lg text-lg md:text-xl font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+          <a href="https://grpay.channel.io/home" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-white text-green-600 px-6 md:px-8 py-3 md:py-4 rounded-lg text-lg md:text-xl font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-lg">
             💬 내 한도 확인 & 24시간 상담
           </a>
         </div>
