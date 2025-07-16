@@ -300,13 +300,17 @@ const FAQ: React.FC = () => {
                 📞 전화 상담
               </Link>
               <a
-                href="#"
+                href="https://grpay.channel.io/home"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-yellow-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-colors"
               >
                 💬 1:1 상담하기
               </a>
               <a
-                href="#"
+                href="https://grpay.channel.io/home"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
               >
                 📱 텔레그램 상담
