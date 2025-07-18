@@ -80,7 +80,7 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.공룡페이.com/#business",
+    "@id": "https://www.공룡페이.com/#organization",
     "name": "공룡페이",
     "alternateName": "GongryongPay",
     "description": "소액결제, 정보이용료, 신용카드, 상품권 현금화 전문업체",
@@ -92,9 +92,8 @@
       "@type": "Country",
       "name": "South Korea"
     },
-    "serviceType": "현금화 서비스",
+    "priceRange": "$",
     "openingHours": "Mo-Su 00:00-24:00",
-    "telephone": "1:1 상담",
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
@@ -121,11 +120,11 @@
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
+            "@id": "https://www.공룡페이.com/#service-micropayment",
             "name": "소액결제 현금화",
             "description": "휴대폰 소액결제 한도를 현금으로 전환",
             "provider": {
-              "@type": "Organization",
-              "name": "공룡페이"
+              "@id": "https://www.공룡페이.com/#organization"
             }
           }
         },
@@ -133,11 +132,11 @@
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
+            "@id": "https://www.공룡페이.com/#service-information",
             "name": "정보이용료 현금화",
             "description": "정보이용료 한도를 현금으로 전환",
             "provider": {
-              "@type": "Organization",
-              "name": "공룡페이"
+              "@id": "https://www.공룡페이.com/#organization"
             }
           }
         },
@@ -145,11 +144,11 @@
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
+            "@id": "https://www.공룡페이.com/#service-creditcard",
             "name": "신용카드 현금화",
             "description": "신용카드 결제 한도를 현금으로 전환",
             "provider": {
-              "@type": "Organization",
-              "name": "공룡페이"
+              "@id": "https://www.공룡페이.com/#organization"
             }
           }
         },
@@ -157,11 +156,11 @@
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
+            "@id": "https://www.공룡페이.com/#service-giftcard",
             "name": "상품권 현금화",
             "description": "각종 상품권을 현금으로 전환",
             "provider": {
-              "@type": "Organization",
-              "name": "공룡페이"
+              "@id": "https://www.공룡페이.com/#organization"
             }
           }
         }
