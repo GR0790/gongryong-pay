@@ -1,5 +1,5 @@
-import type React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import type React from "react";
+import { Link, useParams } from "react-router-dom";
 
 const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -35,7 +35,7 @@ const BlogPost: React.FC = () => {
 
         <h2>공룡페이의 안전한 서비스</h2>
         <p>공룡페이는 정식 등록된 업체로서 고객님의 안전한 거래를 최우선으로 생각합니다. 투명한 수수료 정책과 빠른 처리, 24시간 상담 서비스를 제공하고 있습니다.</p>
-      `
+      `,
     },
     "2": {
       title: "정보이용료 현금화 완전 가이드",
@@ -70,7 +70,7 @@ const BlogPost: React.FC = () => {
           <li>개인정보 보호</li>
           <li>투명한 수수료 확인</li>
         </ul>
-      `
+      `,
     },
     "3": {
       title: "신용카드 현금화, 합법적인 방법은?",
@@ -106,7 +106,7 @@ const BlogPost: React.FC = () => {
           <li>계약 조건 꼼꼼히 검토</li>
           <li>적정 한도 내에서만 이용</li>
         </ol>
-      `
+      `,
     },
     "4": {
       title: "상품권 현금화 가이드",
@@ -145,7 +145,7 @@ const BlogPost: React.FC = () => {
           <li>신뢰할 수 있는 업체 선택</li>
           <li>교환율 미리 확인</li>
         </ul>
-      `
+      `,
     },
     "5": {
       title: "현금화 업체 사기 피하는 방법",
@@ -188,7 +188,7 @@ const BlogPost: React.FC = () => {
 
         <h2>공룡페이의 투명한 서비스</h2>
         <p>공룡페이는 정식 등록된 업체로서 모든 거래 과정을 투명하게 공개하며, 고객님의 안전을 최우선으로 생각합니다.</p>
-      `
+      `,
     },
     "6": {
       title: "현금화 업계 동향과 전망",
@@ -225,7 +225,7 @@ const BlogPost: React.FC = () => {
           <li>고객 중심 서비스 확대</li>
           <li>투명한 운영 방식 정착</li>
         </ol>
-      `
+      `,
     },
     "7": {
       title: "급한 돈이 필요할 때 고려할 옵션들",
@@ -266,7 +266,7 @@ const BlogPost: React.FC = () => {
 
         <h2>현명한 선택을 위한 조언</h2>
         <p>급전이 필요하더라도 신중한 판단이 필요합니다. 자신의 상황에 맞는 최적의 방법을 선택하시기 바랍니다.</p>
-      `
+      `,
     },
     "8": {
       title: "모바일 결제 서비스 가이드",
@@ -306,8 +306,8 @@ const BlogPost: React.FC = () => {
 
         <h2>문제 발생 시 대처 방법</h2>
         <p>결제 관련 문제가 발생했을 때의 대처 방법을 미리 알아두세요.</p>
-      `
-    }
+      `,
+    },
   };
 
   const post = blogPosts[id as keyof typeof blogPosts];
@@ -316,8 +316,12 @@ const BlogPost: React.FC = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">포스트를 찾을 수 없습니다</h1>
-          <p className="text-gray-600 mb-8">요청하신 블로그 포스트가 존재하지 않습니다.</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            포스트를 찾을 수 없습니다
+          </h1>
+          <p className="text-gray-600 mb-8">
+            요청하신 블로그 포스트가 존재하지 않습니다.
+          </p>
           <Link
             to="/blog"
             className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
@@ -339,8 +343,18 @@ const BlogPost: React.FC = () => {
               to="/blog"
               className="inline-flex items-center text-purple-600 hover:text-purple-700 transition-colors"
             >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              <svg
+                className="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
               </svg>
               블로그 목록으로 돌아가기
             </Link>
@@ -360,7 +374,10 @@ const BlogPost: React.FC = () => {
 
             <div className="flex flex-wrap justify-center gap-2 mb-8">
               {post.tags.map((tag) => (
-                <span key={tag} className="bg-white text-purple-600 px-3 py-1 rounded-full text-sm">
+                <span
+                  key={tag}
+                  className="bg-white text-purple-600 px-3 py-1 rounded-full text-sm"
+                >
                   #{tag}
                 </span>
               ))}
@@ -377,10 +394,10 @@ const BlogPost: React.FC = () => {
               <div
                 className="prose prose-lg max-w-none"
                 style={{
-                  lineHeight: '1.8',
+                  lineHeight: "1.8",
                 }}
               >
-                {post.content.replace(/<[^>]*>/g, '')}
+                {post.content.replace(/<[^>]*>/g, "")}
               </div>
 
               {/* Call to Action */}
@@ -420,8 +437,18 @@ const BlogPost: React.FC = () => {
                 className="inline-flex items-center bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
               >
                 전체 블로그 보기
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                <svg
+                  className="ml-2 w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
                 </svg>
               </Link>
             </div>

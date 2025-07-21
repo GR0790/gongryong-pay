@@ -1,5 +1,5 @@
-import type React from 'react';
-import { Link } from 'react-router-dom';
+import type React from "react";
+import { Link } from "react-router-dom";
 
 const Reviews: React.FC = () => {
   const reviews = [
@@ -8,72 +8,80 @@ const Reviews: React.FC = () => {
       name: "김*동",
       service: "소액결제 현금화",
       rating: 5,
-      content: "정말 급했는데 3분도 안되서 입금됐어요! 상담도 친절하시고 소액결제 현금화 최고입니다. 공룡페이 덕분에 잘 해결했어요. 다음에도 꼭 이용할게요!",
-      amount: "50만원"
+      content:
+        "정말 급했는데 3분도 안되서 입금됐어요! 상담도 친절하시고 소액결제 현금화 최고입니다. 공룡페이 덕분에 잘 해결했어요. 다음에도 꼭 이용할게요!",
+      amount: "50만원",
     },
     {
       id: 2,
       name: "이*민",
       service: "정보이용료 현금화",
       rating: 5,
-      content: "타업체보다 정보이용료 현금화 수수료도 저렴하고 입금도 빨라서 좋았어요. 다음에도 이용할게요! 안전한 공룡페이 찾아서 다행이에요.",
-      amount: "80만원"
+      content:
+        "타업체보다 정보이용료 현금화 수수료도 저렴하고 입금도 빨라서 좋았어요. 다음에도 이용할게요! 안전한 공룡페이 찾아서 다행이에요.",
+      amount: "80만원",
     },
     {
       id: 3,
       name: "박*수",
       service: "신용카드 현금화",
       rating: 4,
-      content: "신용카드 현금화 절차가 복잡할 줄 알았는데 공룡페이는 생각보다 간편하고 안전하게 처리해주셔서 감사합니다. 믿고 맡길 수 있겠어요.",
-      amount: "100만원"
+      content:
+        "신용카드 현금화 절차가 복잡할 줄 알았는데 공룡페이는 생각보다 간편하고 안전하게 처리해주셔서 감사합니다. 믿고 맡길 수 있겠어요.",
+      amount: "100만원",
     },
     {
       id: 4,
       name: "최*영",
       service: "상품권 현금화",
       rating: 5,
-      content: "문화상품권 현금화 처음 해봤는데 설명도 자세히 해주시고 서비스가 좋아서 만족합니다. 24시간 상담 가능한 것도 너무 좋아요!",
-      amount: "30만원"
+      content:
+        "문화상품권 현금화 처음 해봤는데 설명도 자세히 해주시고 서비스가 좋아서 만족합니다. 24시간 상담 가능한 것도 너무 좋아요!",
+      amount: "30만원",
     },
     {
       id: 5,
       name: "정*호",
       service: "소액결제 현금화",
       rating: 5,
-      content: "다른 업체에서 사기 당할 뻔했는데 공룡페이는 정말 믿을 수 있었어요. 투명한 수수료와 빠른 처리속도에 감동했습니다.",
-      amount: "70만원"
+      content:
+        "다른 업체에서 사기 당할 뻔했는데 공룡페이는 정말 믿을 수 있었어요. 투명한 수수료와 빠른 처리속도에 감동했습니다.",
+      amount: "70만원",
     },
     {
       id: 6,
       name: "장*희",
       service: "정보이용료 현금화",
       rating: 4,
-      content: "처음에는 불안했지만 상담원분이 친절하게 설명해주셔서 안심하고 진행할 수 있었어요. 입금도 약속 시간보다 빨리 되었습니다.",
-      amount: "45만원"
+      content:
+        "처음에는 불안했지만 상담원분이 친절하게 설명해주셔서 안심하고 진행할 수 있었어요. 입금도 약속 시간보다 빨리 되었습니다.",
+      amount: "45만원",
     },
     {
       id: 7,
       name: "윤*준",
       service: "신용카드 현금화",
       rating: 5,
-      content: "급하게 병원비가 필요했는데 공룡페이 덕분에 해결했어요. 밤늦은 시간에도 친절하게 상담받을 수 있어서 정말 감사했습니다.",
-      amount: "120만원"
+      content:
+        "급하게 병원비가 필요했는데 공룡페이 덕분에 해결했어요. 밤늦은 시간에도 친절하게 상담받을 수 있어서 정말 감사했습니다.",
+      amount: "120만원",
     },
     {
       id: 8,
       name: "강*미",
       service: "상품권 현금화",
       rating: 5,
-      content: "해피머니 상품권 현금화 처음 해봤는데 생각보다 간단하고 빨라서 놀랐어요. 서비스도 친절하고 좋았습니다.",
-      amount: "25만원"
-    }
+      content:
+        "해피머니 상품권 현금화 처음 해봤는데 생각보다 간단하고 빨라서 놀랐어요. 서비스도 친절하고 좋았습니다.",
+      amount: "25만원",
+    },
   ];
 
   const stats = {
     totalReviews: 1247,
     averageRating: 4.8,
     satisfactionRate: 98.2,
-    repeatCustomers: 89.5
+    repeatCustomers: 89.5,
   };
 
   const renderStars = (rating: number) => {
@@ -82,10 +90,10 @@ const Reviews: React.FC = () => {
       stars.push(
         <span
           key={`star-${i}-filled-${i < rating}`}
-          className={`text-lg ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}
+          className={`text-lg ${i < rating ? "text-yellow-400" : "text-gray-300"}`}
         >
           ★
-        </span>
+        </span>,
       );
     }
     return stars;
@@ -100,8 +108,10 @@ const Reviews: React.FC = () => {
             공룡페이 고객 후기
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            실제 고객님들의 생생한 경험담을 확인해보세요.<br />
-            소액결제, 정보이용료, 신용카드, 상품권 현금화 서비스에 대한 솔직한 후기입니다.
+            실제 고객님들의 생생한 경험담을 확인해보세요.
+            <br />
+            소액결제, 정보이용료, 신용카드, 상품권 현금화 서비스에 대한 솔직한
+            후기입니다.
           </p>
         </div>
       </section>
@@ -143,7 +153,10 @@ const Reviews: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {reviews.map((review) => (
-              <div key={review.id} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <div
+                key={review.id}
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+              >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
@@ -152,8 +165,12 @@ const Reviews: React.FC = () => {
                       </span>
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900">{review.name}</div>
-                      <div className="text-sm text-gray-500">{review.service}</div>
+                      <div className="font-bold text-gray-900">
+                        {review.name}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {review.service}
+                      </div>
                     </div>
                   </div>
                   <div className="text-right">
@@ -193,7 +210,8 @@ const Reviews: React.FC = () => {
             🦕 공룡페이 서비스는 어떠셨나요?
           </h2>
           <p className="text-lg md:text-xl mb-8 opacity-90">
-            소중한 후기를 남겨주시면 다른 고객님들께 큰 도움이 됩니다.<br />
+            소중한 후기를 남겨주시면 다른 고객님들께 큰 도움이 됩니다.
+            <br />
             여러분의 솔직한 의견을 기다리고 있어요!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
