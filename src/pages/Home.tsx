@@ -31,6 +31,23 @@ const Home: React.FC = () => {
                 <span className="text-blue-600">소액결제현금화</span> No.1 공룡페이<br />
                 <span className="text-green-600">소액결제현금화 3분 초스피드 입금!</span>
               </h1>
+
+              {/* 채널톡 상담 버튼 - 메인 위치 */}
+              <div className="flex justify-center mb-8">
+                <a
+                  href="https://grpay.channel.io/home"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="1:1 상담하기 - 새 탭에서 열기"
+                  className="inline-flex items-center bg-yellow-400 text-gray-900 px-6 md:px-8 py-4 md:py-5 rounded-lg text-lg md:text-xl font-semibold hover:bg-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-300 animate-pulse"
+                >
+                  💬 소액결제현금화 1:1 상담
+                  <svg className="ml-2 w-5 md:w-6 h-5 md:h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z"/>
+                  </svg>
+                </a>
+              </div>
+
               <p className="text-lg md:text-xl text-gray-700 mb-6 max-w-3xl mx-auto leading-relaxed">
                 <strong>급하게 돈이 필요할 땐? 소액결제현금화 공룡페이가 해결사!</strong><br />
                 소액결제현금화, 정보이용료현금화, 신용카드현금화, 상품권현금화까지!<br />
@@ -78,21 +95,7 @@ const Home: React.FC = () => {
                 </div>
               </div>
 
-              {/* 다중 상담 채널 */}
-              <div className="flex justify-center mb-6">
-                <a
-                  href="https://grpay.channel.io/home"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="1:1 상담하기 - 새 탭에서 열기"
-                  className="inline-flex items-center bg-yellow-400 text-gray-900 px-6 md:px-8 py-3 md:py-4 rounded-lg text-lg md:text-xl font-semibold hover:bg-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-300"
-                >
-                  💬 소액결제현금화 1:1 상담
-                  <svg className="ml-2 w-5 md:w-6 h-5 md:h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z"/>
-                  </svg>
-                </a>
-              </div>
+
               <p className="text-sm text-gray-500 mt-4">정식 사업자 등록 업체 공룡페이, 소액결제현금화 100% 안전거래 보장!</p>
             </div>
           </div>
