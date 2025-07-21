@@ -89,3 +89,4 @@ temp/
 # Backup files
 *.zip
 *.backup
+temp-repo/
