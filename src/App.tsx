@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -18,6 +18,38 @@ import HowToUse from './pages/HowToUse';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    // 채널톡 스크립트 로드
+    const loadChannelTalk = () => {
+      // 이미 로드되었는지 확인
+      if (window.ChannelIO) {
+        return;
+      }
+
+      // 채널톡 스크립트 생성
+      const script = document.createElement('script');
+      script.onload = () => {
+        window.ChannelIO('boot', {
+          pluginKey: '66c596c9-3225-4678-b746-0c024efd6f01'
+        });
+      };
+      script.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+      script.async = true;
+      document.head.appendChild(script);
+    };
+
+    // DOM이 완전히 로드된 후 실행
+    if (document.readyState === 'complete') {
+      loadChannelTalk();
+    } else {
+      window.addEventListener('load', loadChannelTalk);
+    }
+
+    return () => {
+      window.removeEventListener('load', loadChannelTalk);
+    };
+  }, []);
+
   return (
     <Layout>
       <Routes>
