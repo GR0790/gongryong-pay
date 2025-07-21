@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Blog from "./pages/Blog";
@@ -17,53 +17,6 @@ import Safety from "./pages/Safety";
 import Terms from "./pages/Terms";
 
 function App() {
-  useEffect(() => {
-    // 채널톡 스크립트 로드
-    (() => {
-      // biome-ignore lint/suspicious/noExplicitAny: ChannelIO requires any type
-      const w = window as any;
-      if (w.ChannelIO) {
-        return w.console.error("ChannelIO script included twice.");
-      }
-      // biome-ignore lint/suspicious/noExplicitAny: ChannelIO requires any type
-      const ch: any = (...args: any[]) => {
-        ch.c(args);
-      };
-      ch.q = [];
-      // biome-ignore lint/suspicious/noExplicitAny: ChannelIO requires any type
-      ch.c = (args: any) => {
-        ch.q.push(args);
-      };
-      w.ChannelIO = ch;
-      function l() {
-        if (w.ChannelIOInitialized) {
-          return;
-        }
-        w.ChannelIOInitialized = true;
-        const s = document.createElement("script");
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js";
-        const x = document.getElementsByTagName("script")[0];
-        if (x.parentNode) {
-          x.parentNode.insertBefore(s, x);
-        }
-      }
-      if (document.readyState === "complete") {
-        l();
-      } else {
-        w.addEventListener("DOMContentLoaded", l);
-        w.addEventListener("load", l);
-      }
-    })();
-
-    // 채널톡 초기화
-    // biome-ignore lint/suspicious/noExplicitAny: ChannelIO requires any type
-    (window as any).ChannelIO("boot", {
-      pluginKey: "66c596c9-3225-4678-b746-0c024efd6f01",
-    });
-  }, []);
-
   return (
     <Layout>
       <Routes>
