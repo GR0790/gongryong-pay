@@ -26,8 +26,16 @@ jobs:
       - name: Build
         run: bun run build
         
+      - name: Force delete gh-pages branch
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git push origin --delete gh-pages || echo "Branch doesn't exist"
+        continue-on-error: true
+        
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          force_orphan: true
