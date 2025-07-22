@@ -28,15 +28,10 @@ jobs:
       - name: Build project
         run: bun run build
 
-      # ★★★★★ 이 부분이 새로 추가된 핵심 단계입니다 ★★★★★
+      # ★★★★★ 이 부분이 수정된 핵심 단계입니다 ★★★★★
       # 배포 전에 기존 gh-pages 브랜치를 강제로 삭제하여 항상 깨끗한 상태에서 배포를 시작합니다.
       - name: Force delete gh-pages branch before deploy
-        uses: dev-drprasad/delete-tag-and-release@v1.1
-        with:
-          delete_branch: true
-          branch_name: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: git push origin --delete gh-pages || true
 
       # 빌드된 결과물을 gh-pages 브랜치에 배포합니다.
       - name: Deploy to GitHub Pages
