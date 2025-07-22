@@ -7,11 +7,20 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+# GitHub Pages에 배포하는 데 필요한 권한을 설정합니다.
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+# 동시성 설정을 통해 한 번에 하나의 배포만 실행되도록 합니다.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  # 1. 빌드 잡: 코드를 빌드하여 배포할 파일을 준비합니다.
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,27 +31,38 @@ jobs:
         with:
           bun-version: latest
 
-      # ★★★★★ 1. 유령 캐시를 완전히 삭제합니다. ★★★★★
-      - name: Clear Bun cache
-        run: bun pm cache rm
-
       - name: Install dependencies
         run: bun install
 
       - name: Build project
         run: bun run build
       
-      # ★★★★★ 2. 빌드 결과물을 검사용으로 업로드합니다. ★★★★★
-      - name: Upload build artifact for inspection
-        uses: actions/upload-artifact@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      
+      # 빌드 결과물을 '유물(artifact)'로 업로드하여 다음 배포 잡에서 사용할 수 있도록 합니다.
+      - name: Upload build artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages-build
           path: ./dist
 
-      # 3. 빌드된 결과물을 gh-pages 브랜치에 배포합니다.
+  # 2. 배포 잡: 빌드된 결과물을 GitHub Pages에 배포합니다.
+  deploy:
+    # 'build' 잡이 성공적으로 완료되어야 실행됩니다.
+    needs: build
+    
+    permissions:
+      pages: write
+      id-token: write
+    
+    # GitHub Pages 배포 환경을 설정합니다.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    runs-on: ubuntu-latest
+    steps:
+      # GitHub Pages에 배포를 실행합니다.
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          cname: xn--ob0b39t2wlgzl.com
+        id: deployment
+        uses: actions/deploy-pages@v4
