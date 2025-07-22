@@ -384,7 +384,6 @@ const WhyChooseUsSection: React.FC = () => (
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              {/* ★★★★★ 수정된 부분 ★★★★★ */}
               <div className="text-3xl font-bold text-blue-600 mb-2">
                 누적 3만건+
               </div>
