@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-sm sticky top-0 z-50">
         <nav className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -268,7 +268,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </nav>
       </header>
 
-      {children}
+      {/* ★★★★★ 이 부분이 수정된 핵심입니다 ★★★★★ */}
+      <main className="flex-grow">{children}</main>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 md:py-16">
@@ -279,9 +280,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <div className="text-2xl font-bold text-white mb-4">공룡페이</div>
               <p className="text-gray-400 mb-4 text-sm md:text-base leading-relaxed">
                 가장 빠르고 안전한 현금화 서비스. 공룡페이는 고객님의 긴급한
-                자금 문제를 신속하고 간편하게 해결해 드립니다. 소액결제,
-                정보이용료, 신용카드, 상품권 현금화 등 업계 최고 수준의 만족도를
-                경험하세요.
+                자금 문제를 신속하고 간편하게 해결해 드립니다.
               </p>
             </div>
 
@@ -392,11 +391,20 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-gray-400">
+          {/* ★★★★★ 이 부분이 새로 추가된 핵심입니다 ★★★★★ */}
+          <div className="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 text-left text-gray-500 text-xs">
+            <h4 className="font-bold text-gray-400 mb-2">업체 정보</h4>
+            <p>상호명: 공룡페이 | 대표: [김민수]</p>
+            <p>사업자등록번호: [101-81-59985]</p>
+            <p>주소: [서울시 강남구 테헤란로 27-5]</p>
+            <p>고객센터: [010-2138-0790] | 이메일: [benzamn779@gmail.com]</p>
+          </div>
+
+          <div className="border-t border-gray-800 mt-6 pt-6 text-center text-gray-400">
             <p className="text-sm md:text-base">
               © 2025 공룡페이 (GongryongPay). 모든 권리 보유.
             </p>
-            <p className="mt-2 text-xs md:text-sm leading-relaxed">
+            <p className="mt-2 text-xs md:text-sm leading-relaxed max-w-4xl mx-auto">
               본 웹사이트는 공룡페이에서 제공하는 소액결제, 정보이용료,
               신용카드, 상품권 현금화 서비스에 대한 정보를 포함하고 있습니다.
               서비스 이용 전 반드시 이용약관 및 개인정보처리방침을 확인하시기
