@@ -116,7 +116,6 @@ const FAQ: React.FC = () => {
 
   return (
     <>
-      {/* ★★★★★ SEO를 위한 JSON-LD 스키마 (수정됨) ★★★★★ */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
