@@ -23,23 +23,23 @@ const Home: React.FC = () => {
             <div className="flex-1 text-center">
               <div className="mb-4">
                 <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-bold mb-2">
-                  🔥 2025년 소액결제현금화 업계 1위! 공룡페이 소액결제현금화
+                  🔥 2025년 소액결제현금화 업계 1위! 공룡페이
                 </div>
               </div>
+              {/* SEO 최적화: h1 태그에 핵심 키워드를 모두 포함 */}
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 <span className="text-red-600">
                   소액결제현금화 미납·정책 99.9% 승인!
                 </span>
                 <br />
-                <span className="text-blue-600">소액결제현금화</span> No.1
-                공룡페이
+                <span className="text-blue-600">정보이용료현금화</span> No.1
                 <br />
                 <span className="text-green-600">
-                  소액결제현금화 3분 초스피드 입금!
+                  3분 초스피드 입금 완료
                 </span>
               </h1>
 
-              {/* 채널톡 상담 버튼 - 메인 위치 (헤더 직후) */}
+              {/* 채널톡 상담 버튼 */}
               <div className="flex justify-center mb-6">
                 <a
                   href="https://grpay.channel.io/home"
@@ -59,21 +59,21 @@ const Home: React.FC = () => {
                   </svg>
                 </a>
               </div>
-
+              
+              {/* SEO 최적화: p 태그에 구체적인 서비스 내용과 키워드 포함 */}
               <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
                 <strong>
-                  급하게 돈이 필요할 땐? 소액결제현금화 공룡페이가 해결사!
+                  갑자기 급전이 필요할 땐? 공룡페이가 해결사!
                 </strong>
                 <br />
-                소액결제현금화, 정보이용료현금화, 신용카드현금화,
-                상품권현금화까지!
+                다양한 <strong>소액결제 현금화 방법</strong>부터 <strong>정보이용료(콘텐츠이용료) 현금화</strong>, <strong>신용카드 현금화</strong>까지,
                 <br />
                 <span className="text-red-600 font-bold">
-                  소액결제현금화 미납/정책 99.9% 승인, 5분이면 거래완료!
+                  미납/정책도 99.9% 승인, 5분이면 거래완료!
                 </span>
               </p>
 
-              {/* 신뢰 지표 배지 - 강화 */}
+              {/* 신뢰 지표 배지 */}
               <div className="flex flex-wrap justify-center gap-3 mb-8">
                 <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
                   ✅ 정식사업자등록
@@ -89,7 +89,7 @@ const Home: React.FC = () => {
                 </div>
               </div>
 
-              {/* 실시간 거래 현황 위젯 - 강화 */}
+              {/* 실시간 거래 현황 위젯 */}
               <div className="bg-white rounded-2xl shadow-lg p-6 mb-8 max-w-lg mx-auto border-2 border-green-200">
                 <div className="text-center">
                   <div className="text-sm text-red-600 font-bold mb-3">
@@ -246,7 +246,7 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              왜 공룡페이 소액결제현금화일까요? 소액결제현금화 업계 1위!
+              왜 공룡페이 소액결제현금화일까요? 업계 1위!
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
               풍부한 거래실적과 고객 만족도 99.9%로 증명된 신뢰! 소액결제현금화,
@@ -318,7 +318,7 @@ const Home: React.FC = () => {
           <div className="mt-16">
             <div className="bg-white rounded-3xl shadow-xl p-8">
               <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-                📊 공룡페이 실시간 통계
+                � 공룡페이 실시간 통계
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="text-center">
