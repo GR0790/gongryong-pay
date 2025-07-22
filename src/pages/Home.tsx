@@ -126,7 +126,7 @@ const HeroSection: React.FC = () => (
                 </div>
               </div>
               <div className="text-xs text-gray-400 mt-3 border-t pt-2">
-                ⚡ 평균 2분 47초 입금완료 | 💯 고객만족도 99.9% | 🏆 월 거래량
+                ⚡ 평균 2분 47초 입금완료 | 💯 고객만족도 99.9% | 🏆 누적 거래량
                 3만건+
               </div>
             </div>
@@ -411,7 +411,7 @@ const WhyChooseUsSection: React.FC = () => (
           </div>
           <div className="text-center mt-6">
             <p className="text-gray-500 text-sm">
-              📈 실시간 업데이트 | ✅ 정식 사업자 등록 업체 | � 신뢰할 수 있는
+              📈 실시간 업데이트 | ✅ 정식 사업자 등록 업체 | 🏅 신뢰할 수 있는
               공룡페이
             </p>
           </div>
