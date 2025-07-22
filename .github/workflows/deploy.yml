@@ -7,7 +7,6 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
-# 워크플로우가 gh-pages 브랜치에 쓸 수 있도록 권한을 설정합니다.
 permissions:
   contents: write
 
@@ -15,27 +14,32 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      # 1. main 브랜치의 최신 코드를 가져옵니다.
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Bun(자바스크립트 실행도구)을 설치합니다.
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
 
-      # 3. 웹사이트에 필요한 라이브러리들을 설치합니다.
+      # ★★★★★ 1. 유령 캐시를 완전히 삭제합니다. ★★★★★
+      - name: Clear Bun cache
+        run: bun pm cache rm
+
       - name: Install dependencies
         run: bun install
 
-      # 4. 웹사이트를 빌드하여 'dist' 폴더에 결과물을 생성합니다.
       - name: Build project
         run: bun run build
       
-      # 5. 빌드된 결과물을 gh-pages 브랜치에 배포합니다.
-      # 이 액션은 gh-pages 브랜치가 없으면 새로 만들고,
-      # 기존에 있던 내용은 완전히 새로운 내용으로 덮어씁니다.
+      # ★★★★★ 2. 빌드 결과물을 검사용으로 업로드합니다. ★★★★★
+      - name: Upload build artifact for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages-build
+          path: ./dist
+
+      # 3. 빌드된 결과물을 gh-pages 브랜치에 배포합니다.
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
