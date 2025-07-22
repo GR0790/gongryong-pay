@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
 
-  // 블로그 포스트 데이터 (실제로는 API에서 가져올 수 있음)
+  // 블로그 포스트 데이터 (내부 링크 추가됨)
   const blogPosts = {
     "1": {
       title: "소액결제 현금화, 안전하게 이용하는 방법",
@@ -13,14 +13,14 @@ const BlogPost: React.FC = () => {
       tags: ["소액결제", "현금화", "안전거래"],
       content: `
         <h2>소액결제 현금화란 무엇인가요?</h2>
-        <p>소액결제 현금화는 휴대폰 소액결제 서비스를 통해 결제한 금액을 현금으로 전환하는 서비스입니다. 급하게 현금이 필요할 때 유용한 방법 중 하나입니다.</p>
+        <p><a href="/services/micropayment" class="text-green-600 hover:underline">소액결제 현금화</a>는 휴대폰 소액결제 서비스를 통해 결제한 금액을 현금으로 전환하는 서비스입니다. 급하게 현금이 필요할 때 유용한 방법 중 하나입니다.</p>
         <h2>안전한 업체 선택 기준</h2>
         <p>소액결제 현금화를 이용할 때는 반드시 안전한 업체를 선택해야 합니다. 다음과 같은 기준을 참고하세요:</p>
         <ul>
-          <li>정식 사업자등록증을 보유한 업체</li>
+          <li><a href="/safety" class="text-green-600 hover:underline">정식 사업자등록증</a>을 보유한 업체</li>
           <li>투명한 수수료 정책을 공개하는 업체</li>
           <li>고객 상담이 원활한 업체</li>
-          <li>실제 고객 후기가 많은 업체</li>
+          <li><a href="/reviews" class="text-green-600 hover:underline">실제 고객 후기</a>가 많은 업체</li>
         </ul>
         <h2>이용 시 주의사항</h2>
         <p>소액결제 현금화를 이용할 때는 다음 사항들을 주의해야 합니다:</p>
@@ -41,7 +41,7 @@ const BlogPost: React.FC = () => {
       tags: ["정보이용료", "콘텐츠이용료", "구글결제"],
       content: `
         <h2>정보이용료 현금화 이해하기</h2>
-        <p>정보이용료는 구글 플레이스토어, 애플 앱스토어 등에서 앱이나 디지털 콘텐츠를 구매할 때 사용하는 결제 수단입니다.</p>
+        <p><a href="/services/information-fee" class="text-green-600 hover:underline">정보이용료 현금화</a>는 구글 플레이스토어, 애플 앱스토어 등에서 앱이나 디지털 콘텐츠를 구매할 때 사용하는 결제 수단입니다.</p>
         <h2>정보이용료와 콘텐츠이용료의 차이</h2>
         <p>많은 분들이 혼동하시는 부분입니다:</p>
         <ul>
@@ -66,7 +66,6 @@ const BlogPost: React.FC = () => {
         </ul>
       `,
     },
-    // ... 기존 3번부터 8번까지의 포스트 데이터는 여기에 그대로 유지됩니다 ...
     "3": {
       title: "신용카드 현금화, 합법적인 방법은?",
       category: "신용카드",
@@ -74,12 +73,12 @@ const BlogPost: React.FC = () => {
       tags: ["신용카드", "현금화", "법적검토"],
       content: `
         <h2>신용카드 현금화의 개념</h2>
-        <p>신용카드 현금화는 신용카드의 결제 한도를 활용하여 현금을 마련하는 방법입니다. 급하게 현금이 필요할 때 고려할 수 있는 옵션 중 하나입니다.</p>
+        <p><a href="/services/credit-card" class="text-green-600 hover:underline">신용카드 현금화</a>는 신용카드의 결제 한도를 활용하여 현금을 마련하는 방법입니다. 급하게 현금이 필요할 때 고려할 수 있는 옵션 중 하나입니다.</p>
         <h2>합법적인 방법들</h2>
         <p>신용카드를 활용한 현금 마련의 합법적인 방법들:</p>
         <ul>
           <li>카드사 제공 현금서비스</li>
-          <li>정식 등록된 업체를 통한 서비스</li>
+          <li><a href="/safety" class="text-green-600 hover:underline">정식 등록된 업체</a>를 통한 서비스</li>
           <li>적법한 상품 구매 후 환급</li>
         </ul>
         <h2>주의사항과 리스크</h2>
@@ -107,7 +106,7 @@ const BlogPost: React.FC = () => {
       tags: ["상품권", "현금화", "가이드"],
       content: `
         <h2>상품권 현금화란?</h2>
-        <p>상품권 현금화는 보유하고 있는 각종 상품권을 현금으로 교환하는 서비스입니다. 사용하지 않는 상품권이나 급하게 현금이 필요할 때 유용합니다.</p>
+        <p><a href="/services/gift-card" class="text-green-600 hover:underline">상품권 현금화</a>는 보유하고 있는 각종 상품권을 현금으로 교환하는 서비스입니다. 사용하지 않는 상품권이나 급하게 현금이 필요할 때 유용합니다.</p>
         <h2>취급 가능한 상품권 종류</h2>
         <p>다양한 종류의 상품권을 현금화할 수 있습니다:</p>
         <ul>
@@ -156,9 +155,9 @@ const BlogPost: React.FC = () => {
         <h2>안전한 업체 선택 기준</h2>
         <p>신뢰할 수 있는 업체의 특징:</p>
         <ul>
-          <li>정식 사업자등록증 보유</li>
+          <li><a href="/safety" class="text-green-600 hover:underline">정식 사업자등록증</a> 보유</li>
           <li>투명한 수수료 정책</li>
-          <li>실제 고객 후기 다수</li>
+          <li><a href="/reviews" class="text-green-600 hover:underline">실제 고객 후기</a> 다수</li>
           <li>명확한 연락처와 주소</li>
           <li>충분한 상담 시간 제공</li>
         </ul>
@@ -220,10 +219,10 @@ const BlogPost: React.FC = () => {
         <h2>현금화 서비스 활용</h2>
         <p>가장 빠른 현금 마련 방법 중 하나:</p>
         <ul>
-          <li>소액결제 현금화</li>
-          <li>정보이용료 현금화</li>
-          <li>신용카드 현금화</li>
-          <li>상품권 현금화</li>
+          <li><a href="/services/micropayment" class="text-green-600 hover:underline">소액결제 현금화</a></li>
+          <li><a href="/services/information-fee" class="text-green-600 hover:underline">정보이용료 현금화</a></li>
+          <li><a href="/services/credit-card" class="text-green-600 hover:underline">신용카드 현금화</a></li>
+          <li><a href="/services/gift-card" class="text-green-600 hover:underline">상품권 현금화</a></li>
         </ul>
         <h2>기타 금융 서비스</h2>
         <p>현금화 외에 고려할 수 있는 방법들:</p>
@@ -282,11 +281,10 @@ const BlogPost: React.FC = () => {
         <p>결제 관련 문제가 발생했을 때의 대처 방법을 미리 알아두세요.</p>
       `,
     },
-    // ★★★★★ 이 부분이 새로 추가된 핵심입니다 ★★★★★
     "9": {
       title: "2025년 소액결제 현금화 수수료, 업체별 비교 및 최저가 찾는 법",
       category: "소액결제",
-      image: "💸",
+      image: "�",
       tags: ["소액결제", "수수료", "안전업체"],
       content: `
         <h3>왜 소액결제 현금화 수수료는 업체마다 다를까요?</h3>
@@ -300,19 +298,19 @@ const BlogPost: React.FC = () => {
         
         <h3>안전하고 수수료 낮은 업체 찾는 3가지 꿀팁</h3>
         <h4>1. 정식 사업자 등록 여부 확인은 필수!</h4>
-        <p>가장 기본적이면서도 중요한 단계입니다. 웹사이트 하단에 <strong>사업자등록번호, 상호명, 대표자명</strong>이 명확하게 기재되어 있는지 확인하세요. 저희 <a href="/safety">공룡페이</a>는 모든 정보를 투명하게 공개하는 정식 등록 업체입니다.</p>
+        <p>가장 기본적이면서도 중요한 단계입니다. 웹사이트 하단에 <strong>사업자등록번호, 상호명, 대표자명</strong>이 명확하게 기재되어 있는지 확인하세요. 저희 <a href="/safety" class="text-green-600 hover:underline">공룡페이</a>는 모든 정보를 투명하게 공개하는 정식 등록 업체입니다.</p>
         
         <h4>2. 추가 수수료가 있는지 꼼꼼히 문의하세요.</h4>
         <p>상담 시, 처음에 안내받은 수수료 외에 보증료, 등록비 등 추가적인 비용을 요구하는지 반드시 확인해야 합니다. 신뢰할 수 있는 업체는 처음 안내한 수수료 외에 어떠한 추가 비용도 요구하지 않습니다.</p>
         
         <h4>3. 실제 이용 후기를 확인하세요.</h4>
-        <p>실제 이용자들이 남긴 후기는 업체의 신뢰도를 판단하는 좋은 기준이 됩니다. 특히 입금 시간, 상담원의 친절도, 수수료 만족도 등을 중점적으로 살펴보세요. <a href="/reviews">공룡페이 고객 후기</a> 페이지에서 실제 이용자들의 솔직한 경험담을 확인하실 수 있습니다.</p>
+        <p>실제 이용자들이 남긴 후기는 업체의 신뢰도를 판단하는 좋은 기준이 됩니다. 특히 입금 시간, 상담원의 친절도, 수수료 만족도 등을 중점적으로 살펴보세요. <a href="/reviews" class="text-green-600 hover:underline">공룡페이 고객 후기</a> 페이지에서 실제 이용자들의 솔직한 경험담을 확인하실 수 있습니다.</p>
         
         <h3>공룡페이의 투명한 수수료 정책</h3>
         <p>저희 공룡페이는 과도한 광고비나 불필요한 운영비를 줄여, 고객님께 업계 최저 수준의 합리적인 수수료를 제공하기 위해 노력하고 있습니다.</p>
         <ul>
-          <li><a href="/services/micropayment"><strong>소액결제 현금화</strong></a><strong>:</strong> 업계 최저 수준의 수수료 보장</li>
-          <li><a href="/services/information-fee"><strong>정보이용료 현금화</strong></a><strong>:</strong> 투명하고 합리적인 수수료</li>
+          <li><a href="/services/micropayment" class="text-green-600 hover:underline"><strong>소액결제 현금화</strong></a><strong>:</strong> 업계 최저 수준의 수수료 보장</li>
+          <li><a href="/services/information-fee" class="text-green-600 hover:underline"><strong>정보이용료 현금화</strong></a><strong>:</strong> 투명하고 합리적인 수수료</li>
           <li><strong>24시간 상담:</strong> 언제든지 편하게 문의하시면, 추가 비용 없이 친절하게 안내해 드립니다.</li>
         </ul>
         <p>급하다고 서두르기보다, 잠시만 시간을 내어 안전하고 정직한 업체를 선택하는 것이 중요합니다. 공룡페이가 여러분의 안전한 금융 파트너가 되어드리겠습니다.</p>
@@ -401,7 +399,6 @@ const BlogPost: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <article className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-              {/* ★★★★★ 이 부분이 수정된 핵심입니다 ★★★★★ */}
               <div
                 className="prose prose-lg max-w-none"
                 style={{
