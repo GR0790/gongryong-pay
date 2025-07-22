@@ -384,10 +384,11 @@ const WhyChooseUsSection: React.FC = () => (
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
+              {/* ★★★★★ 수정된 부분 ★★★★★ */}
               <div className="text-3xl font-bold text-blue-600 mb-2">
-                3만건+
+                누적 3만건+
               </div>
-              <div className="text-sm text-gray-600">월간 거래건수</div>
+              <div className="text-sm text-gray-600">누적 거래건수</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-green-600 mb-2">
@@ -410,7 +411,7 @@ const WhyChooseUsSection: React.FC = () => (
           </div>
           <div className="text-center mt-6">
             <p className="text-gray-500 text-sm">
-              📈 실시간 업데이트 | ✅ 정식 사업자 등록 업체 | 🏅 신뢰할 수 있는
+              📈 실시간 업데이트 | ✅ 정식 사업자 등록 업체 | � 신뢰할 수 있는
               공룡페이
             </p>
           </div>
