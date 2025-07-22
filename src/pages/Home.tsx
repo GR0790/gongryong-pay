@@ -1,7 +1,6 @@
 import type React from "react";
 import { Link } from "react-router-dom";
 
-// Hero 섹션 컴포넌트
 const HeroSection: React.FC = () => (
   <section className="bg-gradient-to-br from-green-50 to-green-100 py-12 md:py-20">
     <div className="container mx-auto px-4">
@@ -401,7 +400,7 @@ const WhyChooseUsSection: React.FC = () => (
           </div>
           <div className="text-center mt-6">
             <p className="text-gray-500 text-sm">
-              📈 실시간 업데이트 | ✅ 정식 사업자 등록 업체 | 🏅 신뢰할 수 있는
+              📈 실시간 업데이트 | ✅ 정식 사업자 등록 업체 | � 신뢰할 수 있는
               공룡페이
             </p>
           </div>
