@@ -26,7 +26,6 @@ const Home: React.FC = () => {
                   🔥 2025년 소액결제현금화 업계 1위! 공룡페이
                 </div>
               </div>
-              {/* SEO 최적화: h1 태그에 핵심 키워드를 모두 포함 */}
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 <span className="text-red-600">
                   소액결제현금화 미납·정책 99.9% 승인!
@@ -60,13 +59,15 @@ const Home: React.FC = () => {
                 </a>
               </div>
               
-              {/* SEO 최적화: p 태그에 구체적인 서비스 내용과 키워드 포함 */}
               <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
                 <strong>
                   갑자기 급전이 필요할 땐? 공룡페이가 해결사!
                 </strong>
                 <br />
-                다양한 <strong>소액결제 현금화 방법</strong>부터 <strong>정보이용료(콘텐츠이용료) 현금화</strong>, <strong>신용카드 현금화</strong>까지,
+                다양한{" "}
+                <Link to="/services/micropayment" className="text-green-600 hover:underline font-semibold">소액결제 현금화 방법</Link>부터{" "}
+                <Link to="/services/information-fee" className="text-green-600 hover:underline font-semibold">정보이용료(콘텐츠이용료) 현금화</Link>,{" "}
+                <Link to="/services/credit-card" className="text-green-600 hover:underline font-semibold">신용카드 현금화</Link>까지,
                 <br />
                 <span className="text-red-600 font-bold">
                   미납/정책도 99.9% 승인, 5분이면 거래완료!
@@ -79,7 +80,7 @@ const Home: React.FC = () => {
                   ✅ 정식사업자등록
                 </div>
                 <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                  ⚡ 누적 3만건+ 거래실적
+                  ⚡ 월 3만건+ 거래실적
                 </div>
                 <div className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">
                   🛡️ 100% 안전거래 보장
@@ -100,7 +101,7 @@ const Home: React.FC = () => {
                       <div className="text-xl font-bold text-green-600">
                         1,247건
                       </div>
-                      <div className="text-xs text-gray-500">금월 거래완료</div>
+                      <div className="text-xs text-gray-500">오늘 거래완료</div>
                     </div>
                     <div>
                       <div className="text-xl font-bold text-blue-600">
@@ -141,8 +142,11 @@ const Home: React.FC = () => {
               공룡페이 소액결제현금화 핵심 서비스 안내
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
-              2025년 업계 최고 지급률! 소액결제현금화, 정보이용료현금화,
-              신용카드현금화, 상품권현금화 서비스를 빠르고 안전하게 제공합니다.
+              2025년 업계 최고 지급률!{" "}
+              <Link to="/services/micropayment" className="text-green-600 hover:underline">소액결제현금화</Link>,{" "}
+              <Link to="/services/information-fee" className="text-green-600 hover:underline">정보이용료현금화</Link>,{" "}
+              <Link to="/services/credit-card" className="text-green-600 hover:underline">신용카드현금화</Link>,{" "}
+              <Link to="/services/gift-card" className="text-green-600 hover:underline">상품권현금화</Link> 서비스를 빠르고 안전하게 제공합니다.
             </p>
           </div>
 
@@ -249,8 +253,11 @@ const Home: React.FC = () => {
               왜 공룡페이 소액결제현금화일까요? 업계 1위!
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
-              풍부한 거래실적과 고객 만족도 99.9%로 증명된 신뢰! 소액결제현금화,
-              정보이용료현금화, 신용카드현금화, 상품권현금화 모든 서비스에서
+              풍부한 거래실적과 고객 만족도 99.9%로 증명된 신뢰!{" "}
+              <Link to="/services/micropayment" className="text-green-600 hover:underline">소액결제현금화</Link>,{" "}
+              <Link to="/services/information-fee" className="text-green-600 hover:underline">정보이용료현금화</Link>,{" "}
+              <Link to="/services/credit-card" className="text-green-600 hover:underline">신용카드현금화</Link>,{" "}
+              <Link to="/services/gift-card" className="text-green-600 hover:underline">상품권현금화</Link> 모든 서비스에서
               업계 최고를 자부합니다.
             </p>
           </div>
@@ -318,7 +325,7 @@ const Home: React.FC = () => {
           <div className="mt-16">
             <div className="bg-white rounded-3xl shadow-xl p-8">
               <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-                � 공룡페이 실시간 통계
+                📊 공룡페이 실시간 통계
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="text-center">
@@ -374,8 +381,11 @@ const Home: React.FC = () => {
               실제 고객님들의 생생한 후기
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
-              공룡페이를 통해 소액결제현금화, 정보이용료현금화, 신용카드현금화,
-              상품권현금화 서비스를 경험한 고객님들의 솔직한 목소리입니다.
+              공룡페이를 통해{" "}
+              <Link to="/services/micropayment" className="text-green-600 hover:underline">소액결제현금화</Link>,{" "}
+              <Link to="/services/information-fee" className="text-green-600 hover:underline">정보이용료현금화</Link>,{" "}
+              <Link to="/services/credit-card" className="text-green-600 hover:underline">신용카드현금화</Link>,{" "}
+              <Link to="/services/gift-card" className="text-green-600 hover:underline">상품권현금화</Link> 서비스를 경험한 고객님들의 솔직한 목소리입니다.
             </p>
           </div>
 
@@ -497,7 +507,10 @@ const Home: React.FC = () => {
             지금 바로 공룡페이에 문의하세요!
           </h2>
           <p className="text-lg md:text-xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
-            소액결제현금화, 정보이용료현금화, 신용카드현금화, 상품권현금화 등
+            <Link to="/services/micropayment" className="hover:underline">소액결제현금화</Link>,{" "}
+            <Link to="/services/information-fee" className="hover:underline">정보이용료현금화</Link>,{" "}
+            <Link to="/services/credit-card" className="hover:underline">신용카드현금화</Link>,{" "}
+            <Link to="/services/gift-card" className="hover:underline">상품권현금화</Link> 등
             24시간 언제나 신속하고 친절하게 상담해드립니다. 궁금한 점이 있다면
             망설이지 말고 공룡페이에 연락주세요!
           </p>
