@@ -9,7 +9,7 @@ if (!rootElement) {
 }
 
 createRoot(rootElement).render(
-  <BrowserRouter basename="/gongryong-pay">
-    <App />
-  </BrowserRouter>,
+  <BrowserRouter>
+  {/* ... 다른 코드들 ... */}
+</BrowserRouter>
 );
