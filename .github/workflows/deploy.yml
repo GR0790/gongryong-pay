@@ -43,5 +43,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # 배포할 폴더를 'dist'로 지정합니다.
           publish_dir: ./dist
-          # 커스텀 도메인을 명시적으로 지정해줍니다.
-          cname: gongryongpay.com
+          # 커스텀 도메인을 명시적으로 지정해줍니다. (퓨니코드로 변환된 주소)
+          cname: xn--ob0b39t2wlgzl.com
