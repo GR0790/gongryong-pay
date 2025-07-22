@@ -79,7 +79,7 @@ const Home: React.FC = () => {
                   ✅ 정식사업자등록
                 </div>
                 <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                  ⚡ 월 3만건+ 거래실적
+                  ⚡ 누적 3만건+ 거래실적
                 </div>
                 <div className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">
                   🛡️ 100% 안전거래 보장
@@ -100,7 +100,7 @@ const Home: React.FC = () => {
                       <div className="text-xl font-bold text-green-600">
                         1,247건
                       </div>
-                      <div className="text-xs text-gray-500">오늘 거래완료</div>
+                      <div className="text-xs text-gray-500">금월 거래완료</div>
                     </div>
                     <div>
                       <div className="text-xl font-bold text-blue-600">
