@@ -1,10 +1,15 @@
-name: Deploy React App to GitHub Pages
+# .github/workflows/deploy.yml
+
+name: Build and Deploy to GitHub Pages
 
 on:
+  # "main" 브랜치에 푸시될 때마다 실행됩니다.
   push:
     branches: [ "main" ]
+  # GitHub Actions 탭에서 수동으로 실행할 수도 있습니다.
   workflow_dispatch:
 
+# 워크플로우가 gh-pages 브랜치에 쓸 수 있도록 권한을 설정합니다.
 permissions:
   contents: write
 
@@ -12,30 +17,31 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      # 1. main 브랜치의 최신 코드를 가져옵니다.
+      - name: Checkout repository
         uses: actions/checkout@v4
-        
+
+      # 2. Bun(자바스크립트 실행도구)을 설치합니다.
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-          
+
+      # 3. 웹사이트에 필요한 라이브러리들을 설치합니다.
       - name: Install dependencies
         run: bun install
-        
-      - name: Build
+
+      # 4. 웹사이트를 빌드하여 'dist' 폴더에 결과물을 생성합니다.
+      - name: Build project
         run: bun run build
-        
-      - name: Force delete gh-pages branch
-        run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git push origin --delete gh-pages || echo "Branch doesn't exist"
-        continue-on-error: true
-        
+
+      # 5. 빌드된 결과물을 gh-pages 브랜치에 배포합니다.
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
+          # 배포에 필요한 GitHub 토큰입니다.
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # 배포할 폴더를 'dist'로 지정합니다.
           publish_dir: ./dist
-          force_orphan: true
+          # 커스텀 도메인을 명시적으로 지정해줍니다.
+          cname: gongryongpay.com
