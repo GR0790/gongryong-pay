@@ -1,3 +1,6 @@
+/* ----------------- src/pages/Blog.tsx ----------------- */
+// 이 코드로 기존 Blog.tsx 파일의 내용을 완전히 교체해주세요.
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { blogPostsData } from "../data/blogData"; // 데이터를 외부 파일에서 가져옵니다.
@@ -187,3 +190,6 @@ const Blog: React.FC = () => {
     </div>
   );
 };
+
+// ★★★★★ 오류 해결을 위해 이 줄이 추가되었습니다 ★★★★★
+export default Blog;
