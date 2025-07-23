@@ -1,6 +1,3 @@
-/* ----------------- src/pages/Blog.tsx ----------------- */
-// 이 코드로 기존 Blog.tsx 파일의 내용을 완전히 교체해주세요.
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { blogPostsData } from "../data/blogData"; // 데이터를 외부 파일에서 가져옵니다.
@@ -28,6 +25,29 @@ const Blog: React.FC = () => {
       : blogPosts.filter((post) => post.category === selectedCategory);
 
   const featuredPost = blogPosts[0];
+
+  // ★★★★★ 오류 방지 코드 추가 ★★★★★
+  // 만약 블로그 글이 하나도 없다면, 오류 대신 안내 메시지를 보여줍니다.
+  if (!featuredPost) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            아직 작성된 글이 없습니다
+          </h1>
+          <p className="text-gray-600 mb-8">
+            새로운 정보와 함께 곧 돌아오겠습니다.
+          </p>
+          <Link
+            to="/"
+            className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+          >
+            홈으로 돌아가기
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
