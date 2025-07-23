@@ -1,6 +1,3 @@
-/* ----------------- src/pages/BlogPost.tsx ----------------- */
-// 이 코드로 기존 BlogPost.tsx 파일의 내용을 완전히 교체해주세요.
-
 import type React from "react";
 import { Link, useParams } from "react-router-dom";
 import { blogPostsData, blogContentData } from "../data/blogData"; // 데이터를 외부 파일에서 가져옵니다.
