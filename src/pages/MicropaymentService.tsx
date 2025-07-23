@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { pageData } from "../data/pageData"; // 새로운 데이터 파일에서 내용을 가져옵니다.
+import { pageData } from "../data/pageData"; // 새로운 데이터 파일에서 내용을 가져옵니다.123
 
 const MicropaymentService: React.FC = () => {
   const data = pageData.micropayment;
