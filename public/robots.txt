@@ -1,4 +1,3 @@
-<!-- 이 코드로 public/robots.txt 파일의 내용을 완전히 교체해주세요. -->
 User-agent: *
 Allow: /
 Sitemap: https://xn--ob0b39t2wlgzl.com/sitemap.xml
