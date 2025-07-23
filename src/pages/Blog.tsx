@@ -26,7 +26,6 @@ const Blog: React.FC = () => {
 
   const featuredPost = blogPosts[0];
 
-  // ★★★★★ 오류 방지 코드 추가 ★★★★★
   // 만약 블로그 글이 하나도 없다면, 오류 대신 안내 메시지를 보여줍니다.
   if (!featuredPost) {
     return (
@@ -188,5 +187,3 @@ const Blog: React.FC = () => {
     </div>
   );
 };
-
-export default Blog;
