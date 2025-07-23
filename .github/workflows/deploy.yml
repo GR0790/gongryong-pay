@@ -1,4 +1,4 @@
-# .github/workflows/deploy.yml
+# 이 코드로 기존 .github/workflows/deploy.yml 파일의 내용을 완전히 교체해주세요.
 
 name: Build and Deploy to GitHub Pages
 
@@ -7,19 +7,16 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
-# GitHub Pages에 배포하는 데 필요한 권한을 설정합니다.
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 동시성 설정을 통해 한 번에 하나의 배포만 실행되도록 합니다.
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  # 1. 빌드 잡: 코드를 빌드하여 배포할 파일을 준비합니다.
   build:
     runs-on: ubuntu-latest
     steps:
@@ -34,35 +31,35 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      # ★★★★★ 이 부분이 새로 추가된 핵심입니다 ★★★★★
+      # 웹사이트를 빌드하기 전에, 사이트맵을 먼저 생성합니다.
+      - name: Generate sitemap
+        run: bun run sitemap
+      
       - name: Build project
         run: bun run build
       
       - name: Setup Pages
         uses: actions/configure-pages@v5
       
-      # 빌드 결과물을 '유물(artifact)'로 업로드하여 다음 배포 잡에서 사용할 수 있도록 합니다.
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
-  # 2. 배포 잡: 빌드된 결과물을 GitHub Pages에 배포합니다.
   deploy:
-    # 'build' 잡이 성공적으로 완료되어야 실행됩니다.
     needs: build
     
     permissions:
       pages: write
       id-token: write
     
-    # GitHub Pages 배포 환경을 설정합니다.
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
       
     runs-on: ubuntu-latest
     steps:
-      # GitHub Pages에 배포를 실행합니다.
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
