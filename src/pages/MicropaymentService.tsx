@@ -8,11 +8,11 @@ const MicropaymentService: React.FC = () => {
       <section className="bg-gradient-to-br from-green-50 to-green-100 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            소액결제 현금화
+            소액결제 현금화: 휴대폰만으로 초스피드 입금 | 공룡티켓
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            SKT, KT, LGU+ 모든 통신사 소액결제 한도를 즉시 현금으로! 업계 최고
-            지급률, 3분 입금을 경험하세요.
+            휴대폰만 OK! 누구나 3분 안에 비상금 해결. SKT, KT, LGU+ 모든 통신사
+            소액결제 한도를 안전하고 빠르게 현금화해드립니다.
           </p>
           <Link
             to="/contact"
@@ -23,7 +23,7 @@ const MicropaymentService: React.FC = () => {
               alt=""
               className="mr-2 w-5 md:w-6 h-5 md:h-6"
             />
-            소액결제 즉시 상담
+            3분 완성! 즉시 상담
           </Link>
         </div>
       </section>
@@ -38,10 +38,18 @@ const MicropaymentService: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  <strong>소액결제 현금화</strong>는 개인에게 부여된 휴대폰 결제
-                  한도를 사용하여, 필요한 현금을 신속하게 마련하는 서비스입니다.
-                  다음 달 휴대폰 요금에 합산 청구되는 방식으로, 복잡한 서류나 절차
-                  없이 비상금을 해결할 수 있는 가장 대중적인 방법입니다.
+                  소액결제는{" "}
+                  <strong>휴대폰 요금과 함께 청구되는 결제 서비스</strong>로,
+                  매달 일정 한도 내에서 다양한 상품을 구매할 수 있습니다. (SKT,
+                  KT, LGU+ 등) 이 한도를 활용해 필요한 현금을 마련하는 것이 바로{" "}
+                  <Link
+                    to="/"
+                    className="text-green-600 hover:text-green-700 font-semibold"
+                  >
+                    공룡티켓
+                  </Link>
+                  의 소액결제 현금화 서비스입니다. 복잡한 서류나 심사 없이
+                  빠르고 간편하게 이용하실 수 있습니다.
                 </p>
 
                 <div className="space-y-3">
@@ -52,7 +60,7 @@ const MicropaymentService: React.FC = () => {
                     </span>
                     ,{" "}
                     <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">
-                      통신사
+                      휴대폰
                     </span>
                     ,{" "}
                     <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">
@@ -63,23 +71,23 @@ const MicropaymentService: React.FC = () => {
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-green-600 rounded-full mr-3" />
-                      모든 통신사 지원: SKT, KT, LGU+ 모든 통신사 소액결제 한도
-                      활용 가능
+                      모든 통신사 지원: SKT, KT, LGU+ 상관없이 이용 가능합니다.
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-green-600 rounded-full mr-3" />
-                      높은 한도: 월 최대 100만원까지 이용 가능 (통신사별 상이)
+                      빠른 처리: 상담부터 입금까지 평균 3분 내 완료됩니다.
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-green-600 rounded-full mr-3" />
-                      안전 거래: 정식 등록 업체로 안전하고 합법적인 거래 보장
+                      안전 보장: 24시간 전문 상담진이 안전한 거래를
+                      보장해드립니다. (관련 법규 준수)
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="bg-green-50 rounded-xl p-6">
                 <h4 className="font-bold text-green-800 mb-4 text-lg">
-                  📱 소액결제 현금화 3단계
+                  📱 간편한 3단계 프로세스
                 </h4>
                 <div className="space-y-4">
                   <div className="flex items-center">
@@ -87,7 +95,7 @@ const MicropaymentService: React.FC = () => {
                       1
                     </div>
                     <span className="text-green-800 font-medium">
-                      📞 상담 신청 및 한도 확인
+                      💬 상담 신청 및 한도 확인
                     </span>
                   </div>
                   <div className="flex items-center">
@@ -95,7 +103,7 @@ const MicropaymentService: React.FC = () => {
                       2
                     </div>
                     <span className="text-green-800 font-medium">
-                      🔐 통신사 본인 인증 진행
+                      📝 간단한 본인 인증 진행
                     </span>
                   </div>
                   <div className="flex items-center">
@@ -103,7 +111,7 @@ const MicropaymentService: React.FC = () => {
                       3
                     </div>
                     <span className="text-green-800 font-medium">
-                      💸 3분 안에 계좌 입금 완료
+                      💰 3분 안에 즉시 입금 완료
                     </span>
                   </div>
                 </div>
@@ -112,7 +120,7 @@ const MicropaymentService: React.FC = () => {
                     to="/how-to-use"
                     className="text-green-600 hover:text-green-700 font-semibold text-sm"
                   >
-                    소액결제 현금화 상세 가이드 보기 →
+                    더 자세한 이용 방법 안내 보기 →
                   </Link>
                 </div>
               </div>
@@ -123,54 +131,65 @@ const MicropaymentService: React.FC = () => {
         {/* Service Features */}
         <section className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-            🚀 공룡페이 소액결제 현금화 핵심 장점
+            🚀 공룡티켓 소액결제 현금화 핵심 장점
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🏆</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                업계 최고 지급률 70~80%
-              </h3>
-              <p className="text-gray-600">
-                투명하고 정직한 수수료 정책으로 고객님의 이익을 최우선으로
-                생각합니다.
-              </p>
-            </div>
             <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">⚡</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
-                평균 3분 초스피드 입금
+                🕒 업계 최고 속도 처리
               </h3>
               <p className="text-gray-600">
-                24시간 자동화 시스템으로 지체 없이 빠르게 입금해드립니다.
+                상담부터 입금까지 평균 3분! 긴급한 상황에도 신속하게
+                대응해드립니다.
               </p>
             </div>
+
             <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🔥</span>
+                <span className="text-2xl">💯</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
-                미납/정책 99.9% 승인
+                💰 투명한 지급률 70~80%
               </h3>
               <p className="text-gray-600">
-                다른 곳에서 거절당하셨나요? 공룡페이만의 노하우로 해결해
-                드립니다.
+                소액결제현금화 지급률 70~80%로 투명하고 정직한 수수료 정책을
+                제공합니다.
               </p>
             </div>
+
             <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🛡️</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
-                100% 안전 거래 보장
+                🔒 안전 보장 거래
               </h3>
               <p className="text-gray-600">
-                정식 사업자 등록 업체로서, 고객님의 개인정보와 안전을 철저히
-                보호합니다.
+                정식 등록 업체로 모든 거래는 합법적이며, 개인정보는 철저히
+                보호됩니다. (
+                <Link
+                  to="/safety"
+                  className="text-green-600 hover:text-green-700"
+                >
+                  안전 거래 안내
+                </Link>{" "}
+                참조)
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🕐</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                📞 24시간 전문 상담
+              </h3>
+              <p className="text-gray-600">
+                언제든지 편하게 연락주세요. 친절하고 전문적인 상담을 받으실 수
+                있습니다.
               </p>
             </div>
           </div>
@@ -185,33 +204,66 @@ const MicropaymentService: React.FC = () => {
             <div className="space-y-6">
               <div className="border-b border-gray-200 pb-4">
                 <h4 className="text-lg font-bold text-gray-900 mb-2">
-                  • 소액결제 현금화는 합법적인가요?
+                  • 모든 통신사 (SKT, KT, LGU+)에서 소액결제 현금화가
+                  가능한가요?
                 </h4>
                 <p className="text-gray-700">
-                  네, 정식 등록된 업체를 통한 소액결제 현금화는 100%
-                  합법적이며 안전합니다. 개인정보 보호 및 거래 안전을 최우선으로
-                  보장해드립니다.
+                  네, 모든 통신사에서 이용 가능합니다. 통신사별로 약간의 차이는
+                  있을 수 있습니다.
                 </p>
               </div>
 
               <div className="border-b border-gray-200 pb-4">
                 <h4 className="text-lg font-bold text-gray-900 mb-2">
-                  • 미납이나 정책 제한이 있어도 이용 가능한가요?
+                  • 소액결제 현금화 후 휴대폰 요금에 어떻게 청구되나요?
                 </h4>
                 <p className="text-gray-700">
-                  네, 공룡페이는 미납·정책 99.9% 승인률을 자랑합니다. 다른
-                  업체에서 거절당했더라도 대부분 승인이 가능하니 포기하지 마시고
-                  상담받아보세요.
+                  다음 달 휴대폰 요금과 함께 자동으로 청구됩니다. (
+                  <Link
+                    to="/faq#faq-미납연체"
+                    className="text-green-600 hover:text-green-700"
+                  >
+                    미납/연체 관련 FAQ 보기
+                  </Link>
+                  )
+                </p>
+              </div>
+
+              <div className="border-b border-gray-200 pb-4">
+                <h4 className="text-lg font-bold text-gray-900 mb-2">
+                  • 소액결제 한도가 부족하거나 이미 사용한 경우에도 가능한가요?
+                </h4>
+                <p className="text-gray-700">
+                  한도 상황에 따라 달라질 수 있으니, 정확한 확인은 상담을 통해
+                  안내받으실 수 있습니다.
+                </p>
+              </div>
+
+              <div className="border-b border-gray-200 pb-4">
+                <h4 className="text-lg font-bold text-gray-900 mb-2">
+                  • 소액결제 현금화 이용 후 신용도에 영향이 있나요?
+                </h4>
+                <p className="text-gray-700">
+                  통상적으로 휴대폰 소액결제는 신용정보에 영향을 주지 않지만,
+                  연체시에는 영향이 있을 수 있습니다.
                 </p>
               </div>
 
               <div>
                 <h4 className="text-lg font-bold text-gray-900 mb-2">
-                  • 소액결제 요금은 언제 청구되나요?
+                  • <strong>소액결제 현금화는 완전히 합법적인 서비스</strong>
+                  인가요?
                 </h4>
                 <p className="text-gray-700">
-                  소액결제는 다음 달 휴대폰 요금과 함께 자동으로 청구됩니다.
-                  정확한 청구일은 각 통신사 요금 청구일과 동일합니다.
+                  네, 정식 등록된 업체를 통한 소액결제 현금화는 합법입니다. 100%
+                  안전 보장! 관련 궁금한 점이 있으시면,{" "}
+                  <Link
+                    to="/contact"
+                    className="text-green-600 hover:text-green-700"
+                  >
+                    상담 시 정확한 안내
+                  </Link>
+                  를 받으실 수 있습니다.
                 </p>
               </div>
             </div>
@@ -235,15 +287,15 @@ const MicropaymentService: React.FC = () => {
               🦕 지금 바로, 소액결제 현금화 상담받아보세요!
             </h2>
             <p className="text-lg md:text-xl mb-8 opacity-90">
-              SKT, KT, LGU+ 소액결제 한도를 100% 활용해 급한 자금 문제를
-              해결하세요. 복잡한 절차 없이 3분 만에 계좌로 입금 완료! 24시간
-              전문 상담진이 대기중입니다.
+              급한 비상금이 필요한 상황? 복잡한 절차는 NO! 공룡티켓에서 소액결제
+              현금화로 신속하게 해결하세요.24시간 언제든 상담 가능하며, 안전한
+              거래를 약속드립니다.
             </p>
             <Link
               to="/contact"
               className="inline-block bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors mr-4"
             >
-              소액결제 현금화 즉시 상담
+              24시간 소액결제 상담 바로가기
             </Link>
           </div>
         </section>
