@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { pageData } from "../data/pageData"; // 새로운 데이터 파일에서 내용을 가져옵니다.123
+import { pageData } from "../data/pageData";
 
 const MicropaymentService: React.FC = () => {
   const data = pageData.micropayment;
 
-  if (!data) {
-    return <div>페이지를 찾을 수 없습니다.</div>;
-  }
+  if (!data) return <div>페이지를 찾을 수 없습니다.</div>;
 
   return (
     <div className="min-h-screen bg-gray-50">
