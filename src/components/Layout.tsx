@@ -1,6 +1,6 @@
 import type React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,6 +8,12 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // 페이지가 이동할 때마다 모바일 메뉴를 닫습니다. (브라우저 뒤로가기/앞으로가기 버튼 대응)
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -184,7 +190,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Link
                   to="/"
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
-                  onClick={() => setMobileMenuOpen(false)}
                 >
                   홈
                 </Link>
@@ -268,14 +273,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </nav>
       </header>
 
-      {/* ★★★★★ 이 부분이 수정된 핵심입니다 ★★★★★ */}
       <main className="flex-grow">{children}</main>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="text-2xl font-bold text-white mb-4">공룡페이</div>
               <p className="text-gray-400 mb-4 text-sm md:text-base leading-relaxed">
@@ -283,8 +286,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 자금 문제를 신속하고 간편하게 해결해 드립니다.
               </p>
             </div>
-
-            {/* Services */}
             <div>
               <h3 className="text-base md:text-lg font-bold mb-4">
                 주요 서비스
@@ -324,8 +325,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </li>
               </ul>
             </div>
-
-            {/* Support */}
             <div>
               <h3 className="text-base md:text-lg font-bold mb-4">
                 고객지원 및 정보
@@ -390,16 +389,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </ul>
             </div>
           </div>
-
-          {/* ★★★★★ 이 부분이 새로 추가된 핵심입니다 ★★★★★ */}
+          {/* ★★★★★ 이 부분이 수정된 핵심입니다 ★★★★★ */}
           <div className="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 text-left text-gray-500 text-xs">
             <h4 className="font-bold text-gray-400 mb-2">업체 정보</h4>
-            <p>상호명: 공룡페이 | 대표: [김민수]</p>
-            <p>사업자등록번호: [101-81-59985]</p>
-            <p>주소: [서울시 강남구 테헤란로 27-5]</p>
-            <p>고객센터: [010-2138-0790] | 이메일: [benzamn779@gmail.com]</p>
+            <p>상호명: 공룡페이 | 대표: 김민수</p>
+            <p>사업자등록번호: 101-81-59985</p>
+            <p>주소: 서울시 강남구 테헤란로 27-5</p>
+            <p>고객센터: 010-2138-0790 | 이메일: benzamn779@gmail.com</p>
           </div>
-
           <div className="border-t border-gray-800 mt-6 pt-6 text-center text-gray-400">
             <p className="text-sm md:text-base">
               © 2025 공룡페이 (GongryongPay). 모든 권리 보유.
