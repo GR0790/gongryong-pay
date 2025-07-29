@@ -1,35 +1,53 @@
 import fs from 'fs';
 import path from 'path';
+import contentful from 'contentful';
+import dotenv from 'dotenv';
 
-// Node.js 환경에서 TypeScript 파일을 직접 실행하기 어려우므로,
-// 텍스트로 읽어와서 정규식을 사용해 블로그 ID만 추출합니다.
-const blogDataPath = path.resolve(process.cwd(), 'src/data/blogData.ts');
-const blogDataContent = fs.readFileSync(blogDataPath, 'utf8');
-const blogPostIds = [...blogDataContent.matchAll(/id: (\d+)/g)].map(match => match[1]);
+// .env.local 파일에서 환경 변수를 로드합니다.
+dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
-const baseUrl = 'https://xn--ob0b39t2wlgzl.com';
-const today = new Date().toISOString().split('T')[0];
+// 콘텐트풀 클라이언트를 생성합니다.
+const client = contentful.createClient({
+  space: process.env.VITE_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.VITE_CONTENTFUL_ACCESS_TOKEN,
+});
 
-// 블로그 외의 고정 페이지 목록
-const staticPages = [
-  '/',
-  '/services/micropayment',
-  '/services/information-fee',
-  '/services/credit-card',
-  '/services/gift-card',
-  '/how-to-use',
-  '/reviews',
-  '/faq',
-  '/safety',
-  '/blog',
-  '/contact',
-  '/privacy',
-  '/terms',
-];
+async function generateSitemap() {
+  console.log('Fetching blog posts from Contentful for sitemap...');
+  
+  // 콘텐트풀에서 모든 블로그 글의 ID를 가져옵니다.
+  const entries = await client.getEntries({
+    content_type: 'blogPost',
+    select: ['fields.id'], // 필요한 필드만 가져와서 속도를 높입니다.
+    limit: 1000 // 최대 1000개의 포스트를 가져옵니다.
+  });
 
-// XML 사이트맵 형식에 맞춰 문자열을 생성합니다.
-const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  const blogPostIds = entries.items.map(item => item.fields.id);
+  console.log(`Found ${blogPostIds.length} blog posts.`);
+
+  const baseUrl = '[https://xn--ob0b39t2wlgzl.com](https://xn--ob0b39t2wlgzl.com)';
+  const today = new Date().toISOString().split('T')[0];
+
+  // 블로그 외의 고정 페이지 목록
+  const staticPages = [
+    '/',
+    '/services/micropayment',
+    '/services/information-fee',
+    '/services/credit-card',
+    '/services/gift-card',
+    '/how-to-use',
+    '/reviews',
+    '/faq',
+    '/safety',
+    '/blog',
+    '/contact',
+    '/privacy',
+    '/terms',
+  ];
+
+  // XML 사이트맵 형식에 맞춰 문자열을 생성합니다.
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="[http://www.sitemaps.org/schemas/sitemap/0.9](http://www.sitemaps.org/schemas/sitemap/0.9)">
   ${staticPages.map(page => `
   <url>
     <loc>${baseUrl}${page}</loc>
@@ -46,8 +64,11 @@ const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
   </url>`).join('')}
 </urlset>`;
 
-// 생성된 XML 문자열을 public/sitemap.xml 파일에 덮어씁니다.
-const sitemapPath = path.resolve(process.cwd(), 'public/sitemap.xml');
-fs.writeFileSync(sitemapPath, sitemapXml.trim());
+  // 생성된 XML 문자열을 public/sitemap.xml 파일에 덮어씁니다.
+  const sitemapPath = path.resolve(process.cwd(), 'public/sitemap.xml');
+  fs.writeFileSync(sitemapPath, sitemapXml.trim());
 
-console.log('Sitemap has been generated successfully!');
+  console.log('Sitemap has been generated successfully with latest blog posts!');
+}
+
+generateSitemap().catch(console.error);
