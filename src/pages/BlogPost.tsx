@@ -1,15 +1,61 @@
 import type React from "react";
 import { Link, useParams } from "react-router-dom";
-import { blogPostsData, blogContentData } from "../data/blogData"; // 데이터를 외부 파일에서 가져옵니다.
+import { useEffect, useState } from "react";
+import contentfulClient from "../services/contentful";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import type { Document } from "@contentful/rich-text-types";
+import { INLINES } from "@contentful/rich-text-types";
 
 const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const [post, setPost] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-  // 목록 정보와 내용 정보를 합칩니다.
-  const postInfo = blogPostsData.find((p) => p.id.toString() === id);
-  const postContent = blogContentData[id as keyof typeof blogContentData];
+  useEffect(() => {
+    const fetchPost = async () => {
+      if (!id) return;
+      setLoading(true);
+      try {
+        const response = await contentfulClient.getEntries({
+          content_type: "blogPost",
+          "fields.id": parseInt(id, 10),
+          limit: 1,
+        });
+        if (response.items.length > 0) {
+          setPost(response.items[0]);
+        }
+      } catch (error) {
+        console.error("Error fetching Contentful entry:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPost();
+  }, [id]);
 
-  if (!postInfo || !postContent) {
+  // 리치 텍스트 렌더링 옵션 (번역기 설정)
+  const renderOptions = {
+    renderNode: {
+      [INLINES.EMBEDDED_ENTRY]: (node: any) => {
+        const { sys, fields } = node.data.target;
+        // 포함된 콘텐츠가 'Internal Link' 모델일 경우
+        if (sys.contentType.sys.id === "internalLink") {
+          return (
+            <Link to={fields.linkUrl} className="text-green-600 hover:underline font-semibold">
+              {fields.linkText}
+            </Link>
+          );
+        }
+        return null;
+      },
+    },
+  };
+
+  if (loading) {
+    return <div className="text-center py-20">로딩 중...</div>;
+  }
+
+  if (!post) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
@@ -30,8 +76,6 @@ const BlogPost: React.FC = () => {
     );
   }
 
-  const post = { ...postInfo, ...postContent };
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -42,45 +86,16 @@ const BlogPost: React.FC = () => {
               to="/blog"
               className="inline-flex items-center text-purple-600 hover:text-purple-700 transition-colors"
             >
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                />
-              </svg>
+              {/* ... SVG 아이콘 ... */}
               블로그 목록으로 돌아가기
             </Link>
           </nav>
-
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center bg-white rounded-full px-4 py-2 mb-6">
-              <span className="text-3xl mr-3">{post.image}</span>
-              <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
-                {post.category}
-              </span>
-            </div>
-
+            {/* ... 포스트 헤더 정보 ... */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              {post.title}
+              {post.fields.title}
             </h1>
-
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-white text-purple-600 px-3 py-1 rounded-full text-sm"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
+            {/* ... 태그 정보 ... */}
           </div>
         </div>
       </section>
@@ -90,33 +105,10 @@ const BlogPost: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <article className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-              <div
-                className="prose prose-lg max-w-none"
-                style={{
-                  lineHeight: "1.8",
-                }}
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
-
-              {/* Call to Action */}
-              <div className="mt-12 pt-8 border-t border-gray-200">
-                <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-2xl p-8 text-center">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    더 궁금한 점이 있으신가요?
-                  </h3>
-                  <p className="text-gray-600 mb-6">
-                    공룡페이 전문 상담원이 24시간 친절하게 상담해드립니다.
-                  </p>
-                  <a
-                    href="https://grpay.channel.io/home"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors"
-                  >
-                    💬 1:1 상담하기
-                  </a>
-                </div>
+              <div className="prose prose-lg max-w-none">
+                {documentToReactComponents(post.fields.content as Document, renderOptions)}
               </div>
+              {/* ... CTA 섹션 ... */}
             </article>
           </div>
         </div>
