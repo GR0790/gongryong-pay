@@ -33,8 +33,6 @@ jobs:
         run: bun run sitemap
       
       - name: Build project
-        # ★★★★★ 이 부분이 수정된 핵심입니다 ★★★★★
-        # GitHub Secrets에 저장된 키를 빌드 과정에서 사용하도록 전달합니다.
         env:
           VITE_CONTENTFUL_SPACE_ID: ${{ secrets.VITE_CONTENTFUL_SPACE_ID }}
           VITE_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VITE_CONTENTFUL_ACCESS_TOKEN }}
