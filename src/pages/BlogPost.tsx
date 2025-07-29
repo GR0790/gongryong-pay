@@ -1,7 +1,7 @@
 import type React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import contentfulClient from "../services/contentful"; // 올바른 경로
+import contentfulClient from "../services/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import type { Document } from "@contentful/rich-text-types";
 import { INLINES } from "@contentful/rich-text-types";
