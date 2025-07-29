@@ -1,23 +1,32 @@
-/* ----------------- src/pages/Blog.tsx ----------------- */
-// 이 코드로 기존 Blog.tsx 파일의 내용을 완전히 교체해주세요.
-
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { blogPostsData } from "../data/blogData"; // 데이터를 외부 파일에서 가져옵니다.
+import contentfulClient from "../services/contentful";
 
 const Blog: React.FC = () => {
-  const blogPosts = blogPostsData; // 가져온 데이터를 변수에 할당합니다.
+  const [blogPosts, setBlogPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      try {
+        const response = await contentfulClient.getEntries({
+          content_type: "blogPost",
+          order: ["-fields.id"], // 최신 글(ID가 높은 순)이 위로 오도록 정렬
+        });
+        setBlogPosts(response.items);
+      } catch (error) {
+        console.error("Error fetching contentful entries:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPosts();
+  }, []);
 
   const categories = [
-    "전체",
-    "소액결제",
-    "정보이용료",
-    "신용카드",
-    "상품권",
-    "안전가이드",
-    "업계분석",
-    "금융정보",
-    "한도관리",
+    "전체", "소액결제", "정보이용료", "신용카드", "상품권",
+    "안전가이드", "업계분석", "금융정보", "한도관리", "총정리 가이드"
   ];
 
   const [selectedCategory, setSelectedCategory] = React.useState("전체");
@@ -25,11 +34,14 @@ const Blog: React.FC = () => {
   const filteredPosts =
     selectedCategory === "전체"
       ? blogPosts
-      : blogPosts.filter((post) => post.category === selectedCategory);
+      : blogPosts.filter((post) => post.fields.category === selectedCategory);
 
   const featuredPost = blogPosts[0];
 
-  // 만약 블로그 글이 하나도 없다면, 오류 대신 안내 메시지를 보여줍니다.
+  if (loading) {
+    return <div className="text-center py-20">블로그 글을 불러오는 중...</div>;
+  }
+
   if (!featuredPost) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -53,7 +65,6 @@ const Blog: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
       <section className="bg-gradient-to-br from-purple-50 to-purple-100 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -68,38 +79,36 @@ const Blog: React.FC = () => {
       </section>
 
       <div className="container mx-auto px-4 py-12 md:py-16">
-        {/* Featured Post */}
         <div className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
             📌 최신 추천 글
           </h2>
-
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               <div className="bg-gradient-to-br from-green-400 to-green-600 p-12 flex items-center justify-center">
                 <div className="text-center text-white">
                   <span className="text-8xl md:text-9xl">
-                    {featuredPost.image}
+                    {featuredPost.fields.image}
                   </span>
                 </div>
               </div>
               <div className="p-8 md:p-12">
                 <div className="flex items-center mb-4">
                   <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
-                    {featuredPost.category}
+                    {featuredPost.fields.category}
                   </span>
                   <span className="text-gray-500 text-sm ml-4">
-                    {featuredPost.readTime} 읽기
+                    {featuredPost.fields.readTime} 읽기
                   </span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight">
-                  {featuredPost.title}
+                  {featuredPost.fields.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  {featuredPost.excerpt}
+                  {featuredPost.fields.excerpt}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {featuredPost.tags.map((tag) => (
+                  {featuredPost.fields.tags.map((tag: string) => (
                     <span
                       key={tag}
                       className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm"
@@ -109,7 +118,7 @@ const Blog: React.FC = () => {
                   ))}
                 </div>
                 <Link
-                  to={`/blog/${featuredPost.id}`}
+                  to={`/blog/${featuredPost.fields.id}`}
                   className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
                 >
                   자세히 읽기 →
@@ -119,7 +128,6 @@ const Blog: React.FC = () => {
           </div>
         </div>
 
-        {/* Category Filter */}
         <div className="mb-12">
           <div className="flex flex-wrap justify-center gap-2 md:gap-4">
             {categories.map((category) => (
@@ -138,36 +146,31 @@ const Blog: React.FC = () => {
           </div>
         </div>
 
-        {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
-          {filteredPosts.slice(1).map((post) => (
+          {filteredPosts.slice(1).map((post: any) => (
             <Link
-              key={post.id}
-              to={`/blog/${post.id}`}
+              key={post.sys.id}
+              to={`/blog/${post.fields.id}`}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow block"
             >
               <div className="bg-gradient-to-br from-blue-100 to-purple-100 p-8 text-center">
-                <span className="text-5xl">{post.image}</span>
+                <span className="text-5xl">{post.fields.image}</span>
               </div>
-
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
-                    {post.category}
+                    {post.fields.category}
                   </span>
-                  <span className="text-gray-500 text-sm">{post.readTime}</span>
+                  <span className="text-gray-500 text-sm">{post.fields.readTime}</span>
                 </div>
-
                 <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
-                  {post.title}
+                  {post.fields.title}
                 </h3>
-
                 <p className="text-gray-600 mb-4 leading-relaxed">
-                  {post.excerpt}
+                  {post.fields.excerpt}
                 </p>
-
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {post.tags.map((tag) => (
+                  {post.fields.tags.map((tag: string) => (
                     <span
                       key={tag}
                       className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs"
@@ -176,7 +179,6 @@ const Blog: React.FC = () => {
                     </span>
                   ))}
                 </div>
-
                 <div className="text-center">
                   <span className="text-green-600 font-semibold hover:text-green-700 transition-colors">
                     읽기 →
@@ -190,6 +192,4 @@ const Blog: React.FC = () => {
     </div>
   );
 };
-
-// ★★★★★ 오류 해결을 위해 이 줄이 추가되었습니다 ★★★★★
 export default Blog;
