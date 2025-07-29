@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import contentful from 'contentful';
+import * as contentful from 'contentful'; // 수정된 부분
 import dotenv from 'dotenv';
 
 // .env.local 파일에서 환경 변수를 로드합니다.
@@ -25,7 +25,7 @@ async function generateSitemap() {
   const blogPostIds = entries.items.map(item => item.fields.id);
   console.log(`Found ${blogPostIds.length} blog posts.`);
 
-  const baseUrl = '[https://xn--ob0b39t2wlgzl.com](https://xn--ob0b39t2wlgzl.com)';
+  const baseUrl = '[https://xn--ob0b39t2wlgzl.com](https://xn--ob0b39t2wlgzl.com)'; // 수정된 부분
   const today = new Date().toISOString().split('T')[0];
 
   // 블로그 외의 고정 페이지 목록
