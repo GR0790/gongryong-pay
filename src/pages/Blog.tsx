@@ -12,7 +12,7 @@ const Blog: React.FC = () => {
       try {
         const response = await contentfulClient.getEntries({
           content_type: "blogPost",
-          order: ["-fields.id"], // 최신 글(ID가 높은 순)이 위로 오도록 정렬
+          order: ["-fields.id"],
         });
         setBlogPosts(response.items);
       } catch (error) {
