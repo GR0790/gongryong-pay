@@ -100,7 +100,7 @@ const BlogPost: React.FC = () => {
             <article className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
               <div
                 className="prose prose-lg max-w-none"
-                dangerouslySetInnerHTML={{ __html: post.fields.blogContent }}
+                dangerouslySetInnerHTML={{ __html: post.fields.content }}
               />
               <div className="mt-12 pt-8 border-t border-gray-200">
                 <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-2xl p-8 text-center">
