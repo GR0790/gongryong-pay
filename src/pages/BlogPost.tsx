@@ -2,9 +2,6 @@ import type React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import contentfulClient from "../services/contentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import type { Document } from "@contentful/rich-text-types";
-import { INLINES } from "@contentful/rich-text-types";
 
 const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -32,22 +29,6 @@ const BlogPost: React.FC = () => {
     };
     fetchPost();
   }, [id]);
-
-  const renderOptions = {
-    renderNode: {
-      [INLINES.EMBEDDED_ENTRY]: (node: any) => {
-        const { sys, fields } = node.data.target;
-        if (sys.contentType.sys.id === "internalLink") {
-          return (
-            <Link to={fields.linkUrl} className="text-green-600 hover:underline font-semibold">
-              {fields.linkText}
-            </Link>
-          );
-        }
-        return null;
-      },
-    },
-  };
 
   if (loading) {
     return <div className="text-center py-20">로딩 중...</div>;
@@ -117,9 +98,10 @@ const BlogPost: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <article className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-              <div className="prose prose-lg max-w-none">
-                {documentToReactComponents(post.fields.content as Document, renderOptions)}
-              </div>
+              <div
+                className="prose prose-lg max-w-none"
+                dangerouslySetInnerHTML={{ __html: post.fields.content }}
+              />
               <div className="mt-12 pt-8 border-t border-gray-200">
                 <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-2xl p-8 text-center">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
