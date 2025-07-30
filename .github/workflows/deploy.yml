@@ -1,5 +1,3 @@
-# 이 코드로 기존 .github/workflows/deploy.yml 파일의 내용을 완전히 교체해주세요.
-
 name: Build and Deploy to GitHub Pages
 
 on:
@@ -16,7 +14,7 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-jobs:ㅁ
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
@@ -31,23 +29,22 @@ jobs:ㅁ
       - name: Install dependencies
         run: bun install
 
-      # ★★★★★ 이 부분이 수정된 핵심입니다 ★★★★★
       # 사이트맵 생성 단계에도 비밀 키를 전달합니다.
       - name: Generate sitemap
         env:
           VITE_CONTENTFUL_SPACE_ID: ${{ secrets.VITE_CONTENTFUL_SPACE_ID }}
           VITE_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VITE_CONTENTFUL_ACCESS_TOKEN }}
         run: bun run sitemap
-      
+
       - name: Build project
         env:
           VITE_CONTENTFUL_SPACE_ID: ${{ secrets.VITE_CONTENTFUL_SPACE_ID }}
           VITE_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VITE_CONTENTFUL_ACCESS_TOKEN }}
         run: bun run build
-      
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      
+
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -55,15 +52,12 @@ jobs:ㅁ
 
   deploy:
     needs: build
-    
     permissions:
       pages: write
       id-token: write
-    
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-      
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
