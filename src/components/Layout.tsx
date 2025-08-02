@@ -211,7 +211,80 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               aria-label="모바일 메뉴"
             >
               <div className="space-y-2">
-                {/* ... (다른 모바일 메뉴 링크들은 그대로 유지) ... */}
+                <Link
+                  to="/"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
+                >
+                  홈
+                </Link>
+                <div className="px-4 py-2">
+                  <p className="text-gray-500 text-sm font-medium mb-2">
+                    서비스 소개
+                  </p>
+                  <div className="pl-4 space-y-1">
+                    <Link
+                      to="/services/micropayment"
+                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
+                    >
+                      소액결제 현금화
+                    </Link>
+                    <Link
+                      to="/services/information-fee"
+                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
+                    >
+                      정보이용료 현금화
+                    </Link>
+                    <Link
+                      to="/services/credit-card"
+                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
+                    >
+                      신용카드 현금화
+                    </Link>
+                    <Link
+                      to="/services/gift-card"
+                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
+                    >
+                      상품권 현금화
+                    </Link>
+                  </div>
+                </div>
+                <Link
+                  to="/how-to-use"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  이용 방법
+                </Link>
+                <div className="px-4 py-2">
+                  <p className="text-gray-500 text-sm font-medium mb-2">
+                    고객 지원
+                  </p>
+                  <div className="pl-4 space-y-1">
+                    <Link
+                      to="/reviews"
+                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
+                    >
+                      고객 후기
+                    </Link>
+                    <Link
+                      to="/faq"
+                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
+                    >
+                      자주묻는질문(FAQ)
+                    </Link>
+                    <Link
+                      to="/safety"
+                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
+                    >
+                      안전 거래 안내
+                    </Link>
+                    <Link
+                      to="/blog"
+                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
+                    >
+                      정보 블로그
+                    </Link>
+                  </div>
+                </div>
                 {/* ★★★★★ 수정된 부분 ★★★★★ */}
                 <a
                   href="https://grpay.channel.io/home"
