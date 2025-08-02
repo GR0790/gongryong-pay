@@ -1,6 +1,23 @@
 import type React from "react";
 import { Link } from "react-router-dom";
 
+// TypeScript가 window.gtag_report_conversion 함수를 인식하도록 선언합니다.
+declare global {
+  interface Window {
+    gtag_report_conversion: (url?: string) => void;
+  }
+}
+
+// 전환 추적을 위한 핸들러 함수
+const handleConversion = (url: string) => {
+  if (window.gtag_report_conversion) {
+    window.gtag_report_conversion(url);
+  } else {
+    // gtag 함수를 찾을 수 없을 경우, 그냥 URL로 이동합니다.
+    window.open(url, "_blank");
+  }
+};
+
 const HeroSection: React.FC = () => (
   <section className="bg-gradient-to-br from-green-50 to-green-100 py-12 md:py-20">
     <div className="container mx-auto px-4">
@@ -40,6 +57,10 @@ const HeroSection: React.FC = () => (
               target="_blank"
               rel="noopener noreferrer"
               aria-label="1:1 상담하기 - 새 탭에서 열기"
+              onClick={(e) => {
+                e.preventDefault();
+                handleConversion('https://grpay.channel.io/home');
+              }}
               className="inline-flex items-center bg-yellow-400 text-gray-900 px-6 md:px-8 py-3 md:py-4 rounded-lg text-lg md:text-xl font-semibold hover:bg-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-300"
             >
               💬 소액결제현금화 1:1 상담
@@ -400,7 +421,7 @@ const WhyChooseUsSection: React.FC = () => (
           </div>
           <div className="text-center mt-6">
             <p className="text-gray-500 text-sm">
-              📈 실시간 업데이트 | ✅ 정식 사업자 등록 업체 | � 신뢰할 수 있는
+              📈 실시간 업데이트 | ✅ 정식 사업자 등록 업체 | 🏅 신뢰할 수 있는
               공룡페이
             </p>
           </div>
@@ -615,4 +636,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Ho
