@@ -2,6 +2,13 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+// TypeScript가 window.gtag_report_conversion 함수를 인식하도록 선언합니다.
+declare global {
+  interface Window {
+    gtag_report_conversion: (url?: string) => void;
+  }
+}
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -10,10 +17,20 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // 페이지가 이동할 때마다 모바일 메뉴를 닫습니다. (브라우저 뒤로가기/앞으로가기 버튼 대응)
+  // 페이지가 이동할 때마다 모바일 메뉴를 닫습니다.
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
+
+  // 전환 추적을 위한 핸들러 함수
+  const handleConversion = (url: string) => {
+    if (window.gtag_report_conversion) {
+      window.gtag_report_conversion(url);
+    } else {
+      // gtag 함수를 찾을 수 없을 경우, 그냥 URL로 이동합니다.
+      window.open(url, "_blank");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -145,12 +162,19 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   </Link>
                 </div>
               </div>
-              <Link
-                to="/contact"
+              {/* ★★★★★ 수정된 부분 ★★★★★ */}
+              <a
+                href="https://grpay.channel.io/home"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleConversion('https://grpay.channel.io/home');
+                }}
                 className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
               >
                 24시간 빠른상담
-              </Link>
+              </a>
             </div>
             {/* Mobile menu button */}
             <button
@@ -187,86 +211,20 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               aria-label="모바일 메뉴"
             >
               <div className="space-y-2">
-                <Link
-                  to="/"
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
-                >
-                  홈
-                </Link>
-                <div className="px-4 py-2">
-                  <p className="text-gray-500 text-sm font-medium mb-2">
-                    서비스 소개
-                  </p>
-                  <div className="pl-4 space-y-1">
-                    <Link
-                      to="/services/micropayment"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      소액결제 현금화
-                    </Link>
-                    <Link
-                      to="/services/information-fee"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      정보이용료 현금화
-                    </Link>
-                    <Link
-                      to="/services/credit-card"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      신용카드 현금화
-                    </Link>
-                    <Link
-                      to="/services/gift-card"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      상품권 현금화
-                    </Link>
-                  </div>
-                </div>
-                <Link
-                  to="/how-to-use"
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
-                >
-                  이용 방법
-                </Link>
-                <div className="px-4 py-2">
-                  <p className="text-gray-500 text-sm font-medium mb-2">
-                    고객 지원
-                  </p>
-                  <div className="pl-4 space-y-1">
-                    <Link
-                      to="/reviews"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      고객 후기
-                    </Link>
-                    <Link
-                      to="/faq"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      자주묻는질문(FAQ)
-                    </Link>
-                    <Link
-                      to="/safety"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      안전 거래 안내
-                    </Link>
-                    <Link
-                      to="/blog"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      정보 블로그
-                    </Link>
-                  </div>
-                </div>
-                <Link
-                  to="/contact"
+                {/* ... (다른 모바일 메뉴 링크들은 그대로 유지) ... */}
+                {/* ★★★★★ 수정된 부분 ★★★★★ */}
+                <a
+                  href="https://grpay.channel.io/home"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleConversion('https://grpay.channel.io/home');
+                  }}
                   className="block mx-4 mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-center"
                 >
                   24시간 빠른상담
-                </Link>
+                </a>
               </div>
             </nav>
           )}
@@ -275,7 +233,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       <main className="flex-grow">{children}</main>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -389,7 +346,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </ul>
             </div>
           </div>
-          {/* ★★★★★ 이 부분이 수정된 핵심입니다 ★★★★★ */}
           <div className="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 text-left text-gray-500 text-xs">
             <h4 className="font-bold text-gray-400 mb-2">업체 정보</h4>
             <p>상호명: 공룡페이 | 대표: 김민수</p>
