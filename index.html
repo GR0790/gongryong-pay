@@ -11,11 +11,26 @@
       gtag('config', 'AW-16536776533');
     </script>
 
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16536776533/8vaQCPeM8v0aENXerM09',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
+
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta Tags -->
+    {/* <!-- Primary Meta Tags --> */}
     <title>소액결제현금화, 3분 칼입금 | 24시간 상담 | 99.9% 승인 공룡페이</title>
     <meta name="title" content="소액결제현금화, 3분 칼입금 | 24시간 상담 | 99.9% 승인 공룡페이" />
     <meta name="description" content="소액결제현금화 전문 공룡페이! 미납정책 99.9% 승인, 3분 초스피드 입금! 소액결제현금화, 정보이용료현금화, 신용카드현금화, 상품권현금화 24시간 상담. 누적 3만건+ 거래실적, 100% 안전거래 보장." />
@@ -25,7 +40,7 @@
     <meta name="language" content="Korean" />
     <meta name="revisit-after" content="1 days" />
 
-    <!-- Open Graph / Facebook -->
+    {/* <!-- Open Graph / Facebook --> */}
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://xn--ob0b39t2wlgzl.com/" />
     <meta property="og:title" content="소액결제현금화, 3분 칼입금 | 24시간 상담 | 99.9% 승인 공룡페이" />
@@ -34,23 +49,23 @@
     <meta property="og:site_name" content="공룡페이" />
     <meta property="og:locale" content="ko_KR" />
 
-    <!-- Twitter -->
+    {/* <!-- Twitter --> */}
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://xn--ob0b39t2wlgzl.com/" />
     <meta property="twitter:title" content="소액결제현금화, 3분 칼입금 | 24시간 상담 | 99.9% 승인 공룡페이" />
     <meta property="twitter:description" content="소액결제현금화 전문 공룡페이! 미납정책 99.9% 승인, 3분 초스피드 입금! 누적 3만건+ 거래실적" />
     <meta property="twitter:image" content="https://xn--ob0b39t2wlgzl.com/gongryong-mascot.png" />
 
-    <!-- Canonical URL -->
+    {/* <!-- Canonical URL --> */}
     <link rel="canonical" href="https://xn--ob0b39t2wlgzl.com/" />
 
-    <!-- Additional SEO Meta Tags -->
+    {/* <!-- Additional SEO Meta Tags --> */}
     <meta name="theme-color" content="#22c55e" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
-    <!-- Structured Data -->
+    {/* <!-- Structured Data --> */}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
