@@ -8,7 +8,7 @@ const InformationFeeService: React.FC = () => {
       <section className="bg-gradient-to-br from-blue-50 to-blue-100 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            정보이용료 현금화: 통신사 정보이용료 한도로 즉시 현금화 | 공룡티켓
+            정보이용료 현금화: 통신사 정보이용료 한도로 즉시 현금화 | 공룡페이
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
             SKT, KT, LGU+ 통신사 정보이용료 한도를 100% 활용! 복잡한 절차 없이
@@ -49,7 +49,7 @@ const InformationFeeService: React.FC = () => {
                     to="/"
                     className="text-blue-600 hover:text-blue-700 font-semibold"
                   >
-                    공룡티켓
+                    공룡페이
                   </Link>
                   의 정보이용료 현금화 서비스입니다. 통신사별로 월 최대
                   100만원까지 이용 가능하며, 빠르고 안전하게 현금화 해드립니다.
@@ -134,7 +134,7 @@ const InformationFeeService: React.FC = () => {
         {/* Service Features */}
         <section className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-            🚀 공룡티켓 정보이용료 현금화 핵심 장점
+            🚀 공룡페이 정보이용료 현금화 핵심 장점
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
