@@ -7,8 +7,23 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'AW-16536776533');
+    </script>
+
+    <!-- Google Ads Conversion Event Function -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+          'send_to': 'AW-16536776533/8vaQCPeM8v0aENXerM09',
+          'event_callback': callback
+        });
+        return false;
+      }
     </script>
 
     <meta charset="UTF-8" />
@@ -165,10 +180,37 @@
 
     <!-- ChannelTalk Script -->
     <script>
-      (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
+      (function(){
+        var w=window;
+        if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}
+        var ch=function(){ch.c(arguments);};
+        ch.q=[];
+        ch.c=function(args){ch.q.push(args);};
+        w.ChannelIO=ch;
+        function l(){
+          if(w.ChannelIOInitialized){return;}
+          w.ChannelIOInitialized=true;
+          var s=document.createElement("script");
+          s.type="text/javascript";
+          s.async=true;
+          s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";
+          var x=document.getElementsByTagName("script")[0];
+          if(x.parentNode){x.parentNode.insertBefore(s,x);}
+        }
+        if(document.readyState==="complete"){l();}
+        else{
+          w.addEventListener("DOMContentLoaded",l);
+          w.addEventListener("load",l);
+        }
+      })();
 
       ChannelIO('boot', {
         "pluginKey": "66c596c9-3225-4678-b746-0c024efd6f01"
+      });
+
+      // 채널톡 상담창 오픈 시 Google Ads 전환 이벤트 전송
+      ChannelIO('onShowMessenger', function() {
+        gtag_report_conversion();
       });
     </script>
   </body>
