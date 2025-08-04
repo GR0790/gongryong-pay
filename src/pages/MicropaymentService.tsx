@@ -8,7 +8,7 @@ const MicropaymentService: React.FC = () => {
       <section className="bg-gradient-to-br from-green-50 to-green-100 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            소액결제 현금화: 휴대폰만으로 초스피드 입금 | 공룡티켓
+            소액결제 현금화: 휴대폰만으로 초스피드 입금 | 공룡페이
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
             휴대폰만 OK! 누구나 3분 안에 비상금 해결. SKT, KT, LGU+ 모든 통신사
@@ -46,7 +46,7 @@ const MicropaymentService: React.FC = () => {
                     to="/"
                     className="text-green-600 hover:text-green-700 font-semibold"
                   >
-                    공룡티켓
+                    공룡페이
                   </Link>
                   의 소액결제 현금화 서비스입니다. 복잡한 서류나 심사 없이
                   빠르고 간편하게 이용하실 수 있습니다.
@@ -131,7 +131,7 @@ const MicropaymentService: React.FC = () => {
         {/* Service Features */}
         <section className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-            🚀 공룡티켓 소액결제 현금화 핵심 장점
+            🚀 공룡페이 소액결제 현금화 핵심 장점
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
@@ -287,7 +287,7 @@ const MicropaymentService: React.FC = () => {
               🦕 지금 바로, 소액결제 현금화 상담받아보세요!
             </h2>
             <p className="text-lg md:text-xl mb-8 opacity-90">
-              급한 비상금이 필요한 상황? 복잡한 절차는 NO! 공룡티켓에서 소액결제
+              급한 비상금이 필요한 상황? 복잡한 절차는 NO! 공룡페이에서 소액결제
               현금화로 신속하게 해결하세요.24시간 언제든 상담 가능하며, 안전한
               거래를 약속드립니다.
             </p>
