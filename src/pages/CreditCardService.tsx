@@ -8,7 +8,7 @@ const CreditCardService: React.FC = () => {
       <section className="bg-gradient-to-br from-purple-50 to-purple-100 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            신용카드 현금화: 신용카드 한도로 급전 마련 | 공룡티켓
+            신용카드 현금화: 신용카드 한도로 급전 마련 | 공룡페이
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
             신용카드 결제 한도를 활용한 안전하고 빠른 현금화 서비스! 복잡한 절차
@@ -50,7 +50,7 @@ const CreditCardService: React.FC = () => {
                     to="/"
                     className="text-purple-600 hover:text-purple-700 font-semibold"
                   >
-                    공룡티켓
+                    공룡페이
                   </Link>
                   에서는 모든 카드사를 지원하며,{" "}
                   <strong className="text-purple-600">
@@ -138,7 +138,7 @@ const CreditCardService: React.FC = () => {
         {/* Service Features */}
         <section className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-            🚀 공룡티켓 신용카드 현금화 핵심 장점
+            🚀 공룡페이 신용카드 현금화 핵심 장점
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
