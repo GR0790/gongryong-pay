@@ -159,14 +159,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </div>
               </div>
 
-              {/* [연결됨] 헤더 버튼 -> 팝업 실행 */}
-              <a
-                href="#"
-                onClick={handleConsultClick}
+              {/* [수정됨] 24시간 빠른상담 -> /contact 페이지로 이동 (원상복구) */}
+              <Link
+                to="/contact"
                 className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
               >
                 24시간 빠른상담
-              </a>
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -279,14 +278,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   </div>
                 </div>
                 
-                {/* [연결됨] 모바일 메뉴 버튼 -> 팝업 실행 */}
-                <a
-                  href="#"
-                  onClick={handleConsultClick}
+                {/* [수정됨] 모바일 메뉴 버튼 -> /contact 페이지로 이동 */}
+                <Link
+                  to="/contact"
                   className="block mx-4 mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-center"
                 >
                   24시간 빠른상담
-                </a>
+                </Link>
               </div>
             </nav>
           )}
@@ -383,7 +381,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   </Link>
                 </li>
                 <li>
-                  {/* [연결됨] 푸터 링크 -> 팝업 실행 */}
+                  {/* 푸터 링크는 팝업 유지 */}
                   <a
                     href="#"
                     onClick={handleConsultClick}
@@ -436,9 +434,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </footer>
 
-      {/* ★★★ [커스텀] 채널톡 대체 플로팅 버튼 (우측 하단) ★★★ */}
+      {/* 우측 하단 플로팅 버튼 (팝업 유지) */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
-        {/* 1. 말풍선 툴팁 (닫기 가능) */}
+        {/* 1. 말풍선 툴팁 */}
         {showTooltip && (
           <div 
             className="bg-white px-4 py-3 rounded-2xl shadow-xl border border-gray-100 mb-2 mr-2 relative max-w-[240px] animate-bounce" 
@@ -462,14 +460,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
         )}
 
-        {/* 2. 채널톡 스타일 둥근 버튼 (ID 포함) */}
+        {/* 2. 채널톡 스타일 둥근 버튼 */}
         <button
-          id="floating-consult-btn"  // ★★★ 여기가 GTM 추적용 ID입니다 ★★★
+          id="floating-consult-btn"
           onClick={handleConsultClick}
           className="w-16 h-16 bg-[#5C31D6] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 group relative overflow-hidden"
           aria-label="1:1 상담 시작하기"
         >
-          {/* 채팅 아이콘 */}
            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
               <circle cx="8" cy="10" r="1.5" fill="white" />
