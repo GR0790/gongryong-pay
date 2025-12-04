@@ -45,11 +45,14 @@ const Contact: React.FC = () => {
               평균 1분 이내 응답, 3분 이내 처리로 신속한 서비스를 제공합니다.
             </p>
 
+            {/* [수정 1] 중앙 상담 버튼: 팝업 함수 연결 */}
             <a
-              href="https://grpay.channel.io/home"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center bg-yellow-400 text-gray-900 px-8 py-4 rounded-2xl text-xl font-bold hover:bg-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl mb-6"
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                (window as any).startConsult();
+              }}
+              className="inline-flex items-center bg-yellow-400 text-gray-900 px-8 py-4 rounded-2xl text-xl font-bold hover:bg-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl mb-6 cursor-pointer"
             >
               💬 1:1 상담 시작하기
               <svg
@@ -155,11 +158,14 @@ const Contact: React.FC = () => {
               1:1 상담으로 안전하고 신속한 서비스를 받아보세요!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* [수정 2] 하단 상담 버튼: 팝업 함수 연결 */}
               <a
-                href="https://grpay.channel.io/home"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-white text-yellow-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  (window as any).startConsult();
+                }}
+                className="inline-block bg-white text-yellow-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
               >
                 💬 1:1 상담하기
               </a>
