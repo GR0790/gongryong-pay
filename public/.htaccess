@@ -1,29 +1,38 @@
-# Force HTTPS
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
 
-# Force www subdomain
-RewriteCond %{HTTP_HOST} ^공룡페이\.com [NC]
-RewriteRule ^(.*)$ https://www.공룡페이.com/$1 [L,R=301]
+  # 1. HTTPS 강제 적용 (http -> https)
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Handle Angular and React Router
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^.*$ /index.html [L]
+  # 2. www 제거 (www.공룡페이.com -> 공룡페이.com)
+  # 누군가 www를 붙여서 들어오면, www가 없는 주소로 강제 이동시킵니다.
+  # xn--ob0b39t2wlgzl.com = 공룡페이.com (퓨니코드)
+  RewriteCond %{HTTP_HOST} ^www\.xn--ob0b39t2wlgzl\.com [NC]
+  RewriteRule ^(.*)$ https://xn--ob0b39t2wlgzl.com/$1 [L,R=301]
 
-# Security headers
-Header always set X-Frame-Options DENY
-Header always set X-Content-Type-Options nosniff
-Header always set X-XSS-Protection "1; mode=block"
-Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # 3. React Router (SPA) 새로고침 404 방지 (필수!)
+  # 파일이나 폴더가 실제로 존재하지 않으면 index.html을 보여줌
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
 
-# Cache control
-<filesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg)$">
-  Header set Cache-Control "max-age=2592000, public"
-</filesMatch>
+# 4. 보안 헤더 (유지)
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options DENY
+  Header always set X-Content-Type-Options nosniff
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # 캐시 설정
+  <filesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </filesMatch>
+</IfModule>
 
-# Compression
+# 5. 압축 전송
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/plain
   AddOutputFilterByType DEFLATE text/html
