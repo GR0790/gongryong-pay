@@ -26,7 +26,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords }) => {
       <meta property="og:title" content={`${title} | 공룡페이`} />
       <meta property="og:description" content={description} />
       <meta property="og:site_name" content="공룡페이" />
-      <meta property="og:image" content="https://xn--ob0b39t2wlgzl.com/gongryong-mascot.png" />
+      <meta property="og:image" content="https://xn--ob0b39t2wlgzl.com/gongryong-mascot.webp" />
       <meta property="og:url" content={window.location.href} />
 
       {/* 4. 구조화 데이터 (JSON-LD): 구글에게 "우리는 브랜드다"라고 직접 말하기 */}
@@ -37,7 +37,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords }) => {
             "@type": "Organization",
             "name": "공룡페이",
             "url": "https://xn--ob0b39t2wlgzl.com",
-            "logo": "https://xn--ob0b39t2wlgzl.com/gongryong-mascot.png",
+            "logo": "https://xn--ob0b39t2wlgzl.com/gongryong-mascot.webp",
             "description": "업계 1위 소액결제현금화 서비스, 3분 입금 공룡페이",
             "contactPoint": {
               "@type": "ContactPoint",
