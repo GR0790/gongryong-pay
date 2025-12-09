@@ -9,7 +9,7 @@ const HeroSection: React.FC = () => (
         <div className="flex-shrink-0 lg:w-1/3">
           <div className="w-64 h-64 lg:w-80 lg:h-80 mx-auto">
             <img
-              src="/gongryong-mascot.png"
+              src="/gongryong-mascot.webp"
               alt="소액결제현금화 공룡페이 마스코트"
               className="w-full h-full object-cover rounded-full drop-shadow-2xl animate-bounce-subtle border-4 border-white shadow-lg"
               width="320"
