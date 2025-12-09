@@ -1,5 +1,6 @@
-import type React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO"; // [추가됨]
 
 const HeroSection: React.FC = () => (
   <section className="bg-gradient-to-br from-green-50 to-green-100 py-12 md:py-20">
@@ -24,7 +25,9 @@ const HeroSection: React.FC = () => (
               🔥 2025년 소액결제현금화 업계 1위! 공룡페이
             </div>
           </div>
+          {/* [수정됨] 공룡페이 텍스트 추가 (SEO용) */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <span className="sr-only">공룡페이</span>
             <span className="text-red-600">
               소액결제현금화 미납·정책 99.9% 승인!
             </span>
@@ -35,7 +38,6 @@ const HeroSection: React.FC = () => (
           </h1>
 
           <div className="flex justify-center mb-6">
-            {/* [수정 1] 메인 히어로 섹션 버튼: 링크 제거 후 팝업 함수 연결 */}
             <a
               href="#"
               onClick={(e) => {
@@ -56,7 +58,7 @@ const HeroSection: React.FC = () => (
               </svg>
             </a>
           </div>
-
+          {/* HeroSection 나머지 내용은 기존과 동일하므로 생략하지 않고 아래에 이어집니다... */}
           <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
             <strong>갑자기 급전이 필요할 땐? 공룡페이가 해결사!</strong>
             <br />
@@ -123,8 +125,7 @@ const HeroSection: React.FC = () => (
                 </div>
               </div>
               <div className="text-xs text-gray-400 mt-3 border-t pt-2">
-                ⚡ 평균 2분 47초 입금완료 | 💯 고객만족도 99.9% | 🏆 누적 거래량
-                3만건+
+                ⚡ 평균 2분 47초 입금완료 | 💯 고객만족도 99.9% | 🏆 누적 거래량 3만건+
               </div>
             </div>
           </div>
@@ -138,6 +139,7 @@ const HeroSection: React.FC = () => (
   </section>
 );
 
+// ServicesSection, WhyChooseUsSection, ReviewsSection, FinalCTASection은 변경 없음 (기존 코드 유지)
 const ServicesSection: React.FC = () => (
   <section className="py-12 md:py-20 bg-white">
     <div className="container mx-auto px-4">
@@ -595,7 +597,6 @@ const FinalCTASection: React.FC = () => (
         망설이지 말고 공룡페이에 연락주세요!
       </p>
       
-      {/* [수정 2] 하단 CTA 섹션 버튼: 링크 제거 후 팝업 함수 연결 */}
       <a
         href="#"
         onClick={(e) => {
@@ -613,6 +614,12 @@ const FinalCTASection: React.FC = () => (
 const Home: React.FC = () => {
   return (
     <>
+      {/* [추가됨] SEO 설정 적용 */}
+      <SEO 
+        title="소액결제현금화 업계 1위" 
+        description="공룡페이는 소액결제현금화, 정보이용료현금화, 신용카드현금화 전문 브랜드입니다. 24시간 상담, 3분 입금, 미납 정책 99.9% 승인을 보장합니다."
+      />
+
       <HeroSection />
       <ServicesSection />
       <WhyChooseUsSection />
