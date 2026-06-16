@@ -7,8 +7,11 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-M2CFRWBD');</script>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/webp" href="/gongryong-mascot.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://cdn.channel.io" />
+    <link rel="preload" as="image" href="/gongryong-mascot.webp" />
 
     <title>소액결제현금화, 3분 칼입금 | 24시간 상담 | 99.9% 승인 공룡페이</title>
     <style>
@@ -85,11 +88,9 @@
 
       // [기능 1] 전화번호 자동 하이픈 (-) 추가 및 검사
       window.autoHyphen = function(target) {
-          // 숫자만 남기기
           var rawValue = target.value.replace(/[^0-9]/g, '');
           var formatted = '';
 
-          // 010-XXXX-XXXX 형식 만들기
           if(rawValue.length < 4) {
               formatted = rawValue;
           } else if(rawValue.length < 8) {
@@ -101,7 +102,7 @@
           }
           
           target.value = formatted;
-          checkValidation(); // 입력할 때마다 검사 실행
+          checkValidation();
       }
 
       // [기능 2] 유효성 검사 (번호 형식 + 동의 체크)
@@ -110,13 +111,12 @@
           var isChecked = document.getElementById('privacy-check').checked;
           var submitBtn = document.getElementById('submit-btn');
 
-          // 정규식: 010-0000-0000 형식인지 확인 (총 13자리)
           var phoneRegex = /^010-\d{4}-\d{4}$/;
 
           if (phoneRegex.test(phone) && isChecked) {
-              submitBtn.disabled = false; // 조건 만족 시 활성화 (초록색)
+              submitBtn.disabled = false;
           } else {
-              submitBtn.disabled = true;  // 조건 불만족 시 비활성화 (회색)
+              submitBtn.disabled = true;
           }
       }
 
@@ -141,13 +141,12 @@
           var phone = document.getElementById('user-phone').value.trim();
           var isChecked = document.getElementById('privacy-check').checked;
 
-          // 한번 더 방어막 (버튼이 활성화되어 있어도 검사)
           if (!name || !isChecked || phone.length !== 13) {
               alert('정보를 정확히 입력해주세요.');
               return;
           }
 
-          var cleanPhone = phone.replace(/-/g, ''); // 하이픈 제거 후 저장
+          var cleanPhone = phone.replace(/-/g, '');
 
           localStorage.setItem('grpay_name', name);
           localStorage.setItem('grpay_phone', cleanPhone);
