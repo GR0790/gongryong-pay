@@ -14,7 +14,7 @@ const HeroSection: React.FC = () => (
               className="w-full h-full object-cover rounded-full drop-shadow-2xl animate-bounce-subtle border-4 border-white shadow-lg"
               width="320"
               height="320"
-              loading="lazy"
+              loading="eager"
             />
           </div>
         </div>
