@@ -22,7 +22,7 @@ const HeroSection: React.FC = () => (
         <div className="flex-1 text-center">
           <div className="mb-4">
             <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-bold mb-2">
-              🔥 2025년 소액결제현금화 업계 1위! 공룡페이
+              🔥 2026년 소액결제현금화 업계 1위! 공룡페이
             </div>
           </div>
           {/* [수정됨] 공룡페이 텍스트 추가 (SEO용) */}
@@ -148,7 +148,7 @@ const ServicesSection: React.FC = () => (
           공룡페이 소액결제현금화 핵심 서비스 안내
         </h2>
         <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
-          2025년 업계 최고 지급률!{" "}
+          2026년 업계 최고 지급률!{" "}
           <Link
             to="/services/micropayment"
             className="text-green-600 hover:underline"
