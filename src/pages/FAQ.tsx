@@ -1,9 +1,10 @@
 import type React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom"; // Link 컴포넌트를 import 합니다.
+import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const FAQ: React.FC = () => {
-  const [openItems, setOpenItems] = useState<number[]>([0]); // 첫 번째 항목을 기본으로 열어둡니다.
+  const [openItems, setOpenItems] = useState<number[]>([0]);
 
   const toggleItem = (index: number) => {
     setOpenItems((prev) =>
@@ -12,7 +13,6 @@ const FAQ: React.FC = () => {
   };
 
   const faqData = [
-    // 소액결제현금화 기본 정보
     {
       category: "소액결제현금화 기본정보",
       questions: [
@@ -43,7 +43,6 @@ const FAQ: React.FC = () => {
         },
       ],
     },
-    // 이용방법 및 절차
     {
       category: "이용방법 및 절차",
       questions: [
@@ -64,7 +63,6 @@ const FAQ: React.FC = () => {
         },
       ],
     },
-    // 정보이용료현금화
     {
       category: "정보이용료현금화",
       questions: [
@@ -80,7 +78,6 @@ const FAQ: React.FC = () => {
         },
       ],
     },
-    // 신용카드 및 상품권 현금화
     {
       category: "신용카드 및 상품권 현금화",
       questions: [
@@ -96,7 +93,6 @@ const FAQ: React.FC = () => {
         },
       ],
     },
-    // 안전성 및 보안
     {
       category: "안전성 및 보안",
       questions: [
@@ -116,6 +112,11 @@ const FAQ: React.FC = () => {
 
   return (
     <>
+      <SEO
+        title="자주묻는질문 (FAQ)"
+        description="소액결제현금화, 정보이용료현금화, 신용카드현금화, 상품권현금화에 대한 자주묻는질문. 미납 99.9% 승인, 3분 입금, 지급률, 이용방법, 안전성 등 공룡페이의 모든 궁금증을 해결해드립니다."
+        keywords="소액결제현금화 질문, 정보이용료현금화 방법, 소액결제 지급률, 미납 소액결제, 공룡페이 FAQ"
+      />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -135,7 +136,7 @@ const FAQ: React.FC = () => {
               name: faq.question,
               acceptedAnswer: {
                 "@type": "Answer",
-                text: faq.answer.replace(/<[^>]*>/g, ""), // HTML 태그 제거
+                text: faq.answer.replace(/<[^>]*>/g, ""),
               },
             })),
           ),
@@ -144,7 +145,6 @@ const FAQ: React.FC = () => {
 
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="container mx-auto px-4">
-          {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               소액결제현금화 공룡페이{" "}
@@ -157,7 +157,6 @@ const FAQ: React.FC = () => {
             </p>
           </div>
 
-          {/* FAQ Categories */}
           <div className="space-y-8">
             {faqData.map((category, categoryIndex) => (
               <div
@@ -224,7 +223,6 @@ const FAQ: React.FC = () => {
             ))}
           </div>
 
-          {/* Contact CTA */}
           <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-center text-white mt-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               더 궁금한 점이 있으신가요?
