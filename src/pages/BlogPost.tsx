@@ -1,39 +1,12 @@
 import type React from "react";
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import contentfulClient from "../services/contentful";
+
+import { blogPosts as localBlogPosts } from "../data/blogPosts";
 import SEO from "../components/SEO";
 
 const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [post, setPost] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchPost = async () => {
-      if (!id) return;
-      setLoading(true);
-      try {
-        const response = await contentfulClient.getEntries({
-          content_type: "blogPost",
-          "fields.id": parseInt(id, 10),
-          limit: 1,
-        });
-        if (response.items.length > 0) {
-          setPost(response.items[0]);
-        }
-      } catch (error) {
-        console.error("Error fetching Contentful entry:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPost();
-  }, [id]);
-
-  if (loading) {
-    return <div className="text-center py-20">로딩 중...</div>;
-  }
+  const post = localBlogPosts.find((p) => String(p.fields.id) === String(id)) || null;
 
   if (!post) {
     return (

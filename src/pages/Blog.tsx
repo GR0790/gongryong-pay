@@ -1,29 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
-import contentfulClient from "../services/contentful";
+import { blogPosts as localBlogPosts } from "../data/blogPosts";
 
 const Blog: React.FC = () => {
-  const [blogPosts, setBlogPosts] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      setLoading(true);
-      try {
-        const response = await contentfulClient.getEntries({
-          content_type: "blogPost",
-          order: ["-fields.id"],
-        });
-        setBlogPosts(response.items);
-      } catch (error) {
-        console.error("Error fetching contentful entries:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPosts();
-  }, []);
+  const [blogPosts] = useState<any[]>(localBlogPosts);
+  const loading = false;
 
   const categories = [
     "전체", "소액결제", "정보이용료", "신용카드", "상품권",
