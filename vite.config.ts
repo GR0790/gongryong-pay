@@ -14,6 +14,8 @@ export default defineConfig({
         manualChunks: (id) => {
           // react, react-dom, react-router-dom 등 무거운 라이브러리를 별도 파일로 분리
           if (id.includes('node_modules')) {
+            if (id.includes('contentful') || id.includes('@contentful')) return 'contentful';
+            if (id.includes('react-helmet')) return 'helmet';
             return 'vendor';
           }
         },
