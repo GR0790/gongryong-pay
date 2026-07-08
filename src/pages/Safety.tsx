@@ -1,9 +1,15 @@
 import type React from "react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const Safety: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="안전 거래 시스템 - 100% 안전보장"
+        description="공룡페이 안전 거래 시스템. 정식 사업자 등록, 개인정보 보호, 100% 안전거래 보장으로 소액결제현금화를 안심하고 이용하세요."
+        keywords="소액결제현금화 안전, 안전거래 보장, 공룡페이 안전, 소액결제 사기 예방"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-blue-100 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">

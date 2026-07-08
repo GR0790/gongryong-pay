@@ -1,9 +1,15 @@
 import type React from "react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const Privacy: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="개인정보처리방침"
+        description="공룡페이 개인정보처리방침. 고객님의 개인정보 수집·이용·보관·파기에 관한 안내입니다."
+        keywords="공룡페이 개인정보처리방침, 개인정보 보호정책"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-100 to-gray-200 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">

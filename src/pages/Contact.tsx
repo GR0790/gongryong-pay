@@ -1,9 +1,15 @@
 import type React from "react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const Contact: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="상담센터 - 24시간 1:1 문의"
+        description="공룡페이 소액결제현금화 24시간 1:1 상담센터. 전화·채팅으로 언제든 문의하세요. 3분 즉시입금, 미납·정책 99.9% 승인 상담 안내."
+        keywords="공룡페이 상담, 소액결제현금화 상담, 소액결제 문의, 24시간 상담센터"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-yellow-50 to-yellow-100 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">

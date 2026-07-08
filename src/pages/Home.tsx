@@ -468,7 +468,7 @@ const ReviewsSection: React.FC = () => (
         <div className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors">
           <div className="mb-4">
             <div className="flex items-center mb-2">
-              <img
+              <img loading="lazy"
                 src="https://ext.same-assets.com/1945597335/2141273364.svg"
                 alt="고객 프로필 아이콘"
                 className="w-8 h-8 mr-2"
@@ -499,7 +499,7 @@ const ReviewsSection: React.FC = () => (
         <div className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors">
           <div className="mb-4">
             <div className="flex items-center mb-2">
-              <img
+              <img loading="lazy"
                 src="https://ext.same-assets.com/1945597335/3717694739.svg"
                 alt="고객 프로필 아이콘"
                 className="w-8 h-8 mr-2"
@@ -530,7 +530,7 @@ const ReviewsSection: React.FC = () => (
         <div className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors">
           <div className="mb-4">
             <div className="flex items-center mb-2">
-              <img
+              <img loading="lazy"
                 src="https://ext.same-assets.com/1945597335/3286015583.svg"
                 alt="고객 프로필 아이콘"
                 className="w-8 h-8 mr-2"

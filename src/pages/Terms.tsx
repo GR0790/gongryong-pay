@@ -1,9 +1,15 @@
 import type React from "react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const Terms: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="이용약관"
+        description="공룡페이 소액결제현금화 서비스 이용약관 안내입니다."
+        keywords="공룡페이 이용약관, 소액결제현금화 약관"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-100 to-blue-200 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">

@@ -1,6 +1,7 @@
 import type React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const HowToUse: React.FC = () => {
   const [activeService, setActiveService] = useState<string>("micropayment");
@@ -258,6 +259,11 @@ const HowToUse: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="이용 방법 - 소액결제현금화 4단계 안내"
+        description="공룡페이 소액결제현금화 이용 방법. 상담 신청부터 3분 즉시입금까지 간단 4단계. 소액결제·정보이용료·신용카드·상품권 현금화 이용 가이드."
+        keywords="소액결제현금화 방법, 소액결제 이용방법, 소액결제 현금화 절차, 공룡페이 이용방법"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-green-50 to-green-100 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">

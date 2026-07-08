@@ -28,7 +28,7 @@ const GiftCardService: React.FC = () => {
               to="/contact"
               className="inline-flex items-center bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-lg md:text-xl font-semibold hover:bg-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
-              <img
+              <img loading="lazy"
                 src="https://ext.same-assets.com/1945597335/1008708004.svg"
                 alt=""
                 className="mr-2 w-5 md:w-6 h-5 md:h-6"

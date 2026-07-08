@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 import contentfulClient from "../services/contentful";
 
 const Blog: React.FC = () => {
@@ -65,6 +66,11 @@ const Blog: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="정보 블로그 - 소액결제현금화 최신 정보"
+        description="소액결제현금화, 정보이용료·신용카드·상품권 현금화 최신 정보와 한도·수수료·안전 이용 가이드를 공룡페이 블로그에서 확인하세요."
+        keywords="소액결제현금화 정보, 소액결제 팁, 소액결제 블로그, 소액결제 한도, 공룡페이 블로그"
+      />
       <section className="bg-gradient-to-br from-purple-50 to-purple-100 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
