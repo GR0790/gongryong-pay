@@ -435,11 +435,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </footer>
 
       {/* 우측 하단 플로팅 버튼 (팝업 유지) */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 pointer-events-none">
         {/* 1. 말풍선 툴팁 */}
         {showTooltip && (
           <div 
-            className="bg-white px-4 py-3 rounded-2xl shadow-xl border border-gray-100 mb-2 mr-2 relative max-w-[240px] animate-bounce" 
+            className="bg-white px-4 py-3 rounded-2xl shadow-xl border border-gray-100 mb-2 mr-2 relative max-w-[240px] animate-bounce pointer-events-auto" 
             style={{ animationDuration: '3s' }}
           >
              <button 
@@ -464,7 +464,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <button
           id="floating-consult-btn"
           onClick={handleConsultClick}
-          className="w-16 h-16 bg-[#5C31D6] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 group relative overflow-hidden"
+          className="w-16 h-16 bg-[#5C31D6] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 group relative overflow-hidden pointer-events-auto"
           aria-label="1:1 상담 시작하기"
         >
            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
