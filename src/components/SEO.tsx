@@ -25,6 +25,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords }) => {
 
       {/* 3. Canonical: 중복 콘텐츠 방지 */}
       <link rel="canonical" href={canonicalUrl} />
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
       {/* 4. 오픈 그래프 (카톡, 페북 공유 시 뜨는 미리보기) */}
       <meta property="og:type" content="website" />
@@ -33,6 +34,9 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords }) => {
       <meta property="og:description" content={description} />
       <meta property="og:site_name" content="공룡페이" />
       <meta property="og:image" content={`${siteUrl}/gongryong-mascot.webp`} />
+      <meta property="og:image:width" content="1000" />
+      <meta property="og:image:height" content="1000" />
+      <meta property="og:image:alt" content="공룡페이 마스코트" />
       <meta property="og:url" content={canonicalUrl} />
 
       {/* 5. 트위터 카드 (X 공유 미리보기) */}
@@ -40,6 +44,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords }) => {
       <meta name="twitter:title" content={`${title} | 공룡페이`} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={`${siteUrl}/gongryong-mascot.webp`} />
+      <meta name="twitter:image:alt" content="공룡페이 마스코트" />
 
       {/* 6. 구조화 데이터 (JSON-LD): 구글에게 "우리는 브랜드다"라고 직접 말하기 */}
       <script type="application/ld+json">
