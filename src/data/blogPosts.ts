@@ -12,6 +12,7 @@ export const blogPosts: BlogPostItem[] = [
     sys: { id: "post-1" },
     fields: {
       id: 1,
+      date: "2026-07-05",
       title: "소액결제로 컬쳐랜드·문화상품권 구매하는 방법 완벽 가이드",
       category: "결제 가이드",
       tags: ["소액결제", "컬쳐랜드", "문화상품권", "휴대폰결제"],
@@ -74,6 +75,7 @@ export const blogPosts: BlogPostItem[] = [
     sys: { id: "post-2" },
     fields: {
       id: 2,
+      date: "2026-07-06",
       title: "정보이용료로 게임 아이템·재화 구매하는 방법과 한도 관리",
       category: "결제 가이드",
       tags: ["정보이용료", "게임아이템", "인앱결제", "콘텐츠이용료"],
@@ -122,6 +124,7 @@ export const blogPosts: BlogPostItem[] = [
     sys: { id: "post-3" },
     fields: {
       id: 3,
+      date: "2026-07-07",
       title: "휴대폰 소액결제·정보이용료 한도 확인 및 관리 방법 총정리",
       category: "한도관리",
       tags: ["소액결제한도", "정보이용료한도", "통신사", "한도조회"],
