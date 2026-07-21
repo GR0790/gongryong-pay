@@ -46,6 +46,8 @@ async function generateSitemap() {
     '/blog/1',
     '/blog/2',
     '/blog/3',
+    '/blog/4',
+    '/blog/5',
     '/contact',
     '/privacy',
     '/terms',
