@@ -8,6 +8,17 @@ const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const post = localBlogPosts.find((p) => String(p.fields.id) === String(id)) || null;
 
+  const relatedPosts = post
+    ? [...localBlogPosts]
+        .filter((p) => p.fields.id !== post.fields.id)
+        .sort((a, b) => {
+          const aScore = a.fields.category === post.fields.category ? 1 : 0;
+          const bScore = b.fields.category === post.fields.category ? 1 : 0;
+          return bScore - aScore;
+        })
+        .slice(0, 3)
+    : [];
+
   if (!post) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -122,6 +133,29 @@ const BlogPost: React.FC = () => {
                   </div>
                 </div>
               </article>
+
+              {relatedPosts.length > 0 && (
+                <div className="mt-12">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">관련 글</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {relatedPosts.map((rp) => (
+                      <Link
+                        key={rp.fields.id}
+                        to={`/blog/${rp.fields.id}`}
+                        className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col"
+                      >
+                        <span className="text-3xl mb-3">{rp.fields.image}</span>
+                        <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-semibold self-start mb-3">
+                          {rp.fields.category}
+                        </span>
+                        <h3 className="text-base font-bold text-gray-900 leading-snug hover:text-purple-600 transition-colors">
+                          {rp.fields.title}
+                        </h3>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
