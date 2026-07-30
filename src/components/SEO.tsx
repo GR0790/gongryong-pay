@@ -1,13 +1,20 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 interface SEOProps {
   title: string;
   description: string;
   keywords?: string;
+  noindex?: boolean;
+  faqItems?: FAQItem[];
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, keywords }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, keywords, noindex = false, faqItems }) => {
   // 기본 키워드 + 페이지별 키워드
   const defaultKeywords = "공룡페이, 소액결제현금화, 정보이용료현금화, 신용카드현금화, 상품권현금화";
   const finalKeywords = keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords;
@@ -25,7 +32,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords }) => {
 
       {/* 3. Canonical: 중복 콘텐츠 방지 */}
       <link rel="canonical" href={canonicalUrl} />
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
 
       {/* 4. 오픈 그래프 (카톡, 페북 공유 시 뜨는 미리보기) */}
       <meta property="og:type" content="website" />
@@ -76,6 +83,23 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords }) => {
           }
         })}
       </script>
+
+      {faqItems && faqItems.length > 0 && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqItems.map((item) => ({
+              "@type": "Question",
+              "name": item.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+              }
+            }))
+          })}
+        </script>
+      )}
     </Helmet>
   );
 };
