@@ -2,6 +2,13 @@ import type React from "react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO"; // [추가됨] SEO 컴포넌트 불러오기
 
+const faqData = [
+  { question: "핀번호만 있어도 매입 가능한가요?", answer: "네, 상품권의 핀번호(PIN)만 확인되면 즉시 매입 가능합니다. 실물 상품권이 없어도 문제 없습니다." },
+  { question: "수수료(지급률)는 얼마인가요?", answer: "상품권 종류와 시장 상황에 따라 다르지만, 보통 85% 내외의 높은 지급률을 보장해 드립니다. 정확한 시세는 상담 시 안내해 드립니다." },
+  { question: "입금까지 얼마나 걸리나요?", answer: "핀번호 확인 즉시 입금 처리되며, 통상적으로 5분 이내에 완료됩니다." },
+  { question: "24시간 거래 가능한가요?", answer: "네, 공룡페이는 365일 24시간 운영되므로 언제든지 상품권 현금화 상담 및 거래가 가능합니다." },
+];
+
 const GiftCardService: React.FC = () => {
   return (
     <>
@@ -10,6 +17,7 @@ const GiftCardService: React.FC = () => {
         title="상품권 현금화 문화상품권 해피머니 85% 보장 수수료 싼곳"
         description="상품권 현금화 업계 최고가 매입! 문화상품권, 해피머니, 신세계상품권, 도서문화상품권 현금화. 24시간 5분 즉시 입금, 수수료 싼곳 공룡페이입니다."
         keywords="상품권현금화, 문화상품권현금화, 해피머니현금화, 신세계상품권현금화, 상품권매입, 구글기프트카드현금화"
+        faqItems={faqData}
       />
 
       <div className="min-h-screen bg-gray-50">

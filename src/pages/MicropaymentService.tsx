@@ -2,6 +2,14 @@ import type React from "react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO"; // [추가됨] SEO 컴포넌트 불러오기
 
+const faqData = [
+  { question: "모든 통신사 (SKT, KT, LGU+)에서 소액결제 현금화가 가능한가요?", answer: "네, 모든 통신사에서 이용 가능합니다. 통신사별로 약간의 차이는 있을 수 있습니다." },
+  { question: "소액결제 현금화 후 휴대폰 요금에 어떻게 청구되나요?", answer: "다음 달 휴대폰 요금과 함께 자동으로 청구됩니다." },
+  { question: "소액결제 한도가 부족하거나 이미 사용한 경우에도 가능한가요?", answer: "한도 상황에 따라 달라질 수 있으니, 정확한 확인은 상담을 통해 안내받으실 수 있습니다." },
+  { question: "소액결제 현금화 이용 후 신용도에 영향이 있나요?", answer: "통상적으로 휴대폰 소액결제는 신용정보에 영향을 주지 않지만, 연체시에는 영향이 있을 수 있습니다." },
+  { question: "소액결제 현금화는 완전히 합법적인 서비스인가요?", answer: "네, 정식 등록된 업체를 통한 소액결제 현금화는 합법입니다. 100% 안전 보장! 관련 궁금한 점이 있으시면 상담 시 정확한 안내를 받으실 수 있습니다." },
+];
+
 const MicropaymentService: React.FC = () => {
   return (
     <>
@@ -11,6 +19,7 @@ const MicropaymentService: React.FC = () => {
         title="소액결제 현금화 80% 수수료 싼곳"
         description="휴대폰 소액결제 현금화, 미납 정책 99.9% 승인! 업계 최저 수수료와 3분 입금을 보장하는 공룡페이 공식 안내 페이지입니다. SKT, KT, LGU+ 모두 가능합니다."
         keywords="소액결제현금화, 휴대폰소액결제, 소액결제 현금화 수수료, 미납 소액결제"
+        faqItems={faqData}
       />
 
       <div className="min-h-screen bg-gray-50">

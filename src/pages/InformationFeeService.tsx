@@ -2,6 +2,14 @@ import type React from "react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO"; // [추가됨] SEO 컴포넌트 불러오기
 
+const faqData = [
+  { question: "정보이용료와 소액결제의 차이점은 무엇인가요?", answer: "정보이용료는 정보 서비스 이용 시 부과되는 요금이고, 소액결제는 콘텐츠 구매 시 사용됩니다. 정보이용료가 일반적으로 더 높은 한도를 제공합니다." },
+  { question: "정보이용료 현금화는 안전한가요?", answer: "네, 정식 등록된 업체를 통한 정보이용료 현금화는 100% 합법적이며 안전합니다. 개인정보 보호 및 거래 안전을 최우선으로 보장해드립니다." },
+  { question: "정보이용료 한도가 부족한 경우에도 이용 가능한가요?", answer: "한도 상황에 따라 달라질 수 있습니다. 정확한 이용 가능 여부는 상담을 통해 실시간으로 확인해드립니다." },
+  { question: "정보이용료 요금은 언제 청구되나요?", answer: "정보이용료는 다음 달 휴대폰 요금과 함께 자동으로 청구됩니다. 정확한 청구일은 각 통신사 요금 청구일과 동일합니다." },
+  { question: "여러 통신사 정보이용료를 동시에 이용할 수 있나요?", answer: "본인 명의의 여러 번호가 있다면 각각의 한도를 활용해 이용 가능합니다. 자세한 내용은 상담을 통해 안내받으실 수 있습니다." },
+];
+
 const InformationFeeService: React.FC = () => {
   return (
     <>
@@ -10,6 +18,7 @@ const InformationFeeService: React.FC = () => {
         title="정보이용료 현금화 콘텐츠이용료 현금화 수수료 싼곳"
         description="정보이용료 현금화, 콘텐츠이용료 현금화 전문! 구글 정보이용료 미납 한도 100% 현금화 가능. SKT KT LGU+ 수수료 최저가, 3분 즉시 입금 공룡페이입니다."
         keywords="정보이용료현금화, 콘텐츠이용료현금화, 구글정보이용료, 정보이용료 현금화 방법, 정보이용료 매입"
+        faqItems={faqData}
       />
 
       <div className="min-h-screen bg-gray-50">

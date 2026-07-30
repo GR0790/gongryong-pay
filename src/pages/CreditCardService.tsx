@@ -2,6 +2,14 @@ import type React from "react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO"; // [추가됨] SEO 컴포넌트 불러오기
 
+const faqData = [
+  { question: "신용카드 현금화는 합법적인 서비스인가요?", answer: "정식 등록된 업체를 통한 신용카드 현금화는 합법적인 서비스입니다. 다만, 개인의 신용도 관리에는 주의가 필요합니다." },
+  { question: "신용카드 결제 후 언제 청구되나요?", answer: "일반적으로 다음 달 카드 결제일에 청구됩니다. 정확한 결제일은 각 카드사 및 개인별 결제일에 따라 다릅니다." },
+  { question: "신용카드 한도가 부족한 경우에도 이용 가능한가요?", answer: "사용 가능한 한도 내에서만 이용 가능합니다. 정확한 이용 가능 금액은 상담을 통해 실시간으로 확인해드립니다." },
+  { question: "신용점수에 영향을 주나요?", answer: "정상적인 카드 결제로 처리되므로 일반적으로 신용점수에 부정적 영향을 주지 않습니다. 다만, 연체 시에는 신용점수에 영향을 줄 수 있습니다." },
+  { question: "여러 장의 카드를 동시에 이용할 수 있나요?", answer: "본인 명의의 여러 카드를 활용해 더 큰 금액의 현금화가 가능합니다. 자세한 내용은 상담을 통해 안내받으실 수 있습니다." },
+];
+
 const CreditCardService: React.FC = () => {
   return (
     <>
@@ -10,6 +18,7 @@ const CreditCardService: React.FC = () => {
         title="신용카드 현금화 카드깡 아님 수수료 싼곳 88% 보장"
         description="신용카드 현금화, 카드깡 절대 아님! 합법적인 결제 한도 현금화 서비스. 수수료 싼곳, 지급률 88% 보장. 삼성/신한/현대 등 전 카드사 3분 즉시 입금 공룡페이."
         keywords="신용카드현금화, 카드깡아님, 카드한도현금화, 신용카드현금화수수료, 카드결제현금화, 비상금대출"
+        faqItems={faqData}
       />
 
       <div className="min-h-screen bg-gray-50">

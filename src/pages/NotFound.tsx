@@ -6,6 +6,7 @@ const NotFound: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <SEO
+        noindex
         title="페이지를 찾을 수 없습니다"
         description="요청하신 페이지를 찾을 수 없습니다. 공룡페이 홈에서 원하시는 정보를 확인하세요."
       />
