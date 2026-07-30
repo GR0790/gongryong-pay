@@ -18,8 +18,22 @@ const CreditCardService: React.FC = () => {
         title="신용카드 현금화 카드깡 아님 수수료 싼곳 88% 보장"
         description="신용카드 현금화, 카드깡 절대 아님! 합법적인 결제 한도 현금화 서비스. 수수료 싼곳, 지급률 88% 보장. 삼성/신한/현대 등 전 카드사 3분 즉시 입금 공룡페이."
         keywords="신용카드현금화, 카드깡아님, 카드한도현금화, 신용카드현금화수수료, 카드결제현금화, 비상금대출"
-        faqItems={faqData}
       />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqData.map((item) => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": item.answer
+            }
+          }))
+        })}
+      </script>
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}

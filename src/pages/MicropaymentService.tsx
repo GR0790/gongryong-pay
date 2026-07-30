@@ -19,8 +19,22 @@ const MicropaymentService: React.FC = () => {
         title="소액결제 현금화 80% 수수료 싼곳"
         description="휴대폰 소액결제 현금화, 미납 정책 99.9% 승인! 업계 최저 수수료와 3분 입금을 보장하는 공룡페이 공식 안내 페이지입니다. SKT, KT, LGU+ 모두 가능합니다."
         keywords="소액결제현금화, 휴대폰소액결제, 소액결제 현금화 수수료, 미납 소액결제"
-        faqItems={faqData}
       />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqData.map((item) => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": item.answer
+            }
+          }))
+        })}
+      </script>
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}

@@ -17,8 +17,22 @@ const GiftCardService: React.FC = () => {
         title="상품권 현금화 문화상품권 해피머니 85% 보장 수수료 싼곳"
         description="상품권 현금화 업계 최고가 매입! 문화상품권, 해피머니, 신세계상품권, 도서문화상품권 현금화. 24시간 5분 즉시 입금, 수수료 싼곳 공룡페이입니다."
         keywords="상품권현금화, 문화상품권현금화, 해피머니현금화, 신세계상품권현금화, 상품권매입, 구글기프트카드현금화"
-        faqItems={faqData}
       />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqData.map((item) => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": item.answer
+            }
+          }))
+        })}
+      </script>
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}

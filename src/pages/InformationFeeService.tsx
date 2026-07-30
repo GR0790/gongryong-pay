@@ -18,8 +18,22 @@ const InformationFeeService: React.FC = () => {
         title="정보이용료 현금화 콘텐츠이용료 현금화 수수료 싼곳"
         description="정보이용료 현금화, 콘텐츠이용료 현금화 전문! 구글 정보이용료 미납 한도 100% 현금화 가능. SKT KT LGU+ 수수료 최저가, 3분 즉시 입금 공룡페이입니다."
         keywords="정보이용료현금화, 콘텐츠이용료현금화, 구글정보이용료, 정보이용료 현금화 방법, 정보이용료 매입"
-        faqItems={faqData}
       />
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqData.map((item) => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": item.answer
+            }
+          }))
+        })}
+      </script>
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
