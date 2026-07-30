@@ -21,6 +21,47 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, noindex = false
   const siteUrl = "https://xn--ob0b39t2wlgzl.com";
   const canonicalUrl = `${siteUrl}${window.location.pathname}`;
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${siteUrl}/#organization`,
+    "name": "공룡페이",
+    "url": siteUrl,
+    "logo": `${siteUrl}/gongryong-mascot.webp`,
+    "image": `${siteUrl}/gongryong-mascot.webp`,
+    "description": "소액결제현금화 업계 1위. SKT·KT·LGU+ 모든 통신사 소액결제 현금화, 3분 즉시입금, 미납 99.9% 승인, 24시간 상담.",
+    "telephone": "+82-10-2138-0790",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "priceRange": "수수료 20~30%",
+    "areaServed": "KR",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+82-10-2138-0790",
+      "contactType": "customer service",
+      "availableLanguage": "Korean",
+      "hoursAvailable": "Mo-Su 00:00-24:00"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "1247",
+      "bestRating": "5"
+    }
+  };
+
+  const faqSchema = faqItems && faqItems.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  } : null;
+
   return (
     <Helmet>
       {/* 1. 제목: 브랜드를 가장 앞에 노출하거나 뒤에 고정 */}
@@ -54,51 +95,10 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, noindex = false
       <meta name="twitter:image:alt" content="공룡페이 마스코트" />
 
       {/* 6. 구조화 데이터 (JSON-LD): 구글에게 "우리는 브랜드다"라고 직접 말하기 */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "@id": `${siteUrl}/#organization`,
-          "name": "공룡페이",
-          "url": siteUrl,
-          "logo": `${siteUrl}/gongryong-mascot.webp`,
-          "image": `${siteUrl}/gongryong-mascot.webp`,
-          "description": "소액결제현금화 업계 1위. SKT·KT·LGU+ 모든 통신사 소액결제 현금화, 3분 즉시입금, 미납 99.9% 승인, 24시간 상담.",
-          "telephone": "+82-10-2138-0790",
-          "openingHours": "Mo-Su 00:00-24:00",
-          "priceRange": "수수료 20~30%",
-          "areaServed": "KR",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+82-10-2138-0790",
-            "contactType": "customer service",
-            "availableLanguage": "Korean",
-            "hoursAvailable": "Mo-Su 00:00-24:00"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "1247",
-            "bestRating": "5"
-          }
-        })}
-      </script>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
 
-      {faqItems && faqItems.length > 0 && (
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqItems.map((item) => ({
-              "@type": "Question",
-              "name": item.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.answer
-              }
-            }))
-          })}
-        </script>
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
     </Helmet>
   );
