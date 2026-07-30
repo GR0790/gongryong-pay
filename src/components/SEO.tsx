@@ -95,10 +95,14 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, noindex = false
       <meta name="twitter:image:alt" content="공룡페이 마스코트" />
 
       {/* 6. 구조화 데이터 (JSON-LD): 구글에게 "우리는 브랜드다"라고 직접 말하기 */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json">
+        {JSON.stringify(localBusinessSchema)}
+      </script>
 
       {faqSchema && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
       )}
     </Helmet>
   );
