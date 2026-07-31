@@ -314,6 +314,77 @@ const MicropaymentService: React.FC = () => {
             </div>
           </section>
 
+          {/* 관련 서비스 (교차 링크) */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-center">
+              관련 서비스 더 알아보기
+            </h2>
+            <p className="text-center text-gray-600 mb-8">
+              급전이 필요한 상황이라면 소액결제 외에도 다양한 현금화 방법이 있습니다. 상황에 맞는 서비스를 함께 확인해보세요.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link
+              to="/services/information-fee"
+              className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 block"
+            >
+              <div className="text-center">
+                <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-2xl">💻</span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  정보이용료 현금화
+                </h3>
+                <p className="text-gray-600 text-sm mb-3">
+                  구글 정보이용료(콘텐츠이용료) 한도를 안전하게 현금화
+                </p>
+                <span className="text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors">
+                  정보이용료현금화 방법 보기 →
+                </span>
+              </div>
+            </Link>
+
+            <Link
+              to="/services/credit-card"
+              className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl hover:border-purple-200 transition-all duration-300 hover:-translate-y-1 block"
+            >
+              <div className="text-center">
+                <div className="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-2xl">💳</span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  신용카드 현금화
+                </h3>
+                <p className="text-gray-600 text-sm mb-3">
+                  신용카드 결제 한도를 활용한 비상금 마련
+                </p>
+                <span className="text-purple-600 font-semibold text-sm hover:text-purple-700 transition-colors">
+                  신용카드현금화 방법 보기 →
+                </span>
+              </div>
+            </Link>
+
+            <Link
+              to="/services/gift-card"
+              className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl hover:border-orange-200 transition-all duration-300 hover:-translate-y-1 block"
+            >
+              <div className="text-center">
+                <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-2xl">🎫</span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  상품권 현금화
+                </h3>
+                <p className="text-gray-600 text-sm mb-3">
+                  문화상품권·해피머니 등 각종 상품권 매입
+                </p>
+                <span className="text-orange-600 font-semibold text-sm hover:text-orange-700 transition-colors">
+                  상품권현금화 방법 보기 →
+                </span>
+              </div>
+            </Link>
+            </div>
+          </section>
+
           {/* CTA Section */}
           <section className="text-center">
             <div className="bg-green-600 rounded-2xl p-8 md:p-12 text-white">
