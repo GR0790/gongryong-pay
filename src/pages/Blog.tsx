@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
 import SEO from "../components/SEO";
 import { blogPosts as localBlogPosts } from "../data/blogPosts";
 
@@ -55,6 +56,7 @@ const Blog: React.FC = () => {
       />
       <section className="bg-gradient-to-br from-purple-50 to-purple-100 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
+            <Breadcrumb items={[{ label: "공룡페이", path: "/" }, { label: "정보 블로그" }]} />
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             공룡페이 정보 블로그
           </h1>

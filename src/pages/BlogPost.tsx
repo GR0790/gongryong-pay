@@ -2,6 +2,7 @@ import type React from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { blogPosts as localBlogPosts } from "../data/blogPosts";
+import Breadcrumb from "../components/Breadcrumb";
 import SEO from "../components/SEO";
 
 const BlogPost: React.FC = () => {
@@ -71,6 +72,13 @@ const BlogPost: React.FC = () => {
       <div className="min-h-screen bg-gray-50">
         <section className="bg-gradient-to-br from-purple-50 to-purple-100 py-12 md:py-20">
           <div className="container mx-auto px-4">
+            <Breadcrumb
+              items={[
+                { label: "공룡페이", path: "/" },
+                { label: "정보 블로그", path: "/blog" },
+                { label: post.fields.title },
+              ]}
+            />
             <nav className="mb-8">
               <Link
                 to="/blog"

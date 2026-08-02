@@ -1,6 +1,7 @@
 import type React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
 import SEO from "../components/SEO";
 
 const FAQ: React.FC = () => {
@@ -165,6 +166,7 @@ const FAQ: React.FC = () => {
 
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="container mx-auto px-4">
+          <Breadcrumb items={[{ label: "공룡페이", path: "/" }, { label: "자주묻는질문" }]} />
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               소액결제현금화 공룡페이{" "}

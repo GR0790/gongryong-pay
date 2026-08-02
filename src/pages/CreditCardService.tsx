@@ -1,5 +1,6 @@
 import type React from "react";
 import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
 import SEO from "../components/SEO"; // [추가됨] SEO 컴포넌트 불러오기
 
 const faqData = [
@@ -39,6 +40,7 @@ const CreditCardService: React.FC = () => {
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-purple-50 to-purple-100 py-12 md:py-20">
           <div className="container mx-auto px-4 text-center">
+            <Breadcrumb items={[{ label: "공룡페이", path: "/" }, { label: "신용카드 현금화" }]} />
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               신용카드 현금화: 신용카드 한도로 급전 마련 | 공룡페이
             </h1>

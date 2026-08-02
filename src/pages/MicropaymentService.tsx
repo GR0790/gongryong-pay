@@ -1,5 +1,6 @@
 import type React from "react";
 import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
 import SEO from "../components/SEO"; // [추가됨] SEO 컴포넌트 불러오기
 
 const faqData = [
@@ -40,6 +41,7 @@ const MicropaymentService: React.FC = () => {
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-green-50 to-green-100 py-12 md:py-20">
           <div className="container mx-auto px-4 text-center">
+            <Breadcrumb items={[{ label: "공룡페이", path: "/" }, { label: "소액결제 현금화" }]} />
             {/* H1 태그는 페이지의 핵심 주제를 담아야 검색엔진이 좋아합니다. */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               소액결제 현금화: 휴대폰만으로 초스피드 입금 | 공룡페이

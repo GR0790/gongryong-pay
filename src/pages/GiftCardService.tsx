@@ -1,5 +1,6 @@
 import type React from "react";
 import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
 import SEO from "../components/SEO"; // [추가됨] SEO 컴포넌트 불러오기
 
 const faqData = [
@@ -38,6 +39,7 @@ const GiftCardService: React.FC = () => {
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-orange-50 to-orange-100 py-12 md:py-20">
           <div className="container mx-auto px-4 text-center">
+            <Breadcrumb items={[{ label: "공룡페이", path: "/" }, { label: "상품권 현금화" }]} />
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               상품권 현금화: 각종 상품권을 현금으로 바꾸세요 | 공룡페이
             </h1>

@@ -1,5 +1,6 @@
 import type React from "react";
 import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
 import SEO from "../components/SEO";
 
 const Reviews: React.FC = () => {
@@ -138,6 +139,7 @@ const Reviews: React.FC = () => {
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-green-50 to-green-100 py-12 md:py-20">
           <div className="container mx-auto px-4 text-center">
+            <Breadcrumb items={[{ label: "공룡페이", path: "/" }, { label: "고객 후기" }]} />
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               공룡페이 고객 후기
             </h1>

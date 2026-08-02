@@ -1,6 +1,7 @@
 import type React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
 import SEO from "../components/SEO";
 
 const HowToUse: React.FC = () => {
@@ -264,9 +265,24 @@ const HowToUse: React.FC = () => {
         description="공룡페이 소액결제현금화 이용 방법. 상담 신청부터 3분 즉시입금까지 간단 4단계. 소액결제·정보이용료·신용카드·상품권 현금화 이용 가이드."
         keywords="소액결제현금화 방법, 소액결제 이용방법, 소액결제 현금화 절차, 공룡페이 이용방법"
       />
+      {/* 현재 화면에 표시 중인 가이드(activeGuide)의 단계와 1:1로 매칭되는 HowTo 스키마 */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": activeGuide.title,
+          "description": activeGuide.subtitle,
+          "step": activeGuide.steps.map((s) => ({
+            "@type": "HowToStep",
+            "name": s.title,
+            "text": s.description,
+          })),
+        })}
+      </script>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-green-50 to-green-100 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
+            <Breadcrumb items={[{ label: "공룡페이", path: "/" }, { label: "이용 방법" }]} />
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             공룡티켓 이용 방법 가이드 📚
           </h1>
