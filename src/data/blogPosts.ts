@@ -13,7 +13,7 @@ export const blogPosts: BlogPostItem[] = [
     fields: {
       id: 1,
       date: "2026-07-05",
-      title: "컬쳐랜드·해피머니·문화상품권 차이점과 사용처 완벽 정리",
+      title: "컬쳐랜드·해피머니·문화상품권 차이점 정리",
       category: "상품권 정보",
       tags: ["컬쳐랜드", "해피머니", "문화상품권", "상품권사용처"],
       image: "🎟️",
@@ -56,7 +56,7 @@ export const blogPosts: BlogPostItem[] = [
     fields: {
       id: 2,
       date: "2026-07-06",
-      title: "구글플레이 기프트카드 구매하고 게임·앱에 사용하는 방법",
+      title: "구글플레이 기프트카드 구매·사용 방법",
       category: "결제 가이드",
       tags: ["구글플레이", "기프트카드", "게임충전", "인앱결제"],
       image: "🎮",
@@ -99,7 +99,7 @@ export const blogPosts: BlogPostItem[] = [
     fields: {
       id: 3,
       date: "2026-07-07",
-      title: "휴대폰 소액결제 안전하게 쓰는 법 — 스미싱·명의도용 예방",
+      title: "휴대폰 소액결제 안전하게 쓰는 법",
       category: "안전가이드",
       tags: ["소액결제안전", "스미싱", "명의도용", "결제보안"],
       image: "🛡️",
@@ -146,7 +146,7 @@ export const blogPosts: BlogPostItem[] = [
     fields: {
       id: 4,
       date: "2026-07-08",
-      title: "모바일 기프티콘·상품권 선물하는 방법과 유효기간·환불 규정",
+      title: "모바일 기프티콘·상품권 선물하는 방법",
       category: "상품권 정보",
       tags: ["기프티콘", "모바일상품권", "선물하기", "환불규정"],
       image: "🎁",
@@ -193,7 +193,7 @@ export const blogPosts: BlogPostItem[] = [
     fields: {
       id: 5,
       date: "2026-07-09",
-      title: "정보이용료(콘텐츠이용료) 결제 차단·해제 방법 — 통신사별 정리",
+      title: "정보이용료 결제 차단·해제 방법 총정리",
       category: "한도관리",
       tags: ["정보이용료차단", "콘텐츠이용료", "자동결제해지", "자녀보호"],
       image: "🔒",
@@ -242,7 +242,7 @@ export const blogPosts: BlogPostItem[] = [
     fields: {
       id: 6,
       date: "2026-07-09",
-      title: "상품권 완전 정복 — 종류별 특징·구매처·사용법·환불 규정 A to Z",
+      title: "상품권 완전 정복 가이드 A to Z",
       category: "총정리 가이드",
       tags: ["상품권종류", "상품권환불", "상품권사용법", "기프티콘", "총정리"],
       image: "📖",
