@@ -8,7 +8,7 @@ const faqData = [
   { question: "소액결제 현금화 후 휴대폰 요금에 어떻게 청구되나요?", answer: "다음 달 휴대폰 요금과 함께 자동으로 청구됩니다." },
   { question: "소액결제 한도가 부족하거나 이미 사용한 경우에도 가능한가요?", answer: "한도 상황에 따라 달라질 수 있으니, 정확한 확인은 상담을 통해 안내받으실 수 있습니다." },
   { question: "소액결제 현금화 이용 후 신용도에 영향이 있나요?", answer: "통상적으로 휴대폰 소액결제는 신용정보에 영향을 주지 않지만, 연체시에는 영향이 있을 수 있습니다." },
-  { question: "소액결제 현금화는 완전히 합법적인 서비스인가요?", answer: "네, 정식 등록된 업체를 통한 소액결제 현금화는 합법입니다. 100% 안전 보장! 관련 궁금한 점이 있으시면 상담 시 정확한 안내를 받으실 수 있습니다." },
+  { question: "소액결제 현금화는 완전히 합법적인 서비스인가요?", answer: "네, 정식 등록된 업체를 통한 소액결제 현금화는 합법입니다. 안전하게 서비스를 제공하기 위해 노력합니다. 관련 궁금한 점이 있으시면 상담 시 정확한 안내를 받으실 수 있습니다." },
 ];
 
 const MicropaymentService: React.FC = () => {
@@ -18,7 +18,7 @@ const MicropaymentService: React.FC = () => {
       {/* 구글 검색 시 제목과 설명이 이렇게 나타납니다. */}
       <SEO 
         title="소액결제 현금화 80% 수수료 싼곳"
-        description="휴대폰 소액결제 현금화, 미납 정책 99.9% 승인! 업계 최저 수수료와 3분 입금을 보장하는 공룡페이 공식 안내 페이지입니다. SKT, KT, LGU+ 모두 가능합니다."
+        description="휴대폰 소액결제 현금화, 미납 정책도 상담 가능! 합리적인 수수료와 3분 입금을 제공하는 공룡페이 공식 안내 페이지입니다. SKT, KT, LGU+ 모두 가능합니다."
         keywords="소액결제현금화, 휴대폰소액결제, 소액결제 현금화 수수료, 미납 소액결제"
       />
 
@@ -115,8 +115,8 @@ const MicropaymentService: React.FC = () => {
                       </li>
                       <li className="flex items-center">
                         <span className="w-2 h-2 bg-green-600 rounded-full mr-3" />
-                        안전 보장: 24시간 전문 상담진이 안전한 거래를
-                        보장해드립니다. (관련 법규 준수)
+                        안전 지원: 24시간 전문 상담진이 안전한 거래를 위해
+                        노력합니다. (관련 법규 준수)
                       </li>
                     </ul>
                   </div>
@@ -175,7 +175,7 @@ const MicropaymentService: React.FC = () => {
                   <span className="text-2xl">⚡</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  🕒 업계 최고 속도 처리
+                  🕒 빠른 처리 속도
                 </h3>
                 <p className="text-gray-600">
                   상담부터 입금까지 평균 3분! 긴급한 상황에도 신속하게
@@ -201,7 +201,7 @@ const MicropaymentService: React.FC = () => {
                   <span className="text-2xl">🛡️</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  🔒 안전 보장 거래
+                  🔒 안전 거래 시스템
                 </h3>
                 <p className="text-gray-600">
                   정식 등록 업체로 모든 거래는 합법적이며, 개인정보는 철저히
@@ -291,8 +291,8 @@ const MicropaymentService: React.FC = () => {
                     인가요?
                   </h4>
                   <p className="text-gray-700">
-                    네, 정식 등록된 업체를 통한 소액결제 현금화는 합법입니다. 100%
-                    안전 보장! 관련 궁금한 점이 있으시면,{" "}
+                    네, 정식 등록된 업체를 통한 소액결제 현금화는 합법입니다.
+                    안전하게 서비스를 제공하기 위해 노력합니다. 관련 궁금한 점이 있으시면,{" "}
                     <Link
                       to="/contact"
                       className="text-green-600 hover:text-green-700"
@@ -396,7 +396,7 @@ const MicropaymentService: React.FC = () => {
               <p className="text-lg md:text-xl mb-8 opacity-90">
                 급한 비상금이 필요한 상황? 복잡한 절차는 NO! 공룡페이에서 소액결제
                 현금화로 신속하게 해결하세요.24시간 언제든 상담 가능하며, 안전한
-                거래를 약속드립니다.
+                거래를 위해 최선을 다합니다.
               </p>
               <Link
                 to="/contact"
@@ -413,3 +413,4 @@ const MicropaymentService: React.FC = () => {
 };
 
 export default MicropaymentService;
+
