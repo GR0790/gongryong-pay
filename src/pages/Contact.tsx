@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
     <div className="min-h-screen bg-gray-50">
       <SEO
         title="상담센터 - 24시간 1:1 문의"
-        description="공룡페이 소액결제현금화 24시간 1:1 상담센터. 전화·채팅으로 언제든 문의하세요. 3분 즉시입금, 미납·정책 99.9% 승인 상담 안내."
+        description="공룡페이 소액결제현금화 24시간 1:1 상담센터. 전화·채팅으로 언제든 문의하세요. 3분 즉시입금, 미납·정책 상담 안내."
         keywords="공룡페이 상담, 소액결제현금화 상담, 소액결제 문의, 24시간 상담센터"
       />
       {/* Hero Section */}
@@ -116,12 +116,12 @@ const Contact: React.FC = () => {
             <div className="bg-blue-50 rounded-xl p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                 <span className="text-2xl mr-2">💰</span>
-                업계 최고 지급률
+                합리적인 지급률
               </h3>
               <p className="text-gray-700">
-                투명한 수수료 정책과 업계 최고 수준의 지급률로
+                투명한 수수료 정책과 합리적인 지급률로
                 <br />
-                고객님께 최대한의 혜택을 제공합니다.
+                고객님께 좋은 혜택을 제공합니다.
               </p>
             </div>
 
@@ -190,3 +190,4 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+
