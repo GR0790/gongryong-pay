@@ -5,7 +5,7 @@ import SEO from "../components/SEO"; // [추가됨] SEO 컴포넌트 불러오�
 
 const faqData = [
   { question: "정보이용료와 소액결제의 차이점은 무엇인가요?", answer: "정보이용료는 정보 서비스 이용 시 부과되는 요금이고, 소액결제는 콘텐츠 구매 시 사용됩니다. 정보이용료가 일반적으로 더 높은 한도를 제공합니다." },
-  { question: "정보이용료 현금화는 안전한가요?", answer: "네, 정식 등록된 업체를 통한 정보이용료 현금화는 100% 합법적이며 안전합니다. 개인정보 보호 및 거래 안전을 최우선으로 보장해드립니다." },
+  { question: "정보이용료 현금화는 안전한가요?", answer: "네, 정식 등록된 업체를 통한 정보이용료 현금화는 합법적이며 안전합니다. 개인정보 보호 및 거래 안전을 최우선으로 노력하고 있습니다." },
   { question: "정보이용료 한도가 부족한 경우에도 이용 가능한가요?", answer: "한도 상황에 따라 달라질 수 있습니다. 정확한 이용 가능 여부는 상담을 통해 실시간으로 확인해드립니다." },
   { question: "정보이용료 요금은 언제 청구되나요?", answer: "정보이용료는 다음 달 휴대폰 요금과 함께 자동으로 청구됩니다. 정확한 청구일은 각 통신사 요금 청구일과 동일합니다." },
   { question: "여러 통신사 정보이용료를 동시에 이용할 수 있나요?", answer: "본인 명의의 여러 번호가 있다면 각각의 한도를 활용해 이용 가능합니다. 자세한 내용은 상담을 통해 안내받으실 수 있습니다." },
@@ -17,7 +17,7 @@ const InformationFeeService: React.FC = () => {
       {/* [추가됨] 정보이용료 페이지 전용 SEO 설정 */}
       <SEO 
         title="정보이용료 현금화 콘텐츠이용료 현금화 수수료 싼곳"
-        description="정보이용료 현금화, 콘텐츠이용료 현금화 전문! 구글 정보이용료 미납 한도 100% 현금화 가능. SKT KT LGU+ 수수료 최저가, 3분 즉시 입금 공룡페이입니다."
+        description="정보이용료 현금화, 콘텐츠이용료 현금화 전문! 구글 정보이용료 미납 한도 현금화 가능. SKT KT LGU+ 합리적인 수수료, 3분 즉시 입금 공룡페이입니다."
         keywords="정보이용료현금화, 콘텐츠이용료현금화, 구글정보이용료, 정보이용료 현금화 방법, 정보이용료 매입"
       />
 
@@ -46,7 +46,7 @@ const InformationFeeService: React.FC = () => {
               정보이용료 현금화: 통신사 정보이용료 한도로 즉시 현금화 | 공룡페이
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              SKT, KT, LGU+ 통신사 정보이용료 한도를 100% 활용! 복잡한 절차 없이
+              SKT, KT, LGU+ 통신사 정보이용료 한도를 활용! 복잡한 절차 없이
               3분 안에 신속하게 현금화 해드립니다. 월 한도 최대 100만원까지 이용
               가능합니다.
             </p>
@@ -118,7 +118,7 @@ const InformationFeeService: React.FC = () => {
                       </li>
                       <li className="flex items-center">
                         <span className="w-2 h-2 bg-blue-600 rounded-full mr-3" />
-                        안전 거래: 정식 등록 업체로 안전하고 합법적인 거래 보장
+                        안전 거래: 정식 등록 업체로 안전하고 합법적인 거래를 위해 노력합니다
                       </li>
                     </ul>
                   </div>
@@ -217,10 +217,10 @@ const InformationFeeService: React.FC = () => {
                   <span className="text-2xl">🔒</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  🛡️ 안전 보장 거래
+                  🛡️ 안전 거래 시스템
                 </h3>
                 <p className="text-gray-600">
-                  정식 등록 업체로 개인정보 보호 및 안전한 거래를 보장합니다. (
+                  정식 등록 업체로 개인정보 보호 및 안전한 거래를 위해 노력합니다. (
                   <Link
                     to="/safety"
                     className="text-blue-600 hover:text-blue-700"
@@ -256,9 +256,9 @@ const InformationFeeService: React.FC = () => {
                     • 정보이용료 현금화는 안전한가요?
                   </h4>
                   <p className="text-gray-700">
-                    네, 정식 등록된 업체를 통한 정보이용료 현금화는 100%
+                    네, 정식 등록된 업체를 통한 정보이용료 현금화는
                     합법적이며 안전합니다. 개인정보 보호 및 거래 안전을 최우선으로
-                    보장해드립니다.
+                    노력하고 있습니다.
                   </p>
                 </div>
 
@@ -390,7 +390,7 @@ const InformationFeeService: React.FC = () => {
                 🦕 지금 바로, 정보이용료 현금화 상담받아보세요!
               </h2>
               <p className="text-lg md:text-xl mb-8 opacity-90">
-                SKT, KT, LGU+ 정보이용료 한도를 100% 활용해 급한 자금 문제를
+                SKT, KT, LGU+ 정보이용료 한도를 활용해 급한 자금 문제를
                 해결하세요. 복잡한 절차 없이 3분 만에 계좌로 입금 완료! 24시간
                 전문 상담진이 대기중입니다.
               </p>
@@ -409,3 +409,4 @@ const InformationFeeService: React.FC = () => {
 };
 
 export default InformationFeeService;
+
