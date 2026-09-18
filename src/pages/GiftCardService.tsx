@@ -5,7 +5,7 @@ import SEO from "../components/SEO"; // [추가됨] SEO 컴포넌트 불러오�
 
 const faqData = [
   { question: "핀번호만 있어도 매입 가능한가요?", answer: "네, 상품권의 핀번호(PIN)만 확인되면 즉시 매입 가능합니다. 실물 상품권이 없어도 문제 없습니다." },
-  { question: "수수료(지급률)는 얼마인가요?", answer: "상품권 종류와 시장 상황에 따라 다르지만, 보통 85% 내외의 높은 지급률을 보장해 드립니다. 정확한 시세는 상담 시 안내해 드립니다." },
+  { question: "수수료(지급률)는 얼마인가요?", answer: "상품권 종류와 시장 상황에 따라 다르지만, 보통 85% 내외의 지급률을 적용해 드립니다. 정확한 시세는 상담 시 안내해 드립니다." },
   { question: "입금까지 얼마나 걸리나요?", answer: "핀번호 확인 즉시 입금 처리되며, 통상적으로 5분 이내에 완료됩니다." },
   { question: "24시간 거래 가능한가요?", answer: "네, 공룡페이는 365일 24시간 운영되므로 언제든지 상품권 현금화 상담 및 거래가 가능합니다." },
 ];
@@ -16,7 +16,7 @@ const GiftCardService: React.FC = () => {
       {/* [추가됨] 상품권 페이지 전용 SEO 설정 */}
       <SEO 
         title="상품권 현금화 문화상품권·해피머니 매입 안내"
-        description="상품권 현금화 업계 최고가 매입! 문화상품권, 해피머니, 신세계상품권, 도서문화상품권 현금화. 24시간 5분 즉시 입금, 수수료 싼곳 공룡페이입니다."
+        description="상품권 현금화 합리적인 시세로 매입! 문화상품권, 해피머니, 신세계상품권, 도서문화상품권 현금화. 24시간 5분 즉시 입금, 수수료 싼곳 공룡페이입니다."
         keywords="상품권현금화, 문화상품권현금화, 해피머니현금화, 신세계상품권현금화, 상품권매입, 구글기프트카드현금화"
       />
 
@@ -45,7 +45,7 @@ const GiftCardService: React.FC = () => {
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               문화상품권, 해피머니, 도서상품권, 신세계상품권 등 보유하신 모든
-              상품권을 현금으로 바꿔드립니다! 최고 지급률과 신속한 처리로 급한
+              상품권을 현금으로 바꿔드립니다! 합리적인 지급률과 신속한 처리로 급한
               자금 문제를 해결하세요.
             </p>
             <Link
@@ -84,8 +84,8 @@ const GiftCardService: React.FC = () => {
                     >
                       공룡페이
                     </Link>
-                    에서는 다양한 종류의 상품권을 높은 지급률로 현금화해드리며,
-                    안전하고 신속한 거래를 보장합니다.
+                    에서는 다양한 종류의 상품권을 합리적인 지급률로 현금화해드리며,
+                    안전하고 신속한 거래를 위해 노력합니다.
                   </p>
 
                   <div className="space-y-3">
@@ -112,7 +112,7 @@ const GiftCardService: React.FC = () => {
                       </li>
                       <li className="flex items-center">
                         <span className="w-2 h-2 bg-orange-600 rounded-full mr-3" />
-                        높은 지급률: 업계 최고 수준의 지급률로 고객님의 손실을
+                        높은 지급률: 합리적인 지급률로 고객님의 손실을
                         최소화
                       </li>
                       <li className="flex items-center">
@@ -181,7 +181,7 @@ const GiftCardService: React.FC = () => {
                 <p className="text-gray-600">
                   상품권 현금화{" "}
                   <strong className="text-orange-600">지급률 75~85%</strong>로
-                  고객님의 상품권 가치를 최대한 보장해드립니다.
+                  고객님의 상품권 가치를 충분히 인정해드립니다.
                 </p>
               </div>
 
@@ -216,10 +216,10 @@ const GiftCardService: React.FC = () => {
                   <span className="text-2xl">🔒</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  🛡️ 안전 보장 거래
+                  🛡️ 안전 거래 시스템
                 </h3>
                 <p className="text-gray-600">
-                  정식 등록 업체로 개인정보 보호 및 안전한 거래를 보장합니다. (
+                  정식 등록 업체로 개인정보 보호 및 안전한 거래를 위해 노력합니다. (
                   <Link
                     to="/safety"
                     className="text-orange-600 hover:text-orange-700"
@@ -305,7 +305,7 @@ const GiftCardService: React.FC = () => {
                     • 수수료(지급률)는 얼마인가요?
                   </h4>
                   <p className="text-gray-700">
-                    상품권 종류와 시장 상황에 따라 다르지만, 보통 85% 내외의 높은 지급률을 보장해 드립니다. 정확한 시세는 상담 시 안내해 드립니다.
+                    상품권 종류와 시장 상황에 따라 다르지만, 보통 85% 내외의 지급률을 적용해 드립니다. 정확한 시세는 상담 시 안내해 드립니다.
                   </p>
                 </div>
 
@@ -419,7 +419,7 @@ const GiftCardService: React.FC = () => {
               </h2>
               <p className="text-lg md:text-xl mb-8 opacity-90">
                 사용하지 않는 상품권이 있으시다면 지금 바로 현금으로 바꿔보세요!
-                모든 종류 상품권 지원, 업계 최고 지급률, 5분 내 입금 완료! 24시간
+                모든 종류 상품권 지원, 합리적인 지급률, 5분 내 입금 완료! 24시간
                 전문 상담진이 대기중입니다.
               </p>
               <Link
@@ -437,3 +437,4 @@ const GiftCardService: React.FC = () => {
 };
 
 export default GiftCardService;
+
