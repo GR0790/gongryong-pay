@@ -17,7 +17,7 @@ const CreditCardService: React.FC = () => {
       {/* [추가됨] 신용카드 페이지 전용 SEO 설정 */}
       <SEO 
         title="신용카드 현금화 카드깡 아닌 정식 절차 안내"
-        description="신용카드 현금화, 카드깡 절대 아님! 합법적인 결제 한도 현금화 서비스. 수수료 싼곳, 지급률 88% 보장. 삼성/신한/현대 등 전 카드사 3분 즉시 입금 공룡페이."
+        description="신용카드 현금화, 카드깡 절대 아님! 합법적인 결제 한도 현금화 서비스. 수수료 싼곳, 지급률 최대 88%. 삼성/신한/현대 등 전 카드사 3분 즉시 입금 공룡페이."
         keywords="신용카드현금화, 카드깡아님, 카드한도현금화, 신용카드현금화수수료, 카드결제현금화, 비상금대출"
       />
 
@@ -47,7 +47,7 @@ const CreditCardService: React.FC = () => {
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               신용카드 결제 한도를 활용한 안전하고 빠른 현금화 서비스! 복잡한 절차
               없이 3분 안에 신속하게 현금을 마련하세요. 전 카드사 지원, 최대
-              1000만원까지, 지급률 82~88% 보장!
+              1000만원까지, 지급률 82~88%!
             </p>
             <Link
               to="/contact"
@@ -90,7 +90,7 @@ const CreditCardService: React.FC = () => {
                     <strong className="text-purple-600">
                       최대 1000만원까지, 지급률 82~88%
                     </strong>
-                    로 안전하고 합법적인 거래를 보장해드립니다.
+                    로 안전하고 합법적인 거래를 위해 노력합니다.
                   </p>
 
                   <div className="space-y-3">
@@ -220,10 +220,10 @@ const CreditCardService: React.FC = () => {
                   <span className="text-2xl">🔒</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  🛡️ 안전 보장 거래
+                  🛡️ 안전 거래 시스템
                 </h3>
                 <p className="text-gray-600">
-                  정식 등록 업체로 개인정보 보호 및 안전한 거래를 보장합니다. (
+                  정식 등록 업체로 개인정보 보호 및 안전한 거래를 위해 노력합니다. (
                   <Link
                     to="/safety"
                     className="text-purple-600 hover:text-purple-700"
@@ -479,7 +479,7 @@ const CreditCardService: React.FC = () => {
               </h2>
               <p className="text-lg md:text-xl mb-8 opacity-90">
                 보유하신 신용카드로 급한 자금 문제를 즉시 해결하세요! 전 카드사
-                지원, 업계 최고 지급률, 3분 내 입금 완료! 24시간 전문 상담진이
+                지원, 지급률 82~88%, 3분 내 입금 완료! 24시간 전문 상담진이
                 대기중입니다.
               </p>
               <Link
@@ -497,3 +497,4 @@ const CreditCardService: React.FC = () => {
 };
 
 export default CreditCardService;
+
