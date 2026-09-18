@@ -22,17 +22,17 @@ const HeroSection: React.FC = () => (
         <div className="flex-1 text-center">
           <div className="mb-4">
             <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-bold mb-2">
-              🔥 2026년 소액결제현금화 업계 1위! 공룡페이
+              🔥 2026년 소액결제현금화 공룡페이
             </div>
           </div>
           {/* [수정됨] 공룡페이 텍스트 추가 (SEO용) */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             <span className="sr-only">공룡페이</span>
             <span className="text-red-600">
-              소액결제현금화 미납·정책 99.9% 승인!
+              소액결제현금화 미납·정책도 상담 가능!
             </span>
             <br />
-            <span className="text-blue-600">정보이용료현금화</span> No.1
+            <span className="text-blue-600">정보이용료현금화</span>도 함께
             <br />
             <span className="text-green-600">3분 초스피드 입금 완료</span>
           </h1>
@@ -86,7 +86,7 @@ const HeroSection: React.FC = () => (
             까지,
             <br />
             <span className="text-red-600 font-bold">
-              미납/정책도 99.9% 승인, 5분이면 거래완료!
+              미납/정책도 상담 가능, 5분이면 거래완료!
             </span>
           </p>
 
@@ -98,10 +98,10 @@ const HeroSection: React.FC = () => (
               ⚡ 누적 3만건+ 거래실적
             </div>
             <div className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">
-              🛡️ 100% 안전거래 보장
+              🛡️ 안전거래 시스템
             </div>
             <div className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">
-              🕐 24시간 실시간 승인
+              🕐 24시간 실시간 상담
             </div>
           </div>
 
@@ -120,18 +120,18 @@ const HeroSection: React.FC = () => (
                   <div className="text-xs text-gray-500">소액결제 지급률</div>
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-purple-600">99.9%</div>
-                  <div className="text-xs text-gray-500">승인 성공률</div>
+                  <div className="text-xl font-bold text-purple-600">다수</div>
+                  <div className="text-xs text-gray-500">미납/정책 상담 사례</div>
                 </div>
               </div>
               <div className="text-xs text-gray-400 mt-3 border-t pt-2">
-                ⚡ 평균 2분 47초 입금완료 | 💯 고객만족도 99.9% | 🏆 누적 거래량 3만건+
+                ⚡ 평균 2분 47초 입금완료 | 🏆 누적 거래량 3만건+
               </div>
             </div>
           </div>
 
           <p className="text-sm text-gray-500 mt-4">
-            정식 사업자 등록 업체 공룡페이, 소액결제현금화 100% 안전거래 보장!
+            정식 사업자 등록 업체 공룡페이, 소액결제현금화 안전거래를 위해 노력합니다!
           </p>
         </div>
       </div>
@@ -148,7 +148,7 @@ const ServicesSection: React.FC = () => (
           공룡페이 소액결제현금화 핵심 서비스 안내
         </h2>
         <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
-          2026년 업계 최고 지급률!{" "}
+          2026년 다양한 현금화 서비스!{" "}
           <Link
             to="/services/micropayment"
             className="text-green-600 hover:underline"
@@ -219,7 +219,7 @@ const ServicesSection: React.FC = () => (
             <p className="text-gray-600 mb-4 text-sm md:text-base">
               구글 정보이용료(콘텐츠이용료) 등 남은 한도를 현금으로!{" "}
               <strong className="text-blue-600">지급률 60~70%</strong>, 빠르고
-              안전한 입금을 보장합니다.
+              안전한 입금을 위해 노력합니다.
             </p>
             <span className="text-green-600 font-semibold hover:text-green-700 transition-colors">
               정보이용료 방법 보기 →
@@ -280,10 +280,10 @@ const WhyChooseUsSection: React.FC = () => (
     <div className="container mx-auto px-4">
       <div className="text-center mb-12 md:mb-16">
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-          왜 공룡페이 소액결제현금화일까요? 업계 1위!
+          왜 공룡페이 소액결제현금화일까요?
         </h2>
         <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
-          풍부한 거래실적과 고객 만족도 99.9%로 증명된 신뢰!{" "}
+          풍부한 거래실적과 높은 고객 만족도로 증명된 신뢰!{" "}
           <Link
             to="/services/micropayment"
             className="text-green-600 hover:underline"
@@ -311,7 +311,7 @@ const WhyChooseUsSection: React.FC = () => (
           >
             상품권현금화
           </Link>{" "}
-          모든 서비스에서 업계 최고를 자부합니다.
+          모든 서비스에서 정직한 서비스를 약속합니다.
         </p>
       </div>
 
@@ -321,11 +321,11 @@ const WhyChooseUsSection: React.FC = () => (
             <span className="text-white text-3xl">🔥</span>
           </div>
           <h3 className="text-xl font-bold text-gray-900 mb-3">
-            미납·정책 99.9% 승인
+            미납·정책 상담 가능
           </h3>
           <p className="text-gray-600">
             다른 업체에서 거절당했나요? 공룡페이는{" "}
-            <strong className="text-red-600">미납·정책 99.9% 승인</strong>!
+            <strong className="text-red-600">미납·정책 관련 다수의 상담 사례</strong>를 보유하고 있습니다.
             포기하지 마시고 상담받아보세요.
           </p>
         </div>
@@ -367,7 +367,7 @@ const WhyChooseUsSection: React.FC = () => (
           </h3>
           <p className="text-gray-600">
             <strong className="text-purple-600">안정적인 거래규모 달성</strong>
-            ! 정식 사업자 등록으로 100% 안전거래를 보장합니다.
+            ! 정식 사업자 등록으로 안전거래를 위해 노력합니다.
           </p>
         </div>
       </div>
@@ -386,9 +386,9 @@ const WhyChooseUsSection: React.FC = () => (
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-green-600 mb-2">
-                99.9%
+                다수
               </div>
-              <div className="text-sm text-gray-600">승인 성공률</div>
+              <div className="text-sm text-gray-600">미납/정책 상담 사례</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-red-600 mb-2">
@@ -492,7 +492,7 @@ const ReviewsSection: React.FC = () => (
           </div>
           <p className="text-gray-700 text-sm md:text-base">
             "정말 급했는데 3분도 안되서 입금됐어요! 상담도 친절하시고
-            소액결제현금화 최고입니다. 공룡페이 덕분에 잘 해결했어요."
+            소액결제현금화 정말 만족스러웠습니다. 공룡페이 덕분에 잘 해결했어요."
           </p>
         </div>
 
@@ -616,8 +616,8 @@ const Home: React.FC = () => {
     <>
       {/* [추가됨] SEO 설정 적용 */}
       <SEO 
-        title="소액결제현금화 업계 1위" 
-        description="공룡페이는 소액결제현금화, 정보이용료현금화, 신용카드현금화 전문 브랜드입니다. 24시간 상담, 3분 입금, 미납 정책 99.9% 승인을 보장합니다."
+        title="소액결제현금화 3분 즉시입금" 
+        description="공룡페이는 소액결제현금화, 정보이용료현금화, 신용카드현금화 전문 브랜드입니다. 24시간 상담, 3분 입금, 미납 정책도 상담 가능합니다."
       />
 
       <HeroSection />
@@ -630,3 +630,4 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
