@@ -29,7 +29,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, noindex = false
     "url": siteUrl,
     "logo": `${siteUrl}/gongryong-mascot.webp`,
     "image": `${siteUrl}/gongryong-mascot.webp`,
-    "description": "소액결제현금화 업계 1위. SKT·KT·LGU+ 모든 통신사 소액결제 현금화, 3분 즉시입금, 미납 99.9% 승인, 24시간 상담.",
+    "description": "소액결제현금화 전문. SKT·KT·LGU+ 모든 통신사 소액결제 현금화, 3분 즉시입금, 미납 정책 상담 가능, 24시간 상담.",
     "telephone": "+82-10-2138-0790",
     "openingHours": "Mo-Su 00:00-24:00",
     "priceRange": "수수료 20~30%",
