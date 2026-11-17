@@ -224,10 +224,10 @@ const HeroSection: React.FC = () => (
         </div>
 
         <h1 className="display-hero mt-7 text-ink">
-          결제와 상품권,
+          복잡한 절차 없이,
           <br />
           <span className="bg-gradient-to-r from-violet-deep via-violet to-violet-light bg-clip-text text-transparent">
-            확인한 뒤 진행합니다.
+            상담부터 안내까지 한 번에.
           </span>
         </h1>
 
