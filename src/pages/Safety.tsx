@@ -8,7 +8,7 @@ const Safety: React.FC = () => {
     <div className="min-h-screen bg-gray-50">
       <SEO
         title="안전 거래 시스템 안내"
-        description="공룡페이 안전 거래 시스템. 정식 사업자 등록, 개인정보 보호를 통해 소액결제현금화를 안심하고 이용하세요."
+        description="공룡페이 안전 거래 시스템. 정식 상담 절차와 개인정보 보호를 통해 소액결제현금화를 안심하고 이용하세요."
         keywords="소액결제현금화 안전, 안전거래 안내, 공룡페이 안전, 소액결제 사기 예방"
       />
       {/* Hero Section */}
@@ -50,8 +50,7 @@ const Safety: React.FC = () => {
                 사업자 등록
               </h3>
               <p className="text-gray-600">
-                정식 사업자등록증과 통신판매업신고증을 보유한 합법적 운영
-                업체입니다.
+                진행 절차와 수수료를 상담 시 먼저 안내해 드립니다.
               </p>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg">

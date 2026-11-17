@@ -606,16 +606,10 @@ const Terms: React.FC = () => {
                 <h3 className="font-bold text-blue-800 mb-2">② 연락처</h3>
                 <div className="text-blue-700 space-y-1">
                   <p>
-                    <strong>상호:</strong> 공룡페이
+                    <strong>고객센터:</strong> 010-2138-0790
                   </p>
                   <p>
-                    <strong>주소:</strong> 서울특별시 강남구 테헤란로 123, 4층
-                  </p>
-                  <p>
-                    <strong>고객센터:</strong> 1:1 상담
-                  </p>
-                  <p>
-                    <strong>이메일:</strong> support@gongryongpay.com
+                    <strong>상담:</strong> 사이트 내 1:1 상담(채널톡)
                   </p>
                 </div>
               </div>

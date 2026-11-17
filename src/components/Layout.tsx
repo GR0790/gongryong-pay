@@ -411,11 +411,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
 
           <div className="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 text-left text-gray-500 text-xs">
-            <h4 className="font-bold text-gray-400 mb-2">업체 정보</h4>
-            <p>상호명: 공룡페이 | 대표: 김민수</p>
-            <p>사업자등록번호: 101-81-59985</p>
-            <p>주소: 서울시 강남구 테헤란로 27-5</p>
-            <p>고객센터: 010-2138-0790 | 이메일: benzamn779@gmail.com</p>
+            <p>고객센터: 010-2138-0790</p>
+            <p className="mt-1">사이트 내 1:1 상담(채널톡) 24시간 운영</p>
           </div>
           <div className="border-t border-gray-800 mt-6 pt-6 text-center text-gray-400">
             <p className="text-sm md:text-base">

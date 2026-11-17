@@ -10,7 +10,7 @@ const SITE = 'https://xn--ob0b39t2wlgzl.com';
 const ROUTE_META = {
   "/services/micropayment": {
     "title": "소액결제 현금화 80% 수수료 싼곳 | 공룡페이",
-    "description": "휴대폰 소액결제 현금화, 미납 정책 99.9% 승인! 업계 최저 수수료와 3분 입금을 보장하는 공룡페이 공식 안내 페이지입니다. SKT, KT, LGU+ 모두 가능합니다.",
+    "description": "휴대폰 소액결제 현금화, 미납·정책 상담! 수수료 사전 안내와 빠른 입금을 안내하는 공룡페이 공식 안내 페이지입니다. SKT, KT, LGU+ 모두 가능합니다.",
     "crumbs": [
       [
         "공룡페이",
@@ -24,7 +24,7 @@ const ROUTE_META = {
   },
   "/services/information-fee": {
     "title": "정보이용료 현금화 콘텐츠이용료 현금화 수수료 싼곳 | 공룡페이",
-    "description": "정보이용료 현금화, 콘텐츠이용료 현금화 전문! 구글 정보이용료 미납 한도 100% 현금화 가능. SKT KT LGU+ 수수료 최저가, 3분 즉시 입금 공룡페이입니다.",
+    "description": "정보이용료 현금화, 콘텐츠이용료 현금화 전문! 구글 정보이용료 미납 한도 현금화 가능 여부 상담. SKT KT LGU+ 수수료 사전 안내, 빠른 입금 안내 공룡페이입니다.",
     "crumbs": [
       [
         "공룡페이",
@@ -38,7 +38,7 @@ const ROUTE_META = {
   },
   "/services/credit-card": {
     "title": "신용카드 현금화 카드깡 아닌 정식 절차 안내 | 공룡페이",
-    "description": "신용카드 현금화, 카드깡 절대 아님! 합법적인 결제 한도 현금화 서비스. 수수료 싼곳, 지급률 88% 보장. 삼성/신한/현대 등 전 카드사 3분 즉시 입금 공룡페이.",
+    "description": "신용카드 현금화, 카드깡 아님! 정식 절차로 진행되는 결제 한도 현금화 안내. 수수료 싼곳, 지급률 88% 안내. 삼성/신한/현대 등 전 카드사 빠른 입금 안내 공룡페이.",
     "crumbs": [
       [
         "공룡페이",
@@ -52,7 +52,7 @@ const ROUTE_META = {
   },
   "/services/gift-card": {
     "title": "상품권 현금화 문화상품권·해피머니 매입 안내 | 공룡페이",
-    "description": "상품권 현금화 업계 최고가 매입! 문화상품권, 해피머니, 신세계상품권, 도서문화상품권 현금화. 24시간 5분 즉시 입금, 수수료 싼곳 공룡페이입니다.",
+    "description": "상품권 현금화 시세 확인 후 매입! 문화상품권, 해피머니, 신세계상품권, 도서문화상품권 현금화. 24시간 빠른 입금 안내, 수수료 싼곳 공룡페이입니다.",
     "crumbs": [
       [
         "공룡페이",
@@ -66,7 +66,7 @@ const ROUTE_META = {
   },
   "/how-to-use": {
     "title": "이용 방법 - 소액결제현금화 4단계 안내 | 공룡페이",
-    "description": "공룡페이 소액결제현금화 이용 방법. 상담 신청부터 3분 즉시입금까지 간단 4단계. 소액결제·정보이용료·신용카드·상품권 현금화 이용 가이드.",
+    "description": "공룡페이 소액결제현금화 이용 방법. 상담 신청부터 입금까지 간단 4단계. 소액결제·정보이용료·신용카드·상품권 현금화 이용 가이드.",
     "crumbs": [
       [
         "공룡페이",
@@ -107,8 +107,8 @@ const ROUTE_META = {
     ]
   },
   "/safety": {
-    "title": "안전 거래 시스템 - 100% 안전보장 | 공룡페이",
-    "description": "공룡페이 안전 거래 시스템. 정식 사업자 등록, 개인정보 보호, 100% 안전거래 보장으로 소액결제현금화를 안심하고 이용하세요.",
+    "title": "안전 거래 시스템 - 안전거래 안내 | 공룡페이",
+    "description": "공룡페이 안전 거래 시스템. 진행 절차 안내와 개인정보 보호로 소액결제현금화를 안심하고 이용하세요.",
     "crumbs": [
       [
         "공룡페이",
@@ -136,7 +136,7 @@ const ROUTE_META = {
   },
   "/contact": {
     "title": "상담센터 - 24시간 1:1 문의 | 공룡페이",
-    "description": "공룡페이 소액결제현금화 24시간 1:1 상담센터. 전화·채팅으로 언제든 문의하세요. 3분 즉시입금, 미납·정책 99.9% 승인 상담 안내.",
+    "description": "공룡페이 소액결제현금화 24시간 1:1 상담센터. 전화·채팅으로 언제든 문의하세요. 빠른 입금 안내, 미납·정책 상담 안내.",
     "crumbs": [
       [
         "공룡페이",
@@ -285,6 +285,36 @@ const ROUTE_META = {
     ]
   }
 };
+
+// blogPosts.ts에 있는 모든 글의 프리렌더 라우트를 자동으로 채웁니다.
+// (글을 추가할 때 ROUTE_META를 손으로 늘리지 않아도 마지막 글까지 404가 나지 않습니다.)
+const BLOG_BRAND = '공룡페이';
+const postsFile = path.resolve(process.cwd(), 'src/data/blogPosts.ts');
+if (fs.existsSync(postsFile)) {
+  const postsSource = fs.readFileSync(postsFile, 'utf-8');
+  let added = 0;
+  for (const block of postsSource.split(/sys: \{ id: "post-/).slice(1)) {
+    const idMatch = block.match(/id:\s*(\d+)/);
+    if (!idMatch) continue;
+    const id = Number(idMatch[1]);
+    const route = '/blog/' + id;
+    if (ROUTE_META[route]) continue;
+    const titleMatch = block.match(/title:\s*"((?:[^"\\]|\\.)*)"/);
+    const descMatch = block.match(/summary:\s*"((?:[^"\\]|\\.)*)"/) || block.match(/excerpt:\s*"((?:[^"\\]|\\.)*)"/);
+    const postTitle = titleMatch ? titleMatch[1] : '정보 블로그';
+    ROUTE_META[route] = {
+      "title": postTitle + ' | ' + BLOG_BRAND,
+      "description": descMatch ? descMatch[1].slice(0, 150) : '',
+      "crumbs": [
+        [BLOG_BRAND, '/'],
+        ['정보 블로그', '/blog/'],
+        [postTitle, route + '/']
+      ]
+    };
+    added++;
+  }
+  if (added > 0) console.log('Added ' + added + ' blog routes from blogPosts.ts');
+}
 
 function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
 

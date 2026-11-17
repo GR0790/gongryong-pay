@@ -8,7 +8,7 @@ const faqData = [
   { question: "소액결제 현금화 후 휴대폰 요금에 어떻게 청구되나요?", answer: "다음 달 휴대폰 요금과 함께 자동으로 청구됩니다." },
   { question: "소액결제 한도가 부족하거나 이미 사용한 경우에도 가능한가요?", answer: "한도 상황에 따라 달라질 수 있으니, 정확한 확인은 상담을 통해 안내받으실 수 있습니다." },
   { question: "소액결제 현금화 이용 후 신용도에 영향이 있나요?", answer: "통상적으로 휴대폰 소액결제는 신용정보에 영향을 주지 않지만, 연체시에는 영향이 있을 수 있습니다." },
-  { question: "소액결제 현금화는 완전히 합법적인 서비스인가요?", answer: "네, 정식 등록된 업체를 통한 소액결제 현금화는 합법입니다. 안전하게 서비스를 제공하기 위해 노력합니다. 관련 궁금한 점이 있으시면 상담 시 정확한 안내를 받으실 수 있습니다." },
+  { question: "소액결제 현금화는 완전히 합법적인 서비스인가요?", answer: "상담 시 진행 절차와 수수료를 먼저 안내받은 뒤 진행하시는 것이 안전합니다. 안전하게 서비스를 제공하기 위해 노력합니다. 관련 궁금한 점이 있으시면 상담 시 정확한 안내를 받으실 수 있습니다." },
 ];
 
 const MicropaymentService: React.FC = () => {
@@ -18,7 +18,7 @@ const MicropaymentService: React.FC = () => {
       {/* 구글 검색 시 제목과 설명이 이렇게 나타납니다. */}
       <SEO 
         title="소액결제 현금화 80% 수수료 싼곳"
-        description="휴대폰 소액결제 현금화, 미납 정책도 상담 가능! 합리적인 수수료와 3분 입금을 제공하는 공룡페이 공식 안내 페이지입니다. SKT, KT, LGU+ 모두 가능합니다."
+        description="휴대폰 소액결제 현금화, 미납 정책도 상담 가능! 합리적인 수수료와 빠른 입금을 제공하는 공룡페이 공식 안내 페이지입니다. SKT, KT, LGU+ 모두 가능합니다."
         keywords="소액결제현금화, 휴대폰소액결제, 소액결제 현금화 수수료, 미납 소액결제"
       />
 
@@ -111,7 +111,7 @@ const MicropaymentService: React.FC = () => {
                       </li>
                       <li className="flex items-center">
                         <span className="w-2 h-2 bg-green-600 rounded-full mr-3" />
-                        빠른 처리: 상담부터 입금까지 평균 3분 내 완료됩니다.
+                        빠른 처리: 상담 후 결제 확인이 끝나면 입금이 진행됩니다.
                       </li>
                       <li className="flex items-center">
                         <span className="w-2 h-2 bg-green-600 rounded-full mr-3" />
@@ -178,7 +178,7 @@ const MicropaymentService: React.FC = () => {
                   🕒 빠른 처리 속도
                 </h3>
                 <p className="text-gray-600">
-                  상담부터 입금까지 평균 3분! 긴급한 상황에도 신속하게
+                  상담 후 결제 확인이 끝나는 대로 입금을 진행합니다. 긴급한 상황에도
                   대응해드립니다.
                 </p>
               </div>
@@ -204,7 +204,7 @@ const MicropaymentService: React.FC = () => {
                   🔒 안전 거래 시스템
                 </h3>
                 <p className="text-gray-600">
-                  정식 등록 업체로 모든 거래는 합법적이며, 개인정보는 철저히
+                  모든 거래는 사전 안내 후 진행되며, 개인정보는 철저히
                   보호됩니다. (
                   <Link
                     to="/safety"
@@ -287,11 +287,11 @@ const MicropaymentService: React.FC = () => {
 
                 <div>
                   <h4 className="text-lg font-bold text-gray-900 mb-2">
-                    • <strong>소액결제 현금화는 완전히 합법적인 서비스</strong>
-                    인가요?
+                    • <strong>소액결제 현금화 이용 시 유의사항</strong>
+                    은 무엇인가요?
                   </h4>
                   <p className="text-gray-700">
-                    네, 정식 등록된 업체를 통한 소액결제 현금화는 합법입니다.
+                    상담 시 진행 절차와 수수료를 먼저 안내받은 뒤 진행하시는 것이 안전합니다.
                     안전하게 서비스를 제공하기 위해 노력합니다. 관련 궁금한 점이 있으시면,{" "}
                     <Link
                       to="/contact"

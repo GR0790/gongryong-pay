@@ -4,7 +4,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import SEO from "../components/SEO"; // [추가됨] SEO 컴포넌트 불러오기
 
 const faqData = [
-  { question: "신용카드 현금화는 합법적인 서비스인가요?", answer: "정식 등록된 업체를 통한 신용카드 현금화는 합법적인 서비스입니다. 다만, 개인의 신용도 관리에는 주의가 필요합니다." },
+  { question: "신용카드 현금화는 합법적인 서비스인가요?", answer: "진행 절차와 수수료를 사전에 안내받은 뒤 이용하시는 것이 안전합니다. 다만, 개인의 신용도 관리에는 주의가 필요합니다." },
   { question: "신용카드 결제 후 언제 청구되나요?", answer: "일반적으로 다음 달 카드 결제일에 청구됩니다. 정확한 결제일은 각 카드사 및 개인별 결제일에 따라 다릅니다." },
   { question: "신용카드 한도가 부족한 경우에도 이용 가능한가요?", answer: "사용 가능한 한도 내에서만 이용 가능합니다. 정확한 이용 가능 금액은 상담을 통해 실시간으로 확인해드립니다." },
   { question: "신용점수에 영향을 주나요?", answer: "정상적인 카드 결제로 처리되므로 일반적으로 신용점수에 부정적 영향을 주지 않습니다. 다만, 연체 시에는 신용점수에 영향을 줄 수 있습니다." },
@@ -17,7 +17,7 @@ const CreditCardService: React.FC = () => {
       {/* [추가됨] 신용카드 페이지 전용 SEO 설정 */}
       <SEO 
         title="신용카드 현금화 카드깡 아닌 정식 절차 안내"
-        description="신용카드 현금화, 카드깡 절대 아님! 합법적인 결제 한도 현금화 서비스. 수수료 싼곳, 지급률 최대 88%. 삼성/신한/현대 등 전 카드사 3분 즉시 입금 공룡페이."
+        description="신용카드 현금화, 카드깡 아님! 정식 절차로 진행되는 결제 한도 현금화 안내. 수수료 싼곳, 지급률 88% 안내. 삼성/신한/현대 등 전 카드사 빠른 입금 안내 공룡페이."
         keywords="신용카드현금화, 카드깡아님, 카드한도현금화, 신용카드현금화수수료, 카드결제현금화, 비상금대출"
       />
 
@@ -90,7 +90,7 @@ const CreditCardService: React.FC = () => {
                     <strong className="text-purple-600">
                       최대 1000만원까지, 지급률 82~88%
                     </strong>
-                    로 안전하고 합법적인 거래를 위해 노력합니다.
+                     로 안내드리며, 수수료는 상담 시 사전에 확인하실 수 있습니다.
                   </p>
 
                   <div className="space-y-3">
@@ -121,7 +121,7 @@ const CreditCardService: React.FC = () => {
                       </li>
                       <li className="flex items-center">
                         <span className="w-2 h-2 bg-purple-600 rounded-full mr-3" />
-                        신속 처리: 상담부터 입금까지 평균 3분 내 완료
+                        신속 처리: 상담 후 결제 확인이 끝나면 입금 진행
                       </li>
                     </ul>
                   </div>
@@ -194,11 +194,11 @@ const CreditCardService: React.FC = () => {
                   <span className="text-2xl">⚡</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  🚀 초고속 처리
+                  🚀 빠른 처리 안내
                 </h3>
                 <p className="text-gray-600">
-                  상담부터 입금까지 평균 3분! 급한 자금이 필요한 상황에서 즉시
-                  해결해드립니다.
+                  상담 후 결제 확인이 끝나는 대로 입금을 진행합니다.
+                  급한 자금이 필요할 때 상담으로 안내해 드립니다.
                 </p>
               </div>
 
@@ -223,7 +223,7 @@ const CreditCardService: React.FC = () => {
                   🛡️ 안전 거래 시스템
                 </h3>
                 <p className="text-gray-600">
-                  정식 등록 업체로 개인정보 보호 및 안전한 거래를 위해 노력합니다. (
+                  개인정보 보호 및 안전한 거래를 위해 노력합니다. (
                   <Link
                     to="/safety"
                     className="text-purple-600 hover:text-purple-700"
@@ -334,8 +334,7 @@ const CreditCardService: React.FC = () => {
                     • 신용카드 현금화는 합법적인 서비스인가요?
                   </h4>
                   <p className="text-gray-700">
-                    정식 등록된 업체를 통한 신용카드 현금화는 합법적인
-                    서비스입니다. 다만, 개인의 신용도 관리에는 주의가 필요합니다.
+                    신용카드 현금화는 진행 절차와 수수료를 사전에 안내받은 뒤 이용하시는 것이 안전합니다. 다만, 개인의 신용도 관리에는 주의가 필요합니다.
                   </p>
                 </div>
 

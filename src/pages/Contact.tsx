@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
     <div className="min-h-screen bg-gray-50">
       <SEO
         title="상담센터 - 24시간 1:1 문의"
-        description="공룡페이 소액결제현금화 24시간 1:1 상담센터. 전화·채팅으로 언제든 문의하세요. 3분 즉시입금, 미납·정책 상담 안내."
+        description="공룡페이 소액결제현금화 24시간 1:1 상담센터. 전화·채팅으로 언제든 문의하세요. 빠른 입금 안내, 미납·정책 상담 안내."
         keywords="공룡페이 상담, 소액결제현금화 상담, 소액결제 문의, 24시간 상담센터"
       />
       {/* Hero Section */}
@@ -107,7 +107,7 @@ const Contact: React.FC = () => {
                 안전한 개인정보 보호
               </h3>
               <p className="text-gray-700">
-                정식 사업자 등록 업체로 고객님의 개인정보를
+                고객님의 개인정보를
                 <br />
                 안전하게 보호하며, 모든 상담 내용은 암호화됩니다.
               </p>
@@ -128,12 +128,12 @@ const Contact: React.FC = () => {
             <div className="bg-purple-50 rounded-xl p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                 <span className="text-2xl mr-2">🚀</span>
-                3분 초고속 처리
+                빠른 처리 안내
               </h3>
               <p className="text-gray-700">
-                상담부터 입금까지 평균 3분!
+                상담 후 결제 확인이 끝나는 대로 입금을 진행합니다.
                 <br />
-                급한 비상금이 필요할 때 즉시 해결해드립니다.
+                급한 비상금이 필요할 때 순차적으로 안내해 드립니다.
               </p>
             </div>
           </div>

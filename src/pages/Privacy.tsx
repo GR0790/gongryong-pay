@@ -91,54 +91,16 @@ const Privacy: React.FC = () => {
             </div>
           </div>
 
-          {/* 회사 정보 */}
+          {/* 상담 안내 */}
           <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              🏢 회사 정보
+              ☎️ 상담 안내
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-3">
-                <div className="flex">
-                  <span className="w-24 text-gray-600 font-semibold">
-                    상호명:
-                  </span>
-                  <span className="text-gray-800">공룡페이</span>
-                </div>
-                <div className="flex">
-                  <span className="w-24 text-gray-600 font-semibold">
-                    대표자:
-                  </span>
-                  <span className="text-gray-800">김공룡</span>
-                </div>
-                <div className="flex">
-                  <span className="w-24 text-gray-600 font-semibold">
-                    주소:
-                  </span>
-                  <span className="text-gray-800">
-                    서울특별시 강남구 테헤란로 123, 4층
-                  </span>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex">
-                  <span className="w-32 text-gray-600 font-semibold">
-                    사업자등록번호:
-                  </span>
-                  <span className="text-gray-800">123-45-67890</span>
-                </div>
-                <div className="flex">
-                  <span className="w-32 text-gray-600 font-semibold">
-                    통신판매업신고:
-                  </span>
-                  <span className="text-gray-800">제2024-서울강남-0001호</span>
-                </div>
-                <div className="flex">
-                  <span className="w-32 text-gray-600 font-semibold">
-                    고객센터:
-                  </span>
-                  <span className="text-gray-800">1:1 상담</span>
-                </div>
-              </div>
+            <div className="text-gray-700 space-y-2">
+              <p>
+                개인정보 처리와 관련한 문의는 고객센터(010-2138-0790) 또는 사이트
+                내 1:1 상담(채널톡)으로 접수해 주시면 확인 후 안내드립니다.
+              </p>
             </div>
           </div>
 
@@ -403,10 +365,6 @@ const Privacy: React.FC = () => {
                     <p className="text-sm">실시간 상담을 통한 즉시 처리</p>
                   </div>
                   <div>
-                    <p className="font-semibold">이메일 문의</p>
-                    <p className="text-sm">privacy@gongryongpay.com</p>
-                  </div>
-                  <div>
                     <p className="font-semibold">처리기간</p>
                     <p className="text-sm">접수 후 지체없이 처리 (10일 이내)</p>
                   </div>
@@ -508,53 +466,16 @@ const Privacy: React.FC = () => {
               7. 개인정보 보호책임자
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-blue-50 rounded-lg p-6">
-                <h3 className="text-lg font-bold text-blue-800 mb-4">
-                  👨‍💼 개인정보보호책임자
-                </h3>
-                <div className="space-y-2 text-blue-700">
-                  <div className="flex">
-                    <span className="w-16 font-semibold">성명:</span>
-                    <span>김개인</span>
-                  </div>
-                  <div className="flex">
-                    <span className="w-16 font-semibold">직책:</span>
-                    <span>이사</span>
-                  </div>
-                  <div className="flex">
-                    <span className="w-16 font-semibold">연락처:</span>
-                    <span>카카오톡 상담</span>
-                  </div>
-                  <div className="flex">
-                    <span className="w-16 font-semibold">이메일:</span>
-                    <span>privacy@gongryongpay.com</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-green-50 rounded-lg p-6">
-                <h3 className="text-lg font-bold text-green-800 mb-4">
-                  👨‍💻 개인정보보호담당자
-                </h3>
-                <div className="space-y-2 text-green-700">
-                  <div className="flex">
-                    <span className="w-16 font-semibold">성명:</span>
-                    <span>박보호</span>
-                  </div>
-                  <div className="flex">
-                    <span className="w-16 font-semibold">직책:</span>
-                    <span>팀장</span>
-                  </div>
-                  <div className="flex">
-                    <span className="w-16 font-semibold">연락처:</span>
-                    <span>카카오톡 상담</span>
-                  </div>
-                  <div className="flex">
-                    <span className="w-16 font-semibold">이메일:</span>
-                    <span>privacy@gongryongpay.com</span>
-                  </div>
-                </div>
+            <div className="bg-blue-50 rounded-lg p-6">
+              <h3 className="text-lg font-bold text-blue-800 mb-4">
+                💬 개인정보 관련 문의
+              </h3>
+              <div className="space-y-2 text-blue-700">
+                <p>
+                  개인정보 열람·정정·삭제 요청은 고객센터(010-2138-0790) 또는
+                  사이트 내 1:1 상담(채널톡)으로 접수해 주시면 확인 후
+                  안내드립니다.
+                </p>
               </div>
             </div>
 
