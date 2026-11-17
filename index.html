@@ -99,6 +99,23 @@
       }
     }
     </script>
+    <!-- WebSite 구조화 데이터 (사이트 이름·언어·운영 주체) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "공룡페이",
+      "alternateName": "Gongryong Pay",
+      "url": "https://xn--ob0b39t2wlgzl.com/",
+      "inLanguage": "ko-KR",
+      "publisher": {
+        "@type": "Organization",
+        "name": "공룡페이",
+        "url": "https://xn--ob0b39t2wlgzl.com/",
+        "logo": "https://xn--ob0b39t2wlgzl.com/gongryong-mascot.webp"
+      }
+    }
+    </script>
 
     <style>
       /* ───────── 상담 정보 입력 모달 ─────────
@@ -315,15 +332,30 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div id="root"></div>
+    <!-- JS 없이 방문하는 크롤러용 안내문. scripts/prerender-routes.js가 하위 페이지에서는 이 구간을 페이지별 문구로 바꿉니다. -->
+    <!--seo-noscript-start-->
     <noscript>
-      <div style="max-width: 640px; margin: 72px auto; padding: 0 24px; font-family: 'Pretendard', sans-serif; color: #0b1020">
-        <h1 style="font-size: 22px">공룡페이</h1>
-        <p style="line-height: 1.8; color: #48536b">
-          상품권 매입, 휴대폰 소액결제·신용카드 상품권 구매, 정보이용료 게임재화 구매 절차를 안내하는
-          사이트입니다. 24시간 1:1 상담은 전화 010-2138-0790으로 문의해 주세요.
+      <div style="max-width: 720px; margin: 56px auto; padding: 0 24px; font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; color: #0b1020; line-height: 1.75">
+        <h1 style="font-size: 24px; font-weight: 700; margin: 0 0 12px">공룡페이 — 상품권 매입·모바일 상품권 구매 절차 안내</h1>
+        <p style="margin: 0 0 18px; color: #48536b">
+          상품권 매입, 휴대폰 소액결제·신용카드 상품권 구매, 정보이용료 게임재화 구매 절차를 안내하는 사이트입니다.
+          확인할 항목을 먼저 정리하고 가능한 범위와 조건을 안내한 뒤 진행합니다. 24시간 1:1 상담은 전화 010-2138-0790으로 문의해 주세요.
         </p>
+        <p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; color: #334155">바로가기</p>
+        <ul style="margin: 0; padding-left: 18px; font-size: 14px">
+          <li><a href="/services/gift-card/">상품권 매입</a></li>
+          <li><a href="/services/micropayment/">휴대폰 소액결제</a></li>
+          <li><a href="/services/credit-card/">신용카드 구매</a></li>
+          <li><a href="/services/information-fee/">정보이용료 게임재화</a></li>
+          <li><a href="/how-to-use/">이용 절차</a></li>
+          <li><a href="/faq/">자주 묻는 질문</a></li>
+          <li><a href="/blog/">이야기</a></li>
+          <li><a href="/contact/">상담</a></li>
+        </ul>
+        <p style="margin: 18px 0 0; font-size: 13px; color: #6e7789">공룡페이 · 채널톡 1:1 상담 24시간 접수 · 전화 010-2138-0790</p>
       </div>
     </noscript>
+    <!--seo-noscript-end-->
     <script type="module" src="/src/main.tsx"></script>
 
     <div id="login-modal" style="display:none;">
