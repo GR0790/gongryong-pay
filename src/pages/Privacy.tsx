@@ -103,7 +103,7 @@ const Privacy: React.FC = () => (
   <>
     <SEO
       title="개인정보처리방침"
-      description="공룡페이 개인정보처리방침. 상담 과정에서 확인하는 정보의 항목, 처리 목적, 보유 기간, 이용자의 권리를 안내합니다."
+      description="상담 한 번에 어떤 정보를 받고, 얼마나 두었다가 어떻게 지우는지 정리했습니다. 쿠키와 광고 도구 사용, 이용자가 직접 요청할 수 있는 절차도 함께 적었습니다."
     />
     <PageHero
       eyebrow="Privacy policy"

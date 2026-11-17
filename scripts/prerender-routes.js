@@ -46,7 +46,7 @@ const ROUTE_META = {
   '/faq': {
     title: '자주 묻는 질문 | 공룡페이',
     description:
-      '상담 이용 방법, 상품권 매입 조건, 휴대폰·카드 결제, 정보이용료 게임재화, 개인정보 처리까지 자주 묻는 질문을 정리했습니다.',
+      '수단별로 자주 나오는 질문을 모았습니다. 상품권·카드·휴대폰·게임재화 각각 무엇을 먼저 확인하는지, 상담은 어떻게 시작하는지 답합니다.',
     crumbs: [['공룡페이', '/'], ['자주 묻는 질문', '/faq/']],
   },
   '/blog': {
@@ -58,17 +58,17 @@ const ROUTE_META = {
   '/contact': {
     title: '상담 — 채널톡 1:1 문의 | 공룡페이',
     description:
-      '공룡페이 상담 안내. 상담 버튼을 누르면 성함과 연락처를 한 번 확인한 뒤 채널톡 1:1 상담으로 바로 연결됩니다.',
+      '상황을 한 줄로 적고 성함과 연락처를 남기면 맞는 창구의 상담으로 이어집니다. 통화로 확인한 조건도 채팅 기록에 함께 남겨 드립니다.',
     crumbs: [['공룡페이', '/'], ['상담', '/contact/']],
   },
   '/privacy': {
     title: '개인정보처리방침 | 공룡페이',
-    description: '공룡페이 개인정보처리방침. 상담 과정에서 확인하는 정보의 항목과 목적, 보유 기간, 이용자의 권리를 안내합니다.',
+    description: '상담 한 번에 어떤 정보를 받고, 얼마나 두었다가 어떻게 지우는지 정리했습니다. 쿠키와 광고 도구 사용, 이용자가 직접 요청할 수 있는 절차도 함께 적었습니다.',
     crumbs: [['공룡페이', '/'], ['개인정보처리방침', '/privacy/']],
   },
   '/terms': {
     title: '이용약관 | 공룡페이',
-    description: '공룡페이 이용약관. 상담 서비스의 성격과 이용 조건, 이용자의 의무, 책임의 범위를 안내합니다.',
+    description: '상담으로 안내하는 서비스의 범위와 이용 조건, 이용자가 지켜야 할 선, 회사가 책임지지 않는 경우를 정리한 약관입니다.',
     crumbs: [['공룡페이', '/'], ['이용약관', '/terms/']],
   },
 };
@@ -205,11 +205,11 @@ function noscriptBlock(route, heading, description) {
       <div style="max-width: 720px; margin: 56px auto; padding: 0 24px; font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; color: #0b1020; line-height: 1.75">
         <h1 style="font-size: 24px; font-weight: 700; margin: 0 0 12px">${esc(heading)}</h1>
         <p style="margin: 0 0 18px; color: #48536b">${esc(description)}</p>
-        <p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; color: #334155">바로가기</p>
+        <p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; color: #334155">네 개의 창구</p>
         <ul style="margin: 0; padding-left: 18px; font-size: 14px">
 ${links}
         </ul>
-        <p style="margin: 18px 0 0; font-size: 13px; color: #6e7789">${esc(BRAND)} · 채널톡 1:1 상담 24시간 접수 · 전화 010-2138-0790</p>
+        <p style="margin: 18px 0 0; font-size: 13px; color: #6e7789">${esc(BRAND)} · 수단별 1:1 안내 · 채널톡 상담 24시간 · 전화 010-2138-0790</p>
       </div>
     </noscript>
     <!--seo-noscript-end-->`;

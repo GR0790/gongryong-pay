@@ -9,7 +9,7 @@ import { site } from "../data/site";
 import { openConsult } from "../lib/consult";
 
 const heroValues = [
-  { value: "4", unit: "가지", label: "이용 안내", note: "상품권 · 결제 · 게임재화" },
+  { value: "4", unit: "곳", label: "이용 창구", note: "상황에 맞는 한 곳" },
   { value: "24", unit: "시간", label: "상담 접수", note: "채널톡 1:1" },
   { value: "1:1", unit: "", label: "담당자 확인", note: "조건을 먼저 안내" },
   { value: "0", unit: "원", label: "상담 비용", note: "진행 전까지 무료" },
@@ -19,22 +19,22 @@ const steps = [
   {
     no: "01",
     title: "상담 접수",
-    body: "성함과 연락처를 한 번만 남기면 채널톡 1:1 상담창이 열립니다. 다음부터는 같은 번호로 이어집니다.",
+    body: "하려는 일만 말하고 성함과 연락처를 남기면 됩니다. 상담창은 바로 열립니다.",
   },
   {
     no: "02",
     title: "보유·결제 확인",
-    body: "상품권 종류와 잔액, 또는 결제 수단과 남은 한도를 확인합니다. 사진이나 링크로 알려주셔도 됩니다.",
+    body: "가진 상품권인지, 결제해서 살 것인지에 따라 보는 항목이 달라집니다. 사진이나 링크로 알려주셔도 됩니다.",
   },
   {
     no: "03",
     title: "조건 안내",
-    body: "가능 여부와 조건, 필요한 순서를 먼저 말씀드립니다. 확인되지 않은 내용은 확정해서 말하지 않습니다.",
+    body: "가능 여부와 순서, 필요한 조건을 먼저 말씀드립니다. 확인되지 않은 부분은 확정하지 않습니다.",
   },
   {
     no: "04",
     title: "동의 후 진행",
-    body: "안내드린 조건을 확인하고 동의하실 때만 다음 단계로 넘어갑니다. 결제 전 금액은 다시 확인합니다.",
+    body: "안내드린 조건을 확인하고 동의하실 때만 다음 단계로 넘어갑니다.",
   },
 ];
 
@@ -75,19 +75,19 @@ const moments = [
 const homeFaq = [
   {
     q: "상담은 무료인가요?",
-    a: "네. 내용 확인과 조건 안내까지는 비용이 들지 않습니다. 실제 진행을 결정할 때 금액과 조건을 다시 확인하고 동의를 받습니다.",
+    a: "네, 상담과 조건 안내까지는 무료입니다. 어떤 수단으로 할지 정하지 못한 상태로 물어보셔도 됩니다.",
   },
   {
     q: "상담을 시작하려면 무엇이 필요한가요?",
-    a: "성함과 휴대폰 번호만 있으면 됩니다. 상담창이 열린 뒤 상품권 종류나 결제 방법, 금액을 알려주시면 확인해 안내드립니다.",
+    a: "성함과 연락처만 있으면 시작됩니다. 하려는 일을 한 줄로 적어 주시면 맞는 창구로 이어 드립니다.",
   },
   {
     q: "어떤 상품권을 확인할 수 있나요?",
-    a: "모바일 상품권과 기프트카드, 문화·도서 상품권을 주로 확인합니다. 발행사와 잔액, 남은 기간에 따라 가능 범위가 달라집니다.",
+    a: "모바일 상품권과 기프트카드, 문화·도서 상품권을 주로 확인합니다. 발행사와 잔액에 따라 가능 범위가 갈립니다.",
   },
   {
     q: "금액과 조건은 어디서 정하나요?",
-    a: "상담에서 확인한 뒤 안내드립니다. 통신사·카드사·발행사의 정책에 따라 달라지므로 사이트에서 미리 약속하지 않습니다.",
+    a: "상황을 확인한 뒤에 말씀드립니다. 통신사·카드사·발행사 정책에 따라 달라지므로 사이트에 미리 적어두지 않습니다.",
   },
 ];
 
@@ -223,7 +223,7 @@ const HeroSection: React.FC = () => (
           </p>
         </div>
 
-        <h1 className="display-hero mt-7 text-ink">
+        <h1 className="display-hero mt-7 break-keep text-ink">
           복잡한 절차 없이,
           <br />
           <span className="bg-gradient-to-r from-violet-deep via-violet to-violet-light bg-clip-text text-transparent">
@@ -232,8 +232,8 @@ const HeroSection: React.FC = () => (
         </h1>
 
         <p className="lead mt-7 max-w-xl">
-          상품권 매입, 휴대폰 소액결제·신용카드 상품권 구매, 정보이용료 게임재화 구매까지. 발행사와 한도를
-          먼저 확인하고, 가능한 범위와 조건을 안내한 뒤 진행합니다.
+          쓰지 않은 상품권이 남았다면 정리하는 쪽으로, 카드 할부를 검토 중이라면 총액을 계산하는 쪽으로.
+          상황에 따라 필요한 안내가 다릅니다. 네 개의 창구를 두고 한 상황에 한 곳으로만 안내합니다.
         </p>
 
         <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -317,11 +317,11 @@ const ServicesSection: React.FC = () => (
           eyebrow="Four desks"
           title={
             <>
-              네 가지 안내.
-              <br className="hidden md:block" /> 지금 필요한 하나부터 확인합니다.
+              네 개의 창구,
+              <br className="hidden md:block" /> 한 곳만 거치면 됩니다.
             </>
           }
-          lead="상품권 매입과 모바일 상품권 구매, 카드 결제, 정보이용료 게임재화. 방법마다 확인할 항목이 다릅니다."
+          lead="상품권 정리, 휴대폰 결제, 카드 결제, 게임 재화. 수단마다 확인할 것이 다르지만, 상담은 한 번만 시작하면 그 상황에 맞춰 이어집니다."
         />
         <div className="hidden shrink-0 md:block">
           <ArrowLink to="/how-to-use">전체 이용 절차 보기</ArrowLink>
@@ -387,11 +387,11 @@ const ProcessSection: React.FC = () => (
           eyebrow="How it works"
           title={
             <>
-              순서는 단순합니다.
-              <br />네 단계로 끝납니다.
+              복잡하게 돌아가지 않습니다.
+              <br />네 단계로 정리됩니다.
             </>
           }
-          lead="상담 접수로 끝나지 않고 조건 안내와 진행 확인까지 이어집니다."
+          lead="상황을 말하고, 확인하고, 조건을 듣고, 결정합니다. 각 단계에서 무엇을 보는지 적어 두었습니다."
         />
         <div className="mt-8 hidden lg:block">
           <ArrowLink to="/how-to-use">단계별로 자세히 보기</ArrowLink>
@@ -465,7 +465,7 @@ const MomentsSection: React.FC = () => (
             먼저 확인합니다.
           </>
         }
-        lead="정해진 상품만 안내하는 곳이 아니라, 상황에 맞는 방법을 함께 찾습니다."
+        lead="수단이 달라도 물어보는 방식은 같습니다. 지금 상황을 그대로 말씀해 주시면 맞는 창구로 안내합니다."
       />
       <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
         {moments.map((m) => (
@@ -529,9 +529,10 @@ const FAQTeaserSection: React.FC = () => (
 const Home: React.FC = () => (
   <>
     <SEO
-      title="상품권 매입·모바일 상품권 구매 절차 안내"
-      description="상품권 매입, 휴대폰 소액결제·신용카드 상품권 구매, 정보이용료 게임재화 구매까지. 확인할 항목을 먼저 정리하고 조건을 안내한 뒤 진행합니다. 채널톡 1:1 상담 24시간 접수."
-      keywords="상품권 매입,휴대폰 소액결제 상품권,신용카드 상품권 구매,정보이용료 게임재화,모바일 상품권,채널톡 상담"
+      title="상품권·카드·게임재화, 수단별 1:1 맞춤 안내"
+      description="상품권을 정리하는 일부터 카드 할부, 휴대폰 결제, 게임 재화 구매까지. 수단이 다르면 확인할 것도 달라서, 상황에 맞는 한 곳으로 안내합니다. 네 개의 창구를 두고 상담 한 번으로 이어집니다."
+      ogDescription="네 가지 이용 수단을 한 곳에서, 상황에 맞는 순서로 안내합니다. 성함과 연락처만 남기면 채널톡 1:1 상담이 열립니다."
+      keywords="상품권 매입,신용카드 할부,휴대폰 소액결제,게임재화 구매,이용 수단별 안내"
       faqItems={homeFaq.map((f) => ({ question: f.q, answer: f.a }))}
     />
     <HeroSection />
@@ -541,7 +542,16 @@ const Home: React.FC = () => (
     <MomentsSection />
     <JournalSection />
     <FAQTeaserSection />
-    <CTABand />
+    <CTABand
+      title={
+        <>
+          어느 쪽으로 할지
+          <br />
+          아직 모르겠다면.
+        </>
+      }
+      body="상황을 한 줄로 적어 주세요. 맞는 창구로 연결해 순서를 안내합니다."
+    />
   </>
 );
 

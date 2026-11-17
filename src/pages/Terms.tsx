@@ -100,7 +100,7 @@ const Terms: React.FC = () => (
   <>
     <SEO
       title="이용약관"
-      description="공룡페이 이용약관. 상담 서비스의 성격과 이용 조건, 이용자의 의무, 책임의 범위를 안내합니다."
+      description="상담으로 안내하는 서비스의 범위와 이용 조건, 이용자가 지켜야 할 선, 회사가 책임지지 않는 경우를 정리한 약관입니다."
     />
     <PageHero
       eyebrow="Terms of service"
