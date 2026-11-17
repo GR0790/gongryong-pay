@@ -1,173 +1,181 @@
 import type React from "react";
 import { Link, useParams } from "react-router-dom";
-
-import { blogPosts as localBlogPosts } from "../data/blogPosts";
-import Breadcrumb from "../components/Breadcrumb";
 import SEO from "../components/SEO";
+import { ConsultButton } from "../components/ui";
+import { blogPosts } from "../data/blogPosts";
+import { site } from "../data/site";
 
 const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const post = localBlogPosts.find((p) => String(p.fields.id) === String(id)) || null;
+  const post = blogPosts.find((p) => String(p.fields.id) === String(id)) || null;
 
-  const relatedPosts = post
-    ? [...localBlogPosts]
+  const related = post
+    ? [...blogPosts]
         .filter((p) => p.fields.id !== post.fields.id)
         .sort((a, b) => {
-          const aScore = a.fields.category === post.fields.category ? 1 : 0;
-          const bScore = b.fields.category === post.fields.category ? 1 : 0;
-          return bScore - aScore;
+          const score = (x: typeof a) => (x.fields.category === post.fields.category ? 1 : 0);
+          return score(b) - score(a);
         })
         .slice(0, 3)
     : [];
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            포스트를 찾을 수 없습니다
-          </h1>
-          <p className="text-gray-600 mb-8">
-            요청하신 블로그 포스트가 존재하지 않습니다.
+      <div className="bg-frost">
+        <div className="wrap flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
+          <p className="eyebrow">404</p>
+          <h1 className="display-section mt-5 text-ink">글을 찾을 수 없습니다</h1>
+          <p className="lead mt-4 max-w-md">
+            주소가 바뀌었거나 정리된 글입니다. 이야기 목록에서 다시 찾아보세요.
           </p>
-          <Link
-            to="/blog"
-            className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-          >
-            블로그 목록으로 돌아가기
+          <Link to="/blog" className="btn-primary mt-8">
+            이야기 목록으로
           </Link>
         </div>
       </div>
     );
   }
 
-  const postDescription = post.fields.summary ||
-    `공룡페이 블로그 - ${post.fields.title}. 소액결제현금화, 정보이용료현금화 관련 정보를 제공합니다.`;
+  const description = post.fields.summary || post.fields.excerpt;
 
   return (
     <>
       <SEO
         title={post.fields.title}
-        description={postDescription}
-        keywords={post.fields.tags ? post.fields.tags.join(", ") : undefined}
+        description={description}
+        keywords={post.fields.tags.join(", ")}
+        faqItems={post.fields.faqItems}
       />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BlogPosting",
-          "headline": post.fields.title,
-          "description": postDescription,
-          "keywords": post.fields.tags ? post.fields.tags.join(", ") : undefined,
-          "datePublished": post.fields.date,
-          "dateModified": post.fields.date,
-          "author": { "@type": "Organization", "name": "공룡페이" },
-          "publisher": {
-            "@type": "Organization",
-            "name": "공룡페이",
-            "logo": { "@type": "ImageObject", "url": "https://xn--ob0b39t2wlgzl.com/gongryong-mascot.webp" }
-          },
-          "mainEntityOfPage": typeof window !== "undefined" ? window.location.href : undefined,
+          headline: post.fields.title,
+          description,
+          keywords: post.fields.tags.join(", "),
+          datePublished: post.fields.date,
+          dateModified: post.fields.dateModified || post.fields.date,
+          author: { "@type": "Organization", name: site.name },
+          publisher: { "@type": "Organization", name: site.name },
+          mainEntityOfPage: typeof window !== "undefined" ? window.location.href : undefined,
         })}
       </script>
-      <div className="min-h-screen bg-gray-50">
-        <section className="bg-gradient-to-br from-purple-50 to-purple-100 py-12 md:py-20">
-          <div className="container mx-auto px-4">
-            <Breadcrumb
-              items={[
-                { label: "공룡페이", path: "/" },
-                { label: "정보 블로그", path: "/blog" },
-                { label: post.fields.title },
-              ]}
-            />
-            <nav className="mb-8">
-              <Link
-                to="/blog"
-                className="inline-flex items-center text-purple-600 hover:text-purple-700 transition-colors"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                블로그 목록으로 돌아가기
+
+      <article className="bg-frost">
+        <header className="relative overflow-hidden border-b border-line bg-white">
+          <div aria-hidden="true" className="grid-bg pointer-events-none absolute inset-0 opacity-70" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 -top-32 h-[380px] w-[380px] rounded-full opacity-70"
+            style={{ background: "radial-gradient(circle, rgba(79,70,229,0.16) 0%, rgba(255,255,255,0) 70%)" }}
+          />
+          <div className="wrap relative pb-12 pt-9 md:pb-16 md:pt-14">
+            <nav aria-label="현재 위치" className="flex flex-wrap items-center gap-2 text-[12px] text-ink-muted">
+              <Link to="/" className="hover:text-violet">
+                홈
               </Link>
+              <span className="text-steel">/</span>
+              <Link to="/blog" className="hover:text-violet">
+                이야기
+              </Link>
+              <span className="text-steel">/</span>
+              <span className="text-ink-soft">{post.fields.category}</span>
             </nav>
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-white rounded-full px-4 py-2 mb-6">
-                <span className="text-3xl mr-3">{post.fields.image}</span>
-                <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
-                  {post.fields.category}
+
+            <div className="mt-10 max-w-3xl">
+              <p className="eyebrow">{post.fields.category}</p>
+              <h1 className="display-hero mt-5 text-[clamp(1.85rem,4vw,2.95rem)] text-ink">{post.fields.title}</h1>
+              <p className="lead mt-6">{post.fields.excerpt}</p>
+              <div className="mt-8 flex flex-wrap items-center gap-3 text-[12px] text-ink-muted">
+                <span>{post.fields.date}</span>
+                <span className="h-3 w-px bg-line" />
+                <span>{post.fields.readTime} 읽기</span>
+                <span className="h-3 w-px bg-line" />
+                <span>{site.name} 에디터</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div className="wrap grid gap-12 py-14 md:py-20 lg:grid-cols-[1fr_250px] lg:gap-20">
+          <div className="min-w-0 max-w-prose2">
+            <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: post.fields.contentBody }} />
+
+            <div className="mt-14 flex flex-wrap gap-2">
+              {post.fields.tags.map((t) => (
+                <span key={t} className="rounded-full border border-line px-3 py-1 text-[11px] text-ink-muted">
+                  #{t}
                 </span>
-              </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                {post.fields.title}
-              </h1>
-              <div className="flex flex-wrap justify-center gap-2 mb-8">
-                {post.fields.tags.map((tag: string) => (
-                  <span
-                    key={tag}
-                    className="bg-white text-purple-600 px-3 py-1 rounded-full text-sm"
-                  >
-                    #{tag}
-                  </span>
-                ))}
+              ))}
+            </div>
+
+            <div className="mt-14 rounded-card border border-line bg-white p-8 md:p-10">
+              <p className="eyebrow">Consultation</p>
+              <p className="mt-4 font-display text-[1.22rem] leading-[1.6] tracking-[-0.02em] text-ink">
+                여기서 정리되지 않은 부분은
+                <br className="hidden sm:block" /> 상담으로 확인하세요.
+              </p>
+              <p className="mt-3 text-[13px] leading-[1.9] text-ink-soft">
+                상품권 종류나 결제 방법만 알려주시면 가능한 조건을 짚어 안내드립니다.
+              </p>
+              <div className="mt-6">
+                <ConsultButton />
               </div>
             </div>
           </div>
-        </section>
 
-        <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <article className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-                <div
-                  className="prose prose-lg max-w-none"
-                  dangerouslySetInnerHTML={{ __html: post.fields.contentBody }}
-                />
-                <div className="mt-12 pt-8 border-t border-gray-200">
-                  <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-2xl p-8 text-center">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      더 궁금한 점이 있으신가요?
-                    </h3>
-                    <p className="text-gray-600 mb-6">
-                      공룡페이 전문 상담원이 24시간 친절하게 상담해드립니다.
-                    </p>
-                    <a
-                      href="https://grpay.channel.io/home"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors"
-                    >
-                      💬 1:1 상담하기
-                    </a>
-                  </div>
+          <aside className="hidden lg:block">
+            <div className="sticky top-28 space-y-8 border-l border-line pl-8">
+              <div>
+                <p className="text-[10.5px] uppercase tracking-[0.18em] text-violet">Written by</p>
+                <p className="mt-3 font-display text-[1rem] text-ink">{site.name} 에디터</p>
+                <p className="mt-2 text-[12px] leading-[1.9] text-ink-soft">
+                  상품권과 결제 절차를 준비하는 분들이 자주 묻는 것들을 정리합니다.
+                </p>
+              </div>
+              <div>
+                <p className="text-[10.5px] uppercase tracking-[0.18em] text-violet">Tags</p>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {post.fields.tags.map((t) => (
+                    <span key={t} className="rounded-full border border-line px-2.5 py-1 text-[10.5px] text-ink-muted">
+                      {t}
+                    </span>
+                  ))}
                 </div>
-              </article>
-
-              {relatedPosts.length > 0 && (
-                <div className="mt-12">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">관련 글</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {relatedPosts.map((rp) => (
-                      <Link
-                        key={rp.fields.id}
-                        to={`/blog/${rp.fields.id}`}
-                        className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col"
-                      >
-                        <span className="text-3xl mb-3">{rp.fields.image}</span>
-                        <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-semibold self-start mb-3">
-                          {rp.fields.category}
-                        </span>
-                        <h3 className="text-base font-bold text-gray-900 leading-snug hover:text-purple-600 transition-colors">
-                          {rp.fields.title}
-                        </h3>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
+              </div>
+              <div>
+                <p className="text-[10.5px] uppercase tracking-[0.18em] text-violet">Contact</p>
+                <a href={site.phoneHref} className="num mt-3 block text-[13px] text-ink-soft hover:text-violet">
+                  {site.phone}
+                </a>
+                <p className="mt-1 text-[12px] text-ink-muted">{site.hours}</p>
+              </div>
             </div>
+          </aside>
+        </div>
+      </article>
+
+      <section className="border-t border-line bg-white">
+        <div className="wrap py-16 md:py-20">
+          <div className="flex items-end justify-between">
+            <h2 className="font-display text-[1.3rem] tracking-[-0.02em] text-ink">이어서 읽기</h2>
+            <Link to="/blog" className="text-[12.5px] text-violet hover:text-violet-deep">
+              전체 보기 →
+            </Link>
           </div>
-        </section>
-      </div>
+          <div className="mt-8 grid gap-px overflow-hidden rounded-card border border-line bg-line md:grid-cols-3">
+            {related.map((r) => (
+              <Link key={r.fields.id} to={`/blog/${r.fields.id}`} className="group bg-white p-7 transition-colors hover:bg-frost">
+                <p className="text-[10.5px] uppercase tracking-[0.16em] text-violet">{r.fields.category}</p>
+                <h3 className="mt-3 font-display text-[1.04rem] leading-[1.55] text-ink transition-colors group-hover:text-violet">
+                  {r.fields.title}
+                </h3>
+                <p className="mt-2 text-[11.5px] text-ink-muted">{r.fields.readTime}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 };

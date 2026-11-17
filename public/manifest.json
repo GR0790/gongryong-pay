@@ -1,31 +1,15 @@
 {
-  "name": "공룡페이 - 현금화 전문업체",
+  "name": "공룡페이 — 상품권·결제 절차 안내",
   "short_name": "공룡페이",
-  "description": "소액결제, 정보이용료, 신용카드, 상품권 현금화 전문업체",
+  "description": "상품권 매입과 모바일 상품권 구매, 카드 결제, 정보이용료 게임재화 구매 절차를 안내하는 사이트",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#10b981",
+  "background_color": "#0A0E1A",
+  "theme_color": "#0A0E1A",
   "icons": [
-    {
-      "src": "/favicon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon.ico",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "/favicon-16x16.png", "sizes": "16x16", "type": "image/png" },
+    { "src": "/favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.ico", "sizes": "64x64", "type": "image/png" }
   ]
 }

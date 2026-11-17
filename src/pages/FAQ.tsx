@@ -1,279 +1,218 @@
 import type React from "react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import Breadcrumb from "../components/Breadcrumb";
 import SEO from "../components/SEO";
+import { Accordion, ArrowLink, CTABand, PageHero, SectionHead } from "../components/ui";
+import { site } from "../data/site";
 
-const FAQ: React.FC = () => {
-  const [openItems, setOpenItems] = useState<number[]>([0]);
+type Group = {
+  id: string;
+  label: string;
+  title: string;
+  items: { q: string; a: string }[];
+};
 
-  const toggleItem = (index: number) => {
-    setOpenItems((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
-    );
-  };
+const groups: Group[] = [
+  {
+    id: "consult",
+    label: "상담 이용",
+    title: "상담은 어떻게 시작하나요",
+    items: [
+      {
+        q: "상담은 무료인가요?",
+        a: "네. 상품권 종류 확인, 한도 확인, 조건 안내까지는 비용이 들지 않습니다. 실제 진행을 결정할 때 금액과 조건을 다시 확인하고 동의를 받습니다.",
+      },
+      {
+        q: "왜 이름과 연락처를 먼저 받나요?",
+        a: "채널톡 상담을 사람별로 이어 붙이기 위해 필요합니다. 번호가 등록되면 다음 상담부터는 같은 대화로 이어져서 앞서 확인한 내용을 다시 설명하지 않아도 됩니다.",
+      },
+      {
+        q: "전화로도 상담할 수 있나요?",
+        a: `${site.phone}로 전화하시면 됩니다. 통화로 확인한 조건도 채널톡 대화에 정리해 남겨드립니다.`,
+      },
+      {
+        q: "답변은 얼마나 걸리나요?",
+        a: "접수는 24시간 가능하지만, 답변은 확인 난이도와 접수 순서에 따라 순차적으로 이뤄집니다. 상품권 발행사와 잔액을 미리 알려주시면 더 빠릅니다.",
+      },
+      {
+        q: "상담 기록이 남나요?",
+        a: "네. 조건과 진행 상황은 채널톡 대화에 남깁니다. 나중에 같은 내용을 다시 확인하고 싶을 때 그 대화를 이어서 물어보시면 됩니다.",
+      },
+    ],
+  },
+  {
+    id: "voucher",
+    label: "상품권 매입",
+    title: "상품권에 대해 자주 묻는 질문",
+    items: [
+      {
+        q: "어떤 상품권까지 확인할 수 있나요?",
+        a: "모바일 상품권과 기프트카드, 문화·도서 상품권을 주로 확인합니다. 발행사와 잔액, 남은 기간을 알려주시면 가능 여부를 짚어 드립니다.",
+      },
+      {
+        q: "수수료는 얼마인가요?",
+        a: "상품권 종류와 잔액, 남은 기간에 따라 달라집니다. 사이트에서 금액을 정해두지 않고, 확인한 뒤 조건을 먼저 안내드립니다.",
+      },
+      {
+        q: "일부 사용한 상품권도 되나요?",
+        a: "잔액이 남아 있으면 확인할 수 있습니다. 다만 잔액 조회 방법과 처리 범위가 발행사마다 달라서 조회부터 진행합니다.",
+      },
+      {
+        q: "상품권을 먼저 보내야 하나요?",
+        a: "아니요. 종류와 잔액 확인, 조건 안내가 먼저입니다. 진행이 확정된 다음에 필요한 순서를 안내드립니다.",
+      },
+    ],
+  },
+  {
+    id: "payment",
+    label: "결제",
+    title: "휴대폰·카드 결제 문의",
+    items: [
+      {
+        q: "휴대폰 한도는 어떻게 확인하나요?",
+        a: "통신사 앱의 요금·결제 메뉴에서 이번 달 사용액과 남은 한도를 확인할 수 있습니다. 앱 사용이 어려우면 상담에서 방법을 안내드립니다.",
+      },
+      {
+        q: "휴대폰 결제 금액은 언제 청구되나요?",
+        a: "다음 달 통신요금에 합산됩니다. 결제 시점과 청구 시점이 다르므로 납부 일정을 함께 확인하는 편이 좋습니다.",
+      },
+      {
+        q: "할부 수수료는 누가 부담하나요?",
+        a: "할부 수수료는 결제하는 분이 부담합니다. 개월 수에 따라 총액이 달라지므로 결제 전에 수수료를 포함한 금액을 안내드립니다.",
+      },
+      {
+        q: "부분 취소가 되나요?",
+        a: "여러 장을 한 번에 결제한 경우 일부만 취소하는 절차가 제한될 수 있습니다. 결제 전에 취소 가능 여부와 기간을 확인해 안내드립니다.",
+      },
+      {
+        q: "가족 카드나 가족 명의 휴대폰으로도 되나요?",
+        a: "명의자 본인 인증과 본인 결제만 안내합니다. 다른 사람 명의의 결제 수단을 빌려 진행하는 방식은 받지 않습니다.",
+      },
+    ],
+  },
+  {
+    id: "digital",
+    label: "게임재화",
+    title: "정보이용료·게임 재화 문의",
+    items: [
+      {
+        q: "정보이용료 결제는 어떻게 이뤄지나요?",
+        a: "통신사 한도 안에서 스토어 결제로 진행됩니다. 명의자 본인 인증이 필요하고, 금액은 다음 달 요금에 합산됩니다.",
+      },
+      {
+        q: "산 재화를 환불할 수 있나요?",
+        a: "재화는 계정에 귀속되어 사용 뒤에는 환불이 제한됩니다. 사용 전이라도 스토어와 게임사 정책에 따라 처리되므로 결제 전에 기준을 확인해 안내드립니다.",
+      },
+      {
+        q: "확률형 아이템도 구매할 수 있나요?",
+        a: "구매는 가능하지만 결과를 보장하지 않습니다. 구성과 확률, 판매 기간을 확인한 뒤 진행하시길 권합니다.",
+      },
+    ],
+  },
+  {
+    id: "etc",
+    label: "개인정보·기타",
+    title: "개인정보와 기타 문의",
+    items: [
+      {
+        q: "어떤 정보를 요구하나요?",
+        a: "상담에 필요한 이름과 연락처, 진행에 필요한 최소한의 정보만 확인합니다. 주민등록번호나 비밀번호는 요구하지 않습니다.",
+      },
+      {
+        q: "상담 정보는 어떻게 보관되나요?",
+        a: "상담 응대와 고객 식별 목적으로만 사용하고, 상담이 끝나면 정해진 기간 뒤 파기합니다. 자세한 내용은 개인정보처리방침에 정리되어 있습니다.",
+      },
+      {
+        q: "사이트 내용이 실제와 다르면 어떻게 하나요?",
+        a: "안내가 실제 조건과 다르면 채널톡으로 알려 주세요. 확인 후 바로 고치고, 진행 중인 건은 다시 안내드립니다.",
+      },
+    ],
+  },
+];
 
-  const faqData = [
-    {
-      category: "소액결제현금화 기본정보",
-      questions: [
-        {
-          question: "소액결제현금화란 무엇인가요?",
-          answer:
-            "소액결제현금화는 개인에게 부여된 휴대폰 소액결제 한도를 사용하여, 모바일 상품권 등 디지털 상품을 구매한 뒤 이를 판매하여 현금으로 전환하는 서비스입니다. SKT, KT, LG U+ 등 모든 통신사 고객님이 이용 가능하며, 저희 공룡페이는 합리적인 지급률로 신속하고 안전한 서비스를 제공합니다.",
-        },
-        {
-          question: "소액결제현금화는 합법적인가요?",
-          answer:
-            "네, 정식 사업자 등록을 한 업체를 통해 개인의 소액결제 한도를 활용하는 것은 불법이 아닙니다. 다만, 미등록 업체나 사기 업체 이용 시 피해가 발생할 수 있으므로 반드시 안전한 업체를 선택해야 합니다. 상담 시 진행 절차와 수수료를 사전에 안내해 드립니다.",
-        },
-        {
-          question: "소액결제현금화 지급률은 무엇을 의미하나요?",
-          answer:
-            "지급률은 결제하신 금액 대비 실제로 입금받으시는 현금의 비율을 의미합니다. 예를 들어 지급률이 80%라면, 10만원을 결제했을 때 8만원을 입금받게 됩니다. 공룡페이는 불필요한 운영비를 줄여 합리적인 지급률로 고객님께 좋은 혜택을 드리기 위해 노력합니다.",
-        },
-        {
-          question: "신청부터 입금까지 시간은 얼마나 걸리나요?",
-          answer:
-            "입금은 상담과 결제 확인이 끝난 뒤 순차적으로 진행됩니다. 신청부터 상담, 결제 확인, 입금까지 24시간 안내해 드리고 있습니다.",
-        },
-        {
-          question: "소액결제현금화 한도는 얼마까지 가능한가요?",
-          answer:
-            "소액결제 한도는 개인의 통신사 정책, 요금제, 사용 이력에 따라 월 10만원에서 최대 100만원까지 차등 부여됩니다. 정확한 개인별 한도는 이용하시는 통신사 앱이나 고객센터에서 확인 가능하며, 공룡페이 상담을 통해서도 조회를 도와드릴 수 있습니다.",
-        },
-        {
-          question: "SKT·KT·LG U+ 어떤 통신사도 소액결제현금화가 되나요?",
-          answer:
-            "네, SKT(SK텔레콤), KT, LG U+ 3대 통신사 모두 이용 가능합니다. 통신사 종류에 관계없이 동일하게 빠른 처리를 위해 노력합니다. 본인 명의 휴대폰이라면 통신사 구분 없이 공룡페이 소액결제현금화를 이용하실 수 있습니다.",
-        },
-        {
-          question: "소액결제현금화 당일 처리가 가능한가요?",
-          answer:
-            "네, 가능합니다. 공룡페이는 24시간 연중무휴 운영되며 신청 접수 후 순차적으로 처리됩니다. 상담과 결제 확인이 끝나는 대로 입금을 진행하므로, 급하게 현금이 필요하신 경우에도 소액결제현금화를 당일 진행하실 수 있습니다.",
-        },
-      ],
-    },
-    {
-      category: "이용방법 및 절차",
-      questions: [
-        {
-          question: "소액결제현금화 이용방법이 어떻게 되나요?",
-          answer:
-            "매우 간단한 4단계로 진행됩니다. <strong>1) 공룡페이 1:1 상담 신청 → 2) 본인 확인 및 한도 조회 → 3) 상담원의 안내에 따른 안전 결제 진행 → 4) 결제 확인 후 입금.</strong> <a href='/how-to-use' class='text-green-600 hover:underline'>이용 방법 페이지</a>에서 더 자세한 내용을 확인하실 수 있습니다.",
-        },
-        {
-          question: "미납이나 정책 제한이 있어도 소액결제현금화가 가능한가요?",
-          answer:
-            "네, 가능합니다. 공룡페이는 미납·정책으로 인해 결제가 어려운 고객님들을 위한 특별 노하우를 보유하고 있으며, 미납·정책 관련 다수의 상담 사례를 보유하고 있습니다. 다른 업체에서 거절당했더라도 포기하지 마시고 먼저 상담받아보세요.",
-        },
-        {
-          question: "소액결제 이용 후 휴대폰 요금은 어떻게 되나요?",
-          answer:
-            "소액결제로 이용하신 금액은 다음 달 휴대폰 요금에 '통신과금서비스' 등의 항목으로 합산되어 청구됩니다. 정상적인 통신사 결제 시스템을 이용하는 것이므로 안전하며, 요금 납부 시 통신사 정책에 따라 분할납부도 가능합니다.",
-        },
-      ],
-    },
-    {
-      category: "정보이용료현금화",
-      questions: [
-        {
-          question: "정보이용료(콘텐츠이용료) 현금화란 무엇인가요?",
-          answer:
-            "구글 플레이스토어, 원스토어 등에서 앱, 게임 아이템, 영화 같은 디지털 콘텐츠를 구매할 때 사용하는 정보이용료(콘텐츠이용료) 한도를 현금으로 전환하는 서비스입니다. 소액결제와는 별개의 한도로 운영됩니다.",
-        },
-        {
-          question: "구글 정보이용료와 소액결제의 차이점은 무엇인가요?",
-          answer:
-            "<strong>소액결제</strong>는 휴대폰 번호 자체에 부여된 결제 한도이며, <strong>정보이용료</strong>는 구글 플레이스토어 같은 앱 마켓 내에서 사용하는 별도의 한도입니다. 두 한도를 모두 사용하시면 더 큰 금액의 현금화가 가능합니다.",
-        },
-      ],
-    },
-    {
-      category: "신용카드 및 상품권 현금화",
-      questions: [
-        {
-          question: "신용카드 현금화는 어떤 서비스인가요?",
-          answer:
-            "개인의 신용카드 할부 한도를 이용하여 현금을 마련하는 서비스입니다. 모든 카드사(삼성, 현대, 롯데, 국민, 신한, 우리 등) 이용 가능하며, 정식 가맹점을 통한 안전한 결제로 처리됩니다.",
-        },
-        {
-          question: "어떤 상품권을 현금화할 수 있나요?",
-          answer:
-            "문화상품권, 해피머니, 도서문화상품권, 구글 기프트카드 등 대부분의 모바일 상품권과 지류 상품권 매입이 가능합니다. 상품권 종류에 따라 지급률이 다르니 상담 시 확인해주세요.",
-        },
-        {
-          question: "신용카드현금화는 어떤 카드사 카드로도 가능한가요?",
-          answer:
-            "네, 삼성·현대·롯데·국민·신한·우리카드 등 국내 주요 카드사 대부분 이용 가능합니다. 정확한 이용 가능 여부는 카드 종류 및 상태에 따라 다를 수 있으니, 상담을 통해 확인해 드리겠습니다.",
-        },
-        {
-          question: "신용카드현금화를 신청하면 당일 바로 입금되나요?",
-          answer:
-            "네, 공룡페이는 24시간 운영으로 신청 즉시 처리해 드립니다. 신용카드현금화 역시 빠른 입금 처리를 목표로 하고 있으므로, 급하게 현금이 필요하신 경우에도 걱정 없이 당일 이용하실 수 있습니다.",
-        },
-      ],
-    },
-    {
-      category: "안전성 및 보안",
-      questions: [
-        {
-          question: "공룡페이는 정말 안전한 업체인가요?",
-          answer:
-            "네, 상담 시 진행 절차와 수수료를 사전에 안내해 드립니다. 상담과 거래는 사전에 안내된 절차대로 진행됩니다. 또한 모든 상담 및 거래 정보는 SSL 보안 시스템으로 암호화되어 안전하게 보호됩니다.",
-        },
-        {
-          question: "사기 업체와 어떻게 구별하나요?",
-          answer:
-            "안전한 업체를 구별하는 방법은 다음과 같습니다. <strong>1) 상담·거래 절차와 수수료를 사전에 안내하는지 2) 웹사이트 내 고정 연락처 유무 3) 비정상적으로 높은 지급률(90% 이상)을 제시하지 않는지 4) 선입금이나 과도한 개인정보를 요구하지 않는지</strong> 등을 확인해야 합니다. 공룡페이는 이 모든 조건을 만족하는 검증된 업체입니다.",
-        },
-      ],
-    },
-  ];
+const allFaq = groups.flatMap((g) => g.items);
 
-  return (
-    <>
-      <SEO
-        title="현금화 서비스 자주묻는질문"
-        description="소액결제·정보이용료·신용카드·상품권 현금화 자주묻는질문. 지급률, 이용방법, 안전성 등 궁금증을 해결해드립니다."
-        keywords="소액결제현금화 질문, 정보이용료현금화 방법, 소액결제 지급률, 미납 소액결제, 공룡페이 FAQ"
-      />
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "@id": "https://xn--ob0b39t2wlgzl.com/faq#faqpage",
-          name: "소액결제현금화 공룡페이 자주묻는질문",
-          description:
-            "소액결제현금화, 정보이용료현금화, 신용카드현금화, 상품권현금화에 대한 자주묻는질문과 답변. 수수료, 미납 정책, 안전성 등 모든 궁금증을 해결해 드립니다.",
-          publisher: {
-            "@type": "Organization",
-            "@id": "https://xn--ob0b39t2wlgzl.com/#organization",
-            name: "공룡페이",
-          },
-          mainEntity: faqData.flatMap((category) =>
-            category.questions.map((faq) => ({
-              "@type": "Question",
-              name: faq.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.answer.replace(/<[^>]*>/g, ""),
-              },
-            })),
-          ),
-        })}
-      </script>
+const FAQ: React.FC = () => (
+  <>
+    <SEO
+      title="자주 묻는 질문"
+      description="공룡페이 상담 이용, 상품권 매입, 휴대폰·카드 결제, 정보이용료 게임재화, 개인정보 처리까지 자주 묻는 질문을 정리했습니다."
+      keywords="공룡페이 FAQ,상품권 매입 질문,휴대폰 소액결제 한도,카드 할부,정보이용료 환불"
+      faqItems={allFaq.map((f) => ({ question: f.q, answer: f.a }))}
+    />
+    <PageHero
+      eyebrow="FAQ"
+      crumbs={[{ label: "자주 묻는 질문" }]}
+      title={
+        <>
+          묻기 전에
+          <br />
+          먼저 확인하는 질문.
+        </>
+      }
+      lead="상담에서 가장 자주 나오는 질문을 주제별로 모았습니다. 여기에 없는 내용은 채널톡으로 물어보세요."
+    />
 
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="container mx-auto px-4">
-          <Breadcrumb items={[{ label: "공룡페이", path: "/" }, { label: "자주묻는질문" }]} />
-          <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              소액결제현금화 공룡페이{" "}
-              <span className="text-green-600">자주묻는질문</span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
-              소액결제현금화, 정보이용료현금화, 신용카드현금화, 상품권현금화에
-              대한 궁금한 점들을 자세히 알아보세요. 더 궁금한 사항이 있으시면
-              24시간 고객센터로 연락주세요.
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {faqData.map((category, categoryIndex) => (
-              <div
-                key={category.category}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden"
-              >
-                <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white p-6">
-                  <h2 className="text-xl md:text-2xl font-bold">
-                    {category.category}
-                  </h2>
-                </div>
-
-                <div className="divide-y divide-gray-200">
-                  {category.questions.map((faq, questionIndex) => {
-                    const globalIndex = categoryIndex * 100 + questionIndex;
-                    const isOpen = openItems.includes(globalIndex);
-
-                    return (
-                      <div key={faq.question} className="p-6">
-                        <button
-                          onClick={() => toggleItem(globalIndex)}
-                          className="w-full text-left focus:outline-none"
-                          aria-expanded={isOpen}
-                        >
-                          <div className="flex justify-between items-start">
-                            <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                              <span className="text-green-600 font-bold">Q.</span> {faq.question}
-                            </h3>
-                            <div
-                              className={`flex-shrink-0 transform transition-transform duration-200 ${
-                                isOpen ? "rotate-180" : ""
-                              }`}
-                            >
-                              <svg
-                                className="w-6 h-6 text-green-600"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M19 9l-7 7-7-7"
-                                />
-                              </svg>
-                            </div>
-                          </div>
-                        </button>
-
-                        {isOpen && (
-                          <div className="mt-4 text-gray-700 leading-relaxed">
-                            <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-600 flex">
-                              <span className="font-bold text-green-800 mr-2">A.</span>
-                              <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-center text-white mt-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              더 궁금한 점이 있으신가요?
-            </h2>
-            <p className="text-lg mb-6 opacity-90">
-              소액결제현금화 전문 상담사가 24시간 친절하게 답변해드립니다.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+    <section className="border-b border-line bg-white">
+      <div className="wrap grid gap-12 py-16 md:py-24 lg:grid-cols-[200px_1fr] lg:gap-20">
+        <nav aria-label="질문 주제" className="hidden lg:block">
+          <div className="sticky top-28 space-y-2.5 border-l border-line pl-6">
+            {groups.map((g) => (
               <a
-                href="https://grpay.channel.io/home"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-white text-green-600 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105"
+                key={g.id}
+                href={`#${g.id}`}
+                className="block text-[12px] leading-relaxed text-ink-muted transition-colors hover:text-violet"
               >
-                💬 실시간 상담하기
+                {g.label}
               </a>
-              <Link
-                to="/contact"
-                className="inline-flex items-center bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-500 transition-all duration-300 hover:scale-105"
-              >
-                📞 연락처 확인하기
-              </Link>
+            ))}
+            <Link to="/contact" className="!mt-6 block text-[12px] font-semibold text-violet">
+              상담 바로가기 →
+            </Link>
+          </div>
+        </nav>
+
+        <div className="max-w-prose2 space-y-16">
+          {groups.map((g) => (
+            <section key={g.id} id={g.id} className="scroll-mt-28">
+              <div className="flex items-baseline justify-between gap-4">
+                <SectionHead eyebrow={g.label} title={<>{g.title}</>} />
+                <span className="num hidden shrink-0 text-[11px] text-ink-muted sm:block">
+                  {String(g.items.length).padStart(2, "0")}
+                </span>
+              </div>
+              <div className="mt-8">
+                <Accordion items={g.items} />
+              </div>
+            </section>
+          ))}
+
+          <div className="rounded-card border border-line bg-frost p-7 md:p-9">
+            <p className="eyebrow">Not listed?</p>
+            <p className="mt-4 text-[1.15rem] font-bold leading-snug tracking-[-0.02em] text-ink">
+              찾는 답이 없으면 그대로 물어보세요.
+            </p>
+            <p className="mt-3 text-[13px] leading-[1.9] text-ink-soft">
+              질문이 정리되지 않아도 괜찮습니다. 상황을 그대로 적어주시면 무엇을 먼저 확인해야 하는지부터
+              안내드립니다.
+            </p>
+            <div className="mt-6">
+              <ArrowLink to="/contact">상담 안내 보기</ArrowLink>
             </div>
           </div>
         </div>
       </div>
-    </>
-  );
-};
+    </section>
+
+    <CTABand
+      eyebrow="Ask directly"
+      title={
+        <>
+          답을 읽는 것보다
+          <br className="hidden sm:block" /> 한 번 물어보는 편이 빠를 때가 있습니다.
+        </>
+      }
+    />
+  </>
+);
 
 export default FAQ;
-

@@ -1,475 +1,363 @@
 import type React from "react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { nav, site } from "../data/site";
+import { services } from "../data/services";
+import { openConsult } from "../lib/consult";
+import { ChatGlyph } from "./ui";
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
+const Wordmark: React.FC<{ light?: boolean; compact?: boolean }> = ({ light = false, compact = false }) => (
+  <Link to="/" aria-label={`${site.name} 홈으로`} className="group flex items-center gap-2.5">
+    <span
+      className={`relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-[9px] ring-1 ${
+        light ? "bg-white/10 ring-white/15" : "bg-violet/[0.07] ring-violet/15"
+      }`}
+      aria-hidden="true"
+    >
+      <img
+        src="/gongryong-mascot-cut.webp"
+        alt=""
+        width={40}
+        height={40}
+        className="h-[30px] w-[30px] object-contain transition-transform duration-300 group-hover:-translate-y-0.5"
+      />
+    </span>
+    {!compact && (
+      <span className="leading-none">
+        <span
+          className={`block text-[1.2rem] font-extrabold tracking-[-0.035em] ${
+            light ? "text-white" : "text-ink"
+          }`}
+        >
+          {site.name}
+        </span>
+        <span
+          className={`mt-[5px] block text-[8.5px] font-semibold uppercase tracking-[0.3em] ${
+            light ? "text-white/40" : "text-ink-muted"
+          }`}
+        >
+          Gongryong Pay
+        </span>
+      </span>
+    )}
+  </Link>
+);
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(true); // 툴팁 표시 여부
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [showTop, setShowTop] = useState(false);
   const location = useLocation();
 
-  // 페이지가 이동할 때마다 모바일 메뉴를 닫습니다.
   useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location]);
+    setMenuOpen(false);
+  }, [location.pathname]);
 
-  // 커스텀 상담 함수 실행 (Start Consult)
-  // 이 함수가 실행되면 index.html에 있는 로직(팝업 or 바로연결)이 작동합니다.
-  const handleConsultClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    (window as any).startConsult();
-  };
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      setShowTop(window.scrollY > 720);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const isActive = (to: string) =>
+    to === "/" ? location.pathname === "/" : location.pathname.startsWith(to.split("/").slice(0, 2).join("/"));
 
   return (
-    <div className="min-h-screen bg-white relative">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-40">
-        <nav className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <Link
-                to="/"
-                className="text-2xl font-bold text-green-600 hover:text-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded"
-                aria-label="공룡페이 홈페이지로 이동"
-              >
-                공룡페이
-              </Link>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link
-                to="/"
-                className="text-gray-700 hover:text-green-600 transition-colors"
-              >
-                홈
-              </Link>
-              
-              {/* 서비스 소개 메뉴 */}
-              <div className="relative group">
-                <button
-                  className="text-gray-700 hover:text-green-600 flex items-center transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  aria-label="서비스 소개 메뉴 열기"
+    <div className="flex min-h-screen flex-col bg-frost">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:rounded-lg focus:bg-violet focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+      >
+        본문으로 바로가기
+      </a>
+
+      <header
+        className={`sticky top-0 z-40 border-b bg-white/85 backdrop-blur-md transition-colors duration-300 ${
+          scrolled ? "border-line" : "border-transparent"
+        }`}
+      >
+        <div className="wrap flex h-[74px] items-center justify-between">
+          <Wordmark />
+
+          <nav aria-label="주 메뉴" className="hidden items-center gap-7 lg:flex">
+            {nav.map((item) => (
+              <div key={item.label} className="group relative">
+                <Link
+                  to={item.to}
+                  className={`relative py-2 text-[13.5px] font-medium tracking-wide transition-colors ${
+                    isActive(item.to) ? "text-violet" : "text-ink-soft hover:text-violet"
+                  }`}
                 >
-                  서비스 소개
-                  <svg
-                    className="w-4 h-4 ml-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  {item.label}
+                  <span
                     aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                <div
-                  className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10"
-                  role="menu"
-                  aria-label="서비스 소개 하위 메뉴"
-                >
-                  <Link
-                    to="/services/micropayment"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
-                    role="menuitem"
-                  >
-                    소액결제 현금화
-                  </Link>
-                  <Link
-                    to="/services/information-fee"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
-                    role="menuitem"
-                  >
-                    정보이용료 현금화
-                  </Link>
-                  <Link
-                    to="/services/credit-card"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
-                    role="menuitem"
-                  >
-                    신용카드 현금화
-                  </Link>
-                  <Link
-                    to="/services/gift-card"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
-                    role="menuitem"
-                  >
-                    상품권 현금화
-                  </Link>
-                </div>
+                    className={`absolute -bottom-0.5 left-0 h-[2px] bg-violet transition-all duration-300 ${
+                      isActive(item.to) ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </Link>
+                {item.children && (
+                  <div className="pointer-events-none absolute left-1/2 top-full z-50 w-[330px] -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                    <div className="overflow-hidden rounded-card border border-line bg-white shadow-[0_30px_64px_-36px_rgba(10,14,26,0.5)]">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.to}
+                          to={child.to}
+                          className="block border-b border-line/70 px-5 py-3.5 transition-colors last:border-b-0 hover:bg-frost"
+                        >
+                          <span className="block text-[13.5px] font-semibold text-ink">{child.label}</span>
+                          <span className="mt-1 block text-[11.5px] leading-relaxed text-ink-muted">
+                            {child.desc}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
+            ))}
+          </nav>
 
-              <Link
-                to="/how-to-use"
-                className="text-gray-700 hover:text-green-600 transition-colors"
-              >
-                이용 방법
-              </Link>
-              
-              {/* 고객 지원 메뉴 */}
-              <div className="relative group">
-                <button className="text-gray-700 hover:text-green-600 flex items-center transition-colors">
-                  고객 지원
-                  <svg
-                    className="w-4 h-4 ml-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
-                  <Link
-                    to="/reviews"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                  >
-                    고객 후기
-                  </Link>
-                  <Link
-                    to="/faq"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                  >
-                    자주묻는질문(FAQ)
-                  </Link>
-                  <Link
-                    to="/safety"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                  >
-                    안전 거래 안내
-                  </Link>
-                  <Link
-                    to="/blog"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                  >
-                    정보 블로그
-                  </Link>
-                </div>
-              </div>
-
-              {/* [수정됨] 24시간 빠른상담 -> /contact 페이지로 이동 (원상복구) */}
-              <Link
-                to="/contact"
-                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
-              >
-                24시간 빠른상담
-              </Link>
-            </div>
-
-            {/* Mobile menu button */}
-            <button
-              className="md:hidden focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={
-                mobileMenuOpen ? "모바일 메뉴 닫기" : "모바일 메뉴 열기"
-              }
-              aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-menu"
+          <div className="hidden items-center gap-4 lg:flex">
+            <a
+              href={site.phoneHref}
+              className="num text-[12.5px] tracking-wide text-ink-muted transition-colors hover:text-violet"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+              {site.phone}
+            </a>
+            <button
+              type="button"
+              onClick={() => openConsult()}
+              className="relative inline-flex h-11 items-center gap-2 rounded-lg bg-violet px-5 text-[13.5px] font-semibold text-white shadow-[0_14px_28px_-16px_rgba(79,70,229,1)] transition-transform hover:-translate-y-px"
+            >
+              <ChatGlyph className="h-4 w-4" />
+              1:1 상담
             </button>
           </div>
 
-          {/* Mobile menu */}
-          {mobileMenuOpen && (
-            <nav
-              id="mobile-menu"
-              className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4"
-              aria-label="모바일 메뉴"
-            >
-              <div className="space-y-2">
-                <Link
-                  to="/"
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
-                >
-                  홈
-                </Link>
-                <div className="px-4 py-2">
-                  <p className="text-gray-500 text-sm font-medium mb-2">
-                    서비스 소개
-                  </p>
-                  <div className="pl-4 space-y-1">
-                    <Link
-                      to="/services/micropayment"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      소액결제 현금화
-                    </Link>
-                    <Link
-                      to="/services/information-fee"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      정보이용료 현금화
-                    </Link>
-                    <Link
-                      to="/services/credit-card"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      신용카드 현금화
-                    </Link>
-                    <Link
-                      to="/services/gift-card"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      상품권 현금화
-                    </Link>
-                  </div>
-                </div>
-                <Link
-                  to="/how-to-use"
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
-                >
-                  이용 방법
-                </Link>
-                <div className="px-4 py-2">
-                  <p className="text-gray-500 text-sm font-medium mb-2">
-                    고객 지원
-                  </p>
-                  <div className="pl-4 space-y-1">
-                    <Link
-                      to="/reviews"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      고객 후기
-                    </Link>
-                    <Link
-                      to="/faq"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      자주묻는질문(FAQ)
-                    </Link>
-                    <Link
-                      to="/safety"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      안전 거래 안내
-                    </Link>
-                    <Link
-                      to="/blog"
-                      className="block py-1 text-sm text-gray-600 hover:text-green-600 transition-colors"
-                    >
-                      정보 블로그
-                    </Link>
-                  </div>
-                </div>
-                
-                {/* [수정됨] 모바일 메뉴 버튼 -> /contact 페이지로 이동 */}
-                <Link
-                  to="/contact"
-                  className="block mx-4 mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-center"
-                >
-                  24시간 빠른상담
-                </Link>
-              </div>
-            </nav>
-          )}
-        </nav>
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            className="relative flex h-10 w-10 items-center justify-center rounded-lg border border-line text-ink lg:hidden"
+            aria-label={menuOpen ? "메뉴 닫기" : "메뉴 열기"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+          >
+            <span className="sr-only">메뉴</span>
+            <span aria-hidden="true" className="flex w-[18px] flex-col gap-[5px]">
+              <span
+                className={`h-[1.5px] w-full bg-current transition-transform duration-300 ${
+                  menuOpen ? "translate-y-[6.5px] rotate-45" : ""
+                }`}
+              />
+              <span className={`h-[1.5px] w-full bg-current transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+              <span
+                className={`h-[1.5px] w-full bg-current transition-transform duration-300 ${
+                  menuOpen ? "-translate-y-[6.5px] -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+        </div>
       </header>
 
-      <main className="flex-grow">{children}</main>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-1">
-              <div className="text-2xl font-bold text-white mb-4">공룡페이</div>
-              <p className="text-gray-400 mb-4 text-sm md:text-base leading-relaxed">
-                가장 빠르고 안전한 현금화 서비스. 공룡페이는 고객님의 긴급한
-                자금 문제를 신속하고 간편하게 해결해 드립니다.
+      {menuOpen && (
+        <div
+          id="mobile-nav"
+          className="fixed inset-x-0 bottom-0 top-[74px] z-30 overflow-y-auto border-t border-line bg-white lg:hidden"
+        >
+          <div className="wrap py-7">
+            {nav.map((item) => (
+              <div key={item.label} className="border-b border-line/80 py-1">
+                {item.children ? (
+                  <>
+                    <p className="pb-1 pt-4 text-[0.98rem] font-semibold text-ink">{item.label}</p>
+                    <div className="pb-2">
+                      {item.children.map((child) => (
+                        <Link key={child.to} to={child.to} className="block py-2.5 pl-1 text-[13.5px] text-ink-soft">
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <Link to={item.to} className="block py-4 text-[0.98rem] font-semibold text-ink">
+                    {item.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+            <div className="mt-7 flex flex-col gap-3 pb-24">
+              <button
+                type="button"
+                onClick={() => openConsult()}
+                className="flex h-14 w-full items-center justify-center gap-2.5 rounded-xl bg-violet text-[15px] font-semibold text-white shadow-[0_18px_36px_-18px_rgba(79,70,229,1)]"
+              >
+                <ChatGlyph className="h-5 w-5" />
+                채널톡 1:1 상담
+              </button>
+              <a href={site.phoneHref} className="btn-outline w-full">
+                전화 {site.phone}
+              </a>
+              <p className="mt-2 text-center text-xs text-ink-muted">
+                {site.hoursNote} · {site.hours}
               </p>
             </div>
+          </div>
+        </div>
+      )}
+
+      <main id="main" className="flex-1">
+        {children}
+      </main>
+
+      <footer className="bg-night-deep text-white">
+        <div className="wrap py-16 md:py-20">
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.45fr_1fr_1fr_1.05fr]">
             <div>
-              <h3 className="text-base md:text-lg font-bold mb-4">
-                주요 서비스
-              </h3>
-              <ul className="space-y-2 text-gray-400 text-sm md:text-base">
-                <li>
-                  <Link
-                    to="/services/micropayment"
-                    className="hover:text-white transition-colors"
-                  >
-                    소액결제 현금화
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/information-fee"
-                    className="hover:text-white transition-colors"
-                  >
-                    정보이용료 현금화
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/credit-card"
-                    className="hover:text-white transition-colors"
-                  >
-                    신용카드 현금화
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/gift-card"
-                    className="hover:text-white transition-colors"
-                  >
-                    상품권 현금화
-                  </Link>
-                </li>
+              <Wordmark light />
+              <p className="mt-6 max-w-xs text-[13px] leading-[1.9] text-white/55">
+                상품권 매입부터 휴대폰·카드 결제, 정보이용료 게임재화까지. 확인할 것을 먼저 짚고 조건을
+                안내하는 공룡페이입니다.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-[10.5px] font-semibold uppercase tracking-[0.24em] text-sky-light">이용 안내</h3>
+              <ul className="mt-5 space-y-3 text-[13px] text-white/55">
+                {services.map((s) => (
+                  <li key={s.slug}>
+                    <Link to={s.slug} className="transition-colors hover:text-white">
+                      {s.nav}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
+
             <div>
-              <h3 className="text-base md:text-lg font-bold mb-4">
-                고객지원 및 정보
-              </h3>
-              <ul className="space-y-2 text-gray-400 text-sm md:text-base">
+              <h3 className="text-[10.5px] font-semibold uppercase tracking-[0.24em] text-sky-light">안내</h3>
+              <ul className="mt-5 space-y-3 text-[13px] text-white/55">
                 <li>
-                  <Link
-                    to="/how-to-use"
-                    className="hover:text-white transition-colors"
-                  >
-                    이용 방법
+                  <Link to="/how-to-use" className="transition-colors hover:text-white">
+                    이용 절차
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/faq"
-                    className="hover:text-white transition-colors"
-                  >
-                    자주 묻는 질문 (FAQ)
+                  <Link to="/faq" className="transition-colors hover:text-white">
+                    자주 묻는 질문
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/safety"
-                    className="hover:text-white transition-colors"
-                  >
-                    안전 거래 안내
+                  <Link to="/blog" className="transition-colors hover:text-white">
+                    이야기
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/blog"
-                    className="hover:text-white transition-colors"
-                  >
-                    유용한 정보 블로그
-                  </Link>
-                </li>
-                <li>
-                  {/* 푸터 링크는 팝업 유지 */}
-                  <a
-                    href="#"
-                    onClick={handleConsultClick}
-                    className="hover:text-white transition-colors"
-                  >
-                    24시 고객센터 문의
-                  </a>
-                </li>
-                <li>
-                  <Link
-                    to="/privacy"
-                    className="hover:text-white transition-colors"
-                  >
+                  <Link to="/privacy" className="transition-colors hover:text-white">
                     개인정보처리방침
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/terms"
-                    className="hover:text-white transition-colors"
-                  >
+                  <Link to="/terms" className="transition-colors hover:text-white">
                     이용약관
                   </Link>
                 </li>
               </ul>
             </div>
+
+            <div>
+              <h3 className="text-[10.5px] font-semibold uppercase tracking-[0.24em] text-sky-light">상담</h3>
+              <div className="mt-5 space-y-3 text-[13px] text-white/55">
+                <p>
+                  <a href={site.phoneHref} className="num transition-colors hover:text-white">
+                    {site.phone}
+                  </a>
+                </p>
+                <button
+                  type="button"
+                  onClick={() => openConsult()}
+                  className="inline-flex items-center gap-2 text-left text-white/80 transition-colors hover:text-white"
+                >
+                  <ChatGlyph className="h-4 w-4" />
+                  채널톡 1:1 상담
+                </button>
+                <p className="text-white/35">{site.hours}</p>
+              </div>
+            </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 text-left text-gray-500 text-xs">
-            <p>고객센터: 010-2138-0790</p>
-            <p className="mt-1">사이트 내 1:1 상담(채널톡) 24시간 운영</p>
-          </div>
-          <div className="border-t border-gray-800 mt-6 pt-6 text-center text-gray-400">
-            <p className="text-sm md:text-base">
-              © 2025 공룡페이 (GongryongPay). 모든 권리 보유.
+          <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-[11.5px] leading-relaxed text-white/40 md:flex-row md:items-start md:justify-between">
+            <p className="max-w-2xl">
+              공룡페이는 상품권과 디지털 이용권의 구매·매입 절차를 안내하는 사이트입니다. 실제 결제와 정산
+              조건은 통신사·카드사·발행사의 약관과 정책을 따릅니다.
             </p>
-            <p className="mt-2 text-xs md:text-sm leading-relaxed max-w-4xl mx-auto">
-              본 웹사이트는 공룡페이에서 제공하는 소액결제, 정보이용료,
-              신용카드, 상품권 현금화 서비스에 대한 정보를 포함하고 있습니다.
-              서비스 이용 전 반드시 이용약관 및 개인정보처리방침을 확인하시기
-              바랍니다. 과도한 현금화 서비스 이용은 개인의 재정 상황에 부담을 줄
-              수 있으니 신중한 판단 후 이용해 주시기 바라며, 불법적인 목적으로
-              서비스를 이용하는 것을 엄격히 금지합니다. 공룡페이는 정식 등록된
-              안전한 업체이며, 고객님의 안전을 최우선으로 생각합니다.
+            <p className="shrink-0">
+              © {site.year} {site.name}. All rights reserved.
             </p>
           </div>
         </div>
       </footer>
 
-      {/* 우측 하단 플로팅 버튼 (팝업 유지) */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 pointer-events-none">
-        {/* 1. 말풍선 툴팁 */}
-        {showTooltip && (
-          <div 
-            className="bg-white px-4 py-3 rounded-2xl shadow-xl border border-gray-100 mb-2 mr-2 relative max-w-[240px] animate-bounce pointer-events-auto" 
-            style={{ animationDuration: '3s' }}
+      {/* 우측 하단 고정 상담 버튼 · 모바일에서는 하단 전체 폭 */}
+      <div className="fixed inset-x-4 bottom-4 z-40 flex flex-col items-end gap-2.5 sm:inset-x-auto sm:bottom-6 sm:right-6">
+        {showTop && (
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-line bg-white/90 text-ink-soft shadow-sm backdrop-blur transition-colors hover:border-violet hover:text-violet"
+            aria-label="맨 위로"
           >
-             <button 
-               onClick={(e) => { e.stopPropagation(); setShowTooltip(false); }}
-               className="absolute top-2 right-2 text-gray-300 hover:text-gray-500"
-               aria-label="툴팁 닫기"
-             >
-               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
-               </svg>
-             </button>
-             <p className="font-bold text-gray-800 text-sm mb-1">궁금한 건 채팅으로 문의하세요</p>
-             <p className="text-xs text-gray-500 flex items-center">
-               <span className="text-green-500 mr-1">⚡</span> 빠르게 답변 받으실 수 있어요
-             </p>
-             {/* 말풍선 꼬리 */}
-             <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white transform rotate-45 border-r border-b border-gray-100"></div>
-          </div>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M7 12V2M3 6l4-4 4 4" stroke="currentColor" strokeWidth="1.4" />
+            </svg>
+          </button>
         )}
 
-        {/* 2. 채널톡 스타일 둥근 버튼 */}
         <button
-          id="floating-consult-btn"
-          onClick={handleConsultClick}
-          className="w-16 h-16 bg-[#5C31D6] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 group relative overflow-hidden pointer-events-auto"
-          aria-label="1:1 상담 시작하기"
+          type="button"
+          onClick={() => openConsult()}
+          aria-label="채널톡 1:1 상담 열기"
+          className="group relative flex w-full items-center justify-between gap-4 overflow-hidden rounded-xl bg-gradient-to-r from-violet-deep via-violet to-violet-light px-5 py-4 text-left text-white shadow-[0_24px_54px_-20px_rgba(79,70,229,1)] ring-1 ring-white/20 transition-transform duration-300 hover:-translate-y-0.5 sm:w-auto sm:min-w-[258px] sm:py-[15px]"
         >
-           <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
-              <circle cx="8" cy="10" r="1.5" fill="white" />
-              <circle cx="12" cy="10" r="1.5" fill="white" />
-              <circle cx="16" cy="10" r="1.5" fill="white" />
-           </svg>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-30"
+            style={{
+              background:
+                "radial-gradient(circle at 88% 16%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 52%)",
+            }}
+          />
+          <span className="relative flex items-center gap-3">
+            <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/15 ring-1 ring-white/30">
+              <span aria-hidden="true" className="absolute inset-0 animate-ping rounded-lg bg-white/20" />
+              <ChatGlyph className="relative h-5 w-5" />
+            </span>
+            <span className="leading-tight">
+              <span className="flex items-center gap-1.5 text-[14.5px] font-bold tracking-[-0.01em] sm:text-[15px]">
+                24시간 1:1 상담
+                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-sky-light" />
+              </span>
+              <span className="mt-1 block text-[11px] font-medium text-white/75">상담 무료 · 바로 연결</span>
+            </span>
+          </span>
+          <span
+            aria-hidden="true"
+            className="relative text-[18px] leading-none text-white/80 transition-transform duration-300 group-hover:translate-x-0.5"
+          >
+            →
+          </span>
         </button>
       </div>
     </div>

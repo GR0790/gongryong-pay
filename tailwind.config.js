@@ -4,101 +4,100 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
     extend: {
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      fontFamily: {
+        sans: [
+          "Pretendard Variable",
+          "Pretendard",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Apple SD Gothic Neo",
+          "Noto Sans KR",
+          "Malgun Gothic",
+          "sans-serif",
+        ],
+        display: [
+          "Pretendard Variable",
+          "Pretendard",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Apple SD Gothic Neo",
+          "Noto Sans KR",
+          "sans-serif",
+        ],
       },
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        ink: {
+          DEFAULT: "#0B1020",
+          soft: "#48536B",
+          muted: "#6E7789",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+        night: {
+          DEFAULT: "#0A0E1A",
+          deep: "#06080F",
+          soft: "#11162B",
+          line: "#1E2540",
         },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+        frost: {
+          DEFAULT: "#F8FAFC",
+          light: "#FFFFFF",
+          deep: "#EFF2F9",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+        violet: {
+          DEFAULT: "#4F46E5",
+          light: "#6366F1",
+          deep: "#3F35C9",
+          soft: "#EEF0FF",
         },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        sky: {
+          DEFAULT: "#38BDF8",
+          light: "#7DD3FC",
+          deep: "#0EA5E9",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          1: "hsl(var(--chart-1))",
-          2: "hsl(var(--chart-2))",
-          3: "hsl(var(--chart-3))",
-          4: "hsl(var(--chart-4))",
-          5: "hsl(var(--chart-5))",
-        },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+        steel: "#CBD5E1",
+        line: "#E3E7F0",
+      },
+      letterSpacing: {
+        widest2: "0.26em",
+      },
+      maxWidth: {
+        wrap: "1200px",
+        prose2: "68ch",
+      },
+      borderRadius: {
+        card: "10px",
       },
       keyframes: {
-        "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+        rise: {
+          "0%": { opacity: "0", transform: "translateY(14px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+        fade: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        /* 상담 카드 클릭: 살짝 커졌다 돌아오는 반동 */
+        "consult-bounce": {
+          "0%": { transform: "scale(1)" },
+          "26%": { transform: "scale(1.05)" },
+          "56%": { transform: "scale(0.98)" },
+          "100%": { transform: "scale(1)" },
+        },
+        "consult-glow": {
+          "0%": { opacity: "0" },
+          "28%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+        drift: {
+          "0%, 100%": { transform: "translate3d(0,0,0)" },
+          "50%": { transform: "translate3d(0,-10px,0)" },
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: '1rem',
-          sm: '2rem',
-          lg: '4rem',
-          xl: '5rem',
-          '2xl': '6rem',
-        },
-        screens: {
-          sm: '640px',
-          md: '768px',
-          lg: '1024px',
-          xl: '1280px',
-          '2xl': '1536px',
-        },
+        rise: "rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) both",
+        fade: "fade 1s ease both",
+        "consult-bounce": "consult-bounce 0.7s cubic-bezier(0.33, 1, 0.68, 1) both",
+        "consult-glow": "consult-glow 0.9s ease-out both",
+        drift: "drift 7s ease-in-out infinite",
       },
     },
   },

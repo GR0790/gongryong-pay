@@ -1,193 +1,198 @@
 import type React from "react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
+import { ArrowLink, CTABand, ChatGlyph, ConsultButton, PageHero, SectionHead } from "../components/ui";
+import { site } from "../data/site";
 
-const Contact: React.FC = () => {
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <SEO
-        title="상담센터 - 24시간 1:1 문의"
-        description="공룡페이 소액결제현금화 24시간 1:1 상담센터. 전화·채팅으로 언제든 문의하세요. 빠른 입금 안내, 미납·정책 상담 안내."
-        keywords="공룡페이 상담, 소액결제현금화 상담, 소액결제 문의, 24시간 상담센터"
-      />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-yellow-50 to-yellow-100 py-12 md:py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            공룡페이 1:1 상담센터
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            소액결제, 정보이용료, 신용카드, 상품권, 콘텐츠이용료 현금화 등 모든
-            <br />
-            서비스 관련 문의를 24시간 365일 1:1로 신속하고 친절하게
-            상담해드립니다.
-            <br />
-            급한 비상금이 필요하신가요? 지금 바로 1:1 상담으로 문의해 보세요!
-          </p>
-        </div>
-      </section>
+const channels = [
+  {
+    title: "채널톡 1:1 상담",
+    tag: "기본",
+    body: "사이트의 상담 버튼으로 열립니다. 성함과 연락처를 한 번 남기면 같은 대화로 계속 이어집니다.",
+    detail: "24시간 접수",
+  },
+  {
+    title: "전화 상담",
+    tag: "급할 때",
+    body: "바로 확인해야 할 내용이 있을 때 사용합니다. 통화로 확인한 조건도 채널톡 대화에 정리해 남겨드립니다.",
+    detail: site.phone,
+  },
+  {
+    title: "여러 건 한 번에",
+    tag: "묶음",
+    body: "상품권 종류가 여러 가지거나 결제 방법을 함께 검토할 때, 한 번에 정리해 순서대로 안내드립니다.",
+    detail: "채널톡으로 접수",
+  },
+];
 
-      <div className="container mx-auto px-4 py-12 md:py-16">
-        {/* 카카오톡 상담 - 중앙 정렬 및 큰 디자인 */}
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 text-center border border-yellow-200">
-            <div className="w-24 h-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg
-                className="w-12 h-12 text-yellow-600"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z" />
-              </svg>
+const ready = [
+  "상품권 종류 또는 게임·아이템 (기억나는 단서도 괜찮습니다)",
+  "금액 또는 장수",
+  "결제 방법 (휴대폰 · 카드 · 보유 상품권)",
+  "진행을 희망하는 시점",
+];
+
+const steps = [
+  { no: "01", title: "이름 · 연락처", body: "최초 1회만 입력하면 다음 상담부터 자동으로 연결됩니다." },
+  { no: "02", title: "상담창 연결", body: "입력 즉시 채널톡 1:1 상담창이 열립니다." },
+  { no: "03", title: "조건 확인", body: "가능 범위와 조건을 확인해 안내드립니다." },
+];
+
+const Contact: React.FC = () => (
+  <>
+    <SEO
+      title="상담 — 채널톡 1:1 문의"
+      description="공룡페이 상담 안내. 상담 버튼을 누르면 성함과 연락처를 한 번 확인한 뒤 채널톡 1:1 상담으로 바로 연결됩니다. 전화 상담 010-2138-0790."
+      keywords="공룡페이 상담,채널톡 상담,상품권 문의,1:1 상담"
+    />
+    <PageHero
+      eyebrow="Contact"
+      crumbs={[{ label: "상담" }]}
+      title={
+        <>
+          상담은 채널톡에서
+          <br />
+          바로 시작됩니다.
+        </>
+      }
+      lead="대화가 편하시다면 채널톡을, 바로 확인해야 할 내용이 있다면 전화를 이용해 주세요. 어느 쪽이든 상담은 무료입니다."
+    />
+
+    <section className="border-b border-line bg-white">
+      <div className="wrap py-16 md:py-24">
+        <div className="grid gap-5 lg:grid-cols-[1.12fr_0.88fr]">
+          <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-night p-8 text-white md:p-12">
+            <div aria-hidden="true" className="grid-bg-dark absolute inset-0 opacity-60" />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-16 -top-20 h-72 w-72 rounded-full opacity-70"
+              style={{ background: "radial-gradient(circle, rgba(79,70,229,0.75) 0%, rgba(10,14,26,0) 70%)" }}
+            />
+            <div className="relative">
+              <p className="eyebrow text-sky-light">Channel talk</p>
+              <h2 className="display-sub mt-5 text-white">
+                1:1 대화로
+                <br />
+                가장 정확하게 안내합니다.
+              </h2>
+              <p className="mt-5 max-w-md text-[13.5px] leading-[1.95] text-white/60">
+                문의 내용과 조건이 대화에 남습니다. 진행 상황을 다시 확인하고 싶을 때 같은 창에서 이어서
+                물어보세요.
+              </p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <ConsultButton variant="light" size="lg" label="채널톡 상담 시작" />
+                <a href={site.phoneHref} className="btn-ghost-light min-h-[56px] px-7 text-[14.5px]">
+                  전화 {site.phone}
+                </a>
+              </div>
+              <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-6 text-[12px] text-white/45">
+                <span className="inline-flex items-center gap-2">
+                  <ChatGlyph className="h-3.5 w-3.5" />
+                  {site.hoursNote}
+                </span>
+                <span>{site.hours}</span>
+                <span>상담 무료</span>
+              </div>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-              💬 1:1 즉시상담
+          </div>
+
+          <div className="rounded-2xl border border-line bg-frost p-8 md:p-10">
+            <p className="eyebrow">Prepare</p>
+            <h2 className="mt-4 text-[1.18rem] font-bold leading-snug tracking-[-0.02em] text-ink">
+              이 네 가지만 있으면
+              <br />
+              바로 확인할 수 있습니다.
             </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              가장 편리하고 빠른 상담 방법입니다.
-              <br />
-              24시간 365일 전문 상담원이 대기중이며,
-              <br />
-              평균 1분 이내 응답, 신속한 서비스를 제공합니다.
+            <ul className="mt-7 space-y-3">
+              {ready.map((r, i) => (
+                <li
+                  key={r}
+                  className="flex items-baseline gap-3 border-b border-line pb-3 text-[13px] leading-relaxed text-ink-soft"
+                >
+                  <span className="num text-[10px] font-bold text-violet">0{i + 1}</span>
+                  {r}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-[12px] leading-relaxed text-ink-muted">
+              정확한 정보가 없어도 상담은 가능합니다. 확인 가능한 부분부터 안내드립니다.
             </p>
-
-            {/* [수정 1] 중앙 상담 버튼: 팝업 함수 연결 */}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                (window as any).startConsult();
-              }}
-              className="inline-flex items-center bg-yellow-400 text-gray-900 px-8 py-4 rounded-2xl text-xl font-bold hover:bg-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-xl mb-6 cursor-pointer"
-            >
-              💬 1:1 상담 시작하기
-              <svg
-                className="ml-3 w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </a>
-
-            <p className="text-sm text-gray-500">
-              클릭 시 1:1 상담 채널로 이동합니다
-            </p>
-          </div>
-        </div>
-
-        {/* 상담 시간 및 추가 정보 */}
-        <div className="mt-16 bg-white rounded-2xl shadow-lg p-6 md:p-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-            공룡페이 상담 안내
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-yellow-50 rounded-xl p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <span className="text-2xl mr-2">⚡</span>
-                즉시 상담 가능
-              </h3>
-              <p className="text-gray-700">
-                1:1 상담으로 언제든 문의 가능합니다.
-                <br />
-                평균 응답 시간 1분 이내, 긴급한 경우 즉시 응답해드립니다.
-              </p>
-            </div>
-
-            <div className="bg-green-50 rounded-xl p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <span className="text-2xl mr-2">🔒</span>
-                안전한 개인정보 보호
-              </h3>
-              <p className="text-gray-700">
-                고객님의 개인정보를
-                <br />
-                안전하게 보호하며, 모든 상담 내용은 암호화됩니다.
-              </p>
-            </div>
-
-            <div className="bg-blue-50 rounded-xl p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <span className="text-2xl mr-2">💰</span>
-                합리적인 지급률
-              </h3>
-              <p className="text-gray-700">
-                투명한 수수료 정책과 합리적인 지급률로
-                <br />
-                고객님께 좋은 혜택을 제공합니다.
-              </p>
-            </div>
-
-            <div className="bg-purple-50 rounded-xl p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <span className="text-2xl mr-2">🚀</span>
-                빠른 처리 안내
-              </h3>
-              <p className="text-gray-700">
-                상담 후 결제 확인이 끝나는 대로 입금을 진행합니다.
-                <br />
-                급한 비상금이 필요할 때 순차적으로 안내해 드립니다.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-lg text-gray-700 mb-4">
-              <Link
-                to="/faq"
-                className="text-yellow-600 hover:text-yellow-700 font-semibold"
-              >
-                자주 묻는 질문 (FAQ) 페이지
-              </Link>
-              에서 미리 궁금증을 해결해보세요.
-            </p>
-          </div>
-        </div>
-
-        {/* 최종 CTA */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-2xl p-8 md:p-12 text-white">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              🦕 급한 비상금, 지금 바로 해결하세요!
-            </h2>
-            <p className="text-lg md:text-xl mb-8 opacity-90">
-              소액결제, 정보이용료, 신용카드, 상품권 현금화를 전문으로 하는
-              공룡페이.
-              <br />
-              1:1 상담으로 안전하고 신속한 서비스를 받아보세요!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* [수정 2] 하단 상담 버튼: 팝업 함수 연결 */}
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  (window as any).startConsult();
-                }}
-                className="inline-block bg-white text-yellow-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
-              >
-                💬 1:1 상담하기
-              </a>
-              <Link
-                to="/"
-                className="inline-block bg-yellow-300 text-yellow-800 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-200 transition-colors"
-              >
-                🏠 홈으로 돌아가기
-              </Link>
-            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    </section>
+
+    <section className="border-b border-line bg-frost">
+      <div className="wrap py-20 md:py-28">
+        <SectionHead
+          eyebrow="How the connection works"
+          title={<>연결은 세 단계입니다.</>}
+          lead="상담 버튼을 누른 뒤 실제로 어떤 일이 일어나는지 정리했습니다."
+        />
+        <ol className="mt-12 grid gap-4 md:grid-cols-3">
+          {steps.map((s) => (
+            <li key={s.no} className="rounded-card border border-line bg-white p-7">
+              <span className="num inline-flex h-8 min-w-8 items-center justify-center rounded-md bg-violet px-2 text-[11px] font-bold text-white">
+                {s.no}
+              </span>
+              <h3 className="mt-5 text-[1.03rem] font-semibold text-ink">{s.title}</h3>
+              <p className="mt-2 text-[13px] leading-[1.85] text-ink-soft">{s.body}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-10">
+          <ArrowLink to="/faq">상담 전 자주 묻는 질문 보기</ArrowLink>
+        </div>
+      </div>
+    </section>
+
+    <section className="border-b border-line bg-white">
+      <div className="wrap py-20 md:py-28">
+        <SectionHead eyebrow="Channels" title={<>상황에 맞는 방법으로</>} />
+        <div className="mt-12 grid gap-px overflow-hidden rounded-card border border-line bg-line md:grid-cols-3">
+          {channels.map((c) => (
+            <div key={c.title} className="flex flex-col bg-white p-7 md:p-8">
+              <div className="flex items-center justify-between">
+                <h3 className="text-[1.03rem] font-semibold text-ink">{c.title}</h3>
+                <span className="rounded-md border border-violet/30 bg-violet/[0.05] px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-violet">
+                  {c.tag}
+                </span>
+              </div>
+              <p className="mt-4 flex-1 text-[13px] leading-[1.9] text-ink-soft">{c.body}</p>
+              <p className="num mt-6 text-[12px] text-ink-muted">{c.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="bg-frost-deep">
+      <div className="wrap flex flex-col gap-6 py-14 md:flex-row md:items-center md:justify-between">
+        <p className="text-[13px] text-ink-soft">
+          결제·정산 조건은 통신사·카드사·발행사의 약관을 따릅니다.{" "}
+          <Link to="/terms" className="link-quiet">
+            이용약관
+          </Link>
+          {" · "}
+          <Link to="/privacy" className="link-quiet">
+            개인정보처리방침
+          </Link>
+        </p>
+        <ArrowLink to="/how-to-use">이용 절차 보기</ArrowLink>
+      </div>
+    </section>
+
+    <CTABand
+      eyebrow="Consultation"
+      title={
+        <>
+          망설여지는 부분이 있다면
+          <br className="hidden sm:block" /> 먼저 물어보세요.
+        </>
+      }
+      body="상담만으로도 충분합니다. 진행 여부는 조건을 확인한 뒤 결정하셔도 됩니다."
+    />
+  </>
+);
 
 export default Contact;
-
