@@ -126,17 +126,17 @@ const HeroConsultCard: React.FC = () => {
         {/* 바깥 프레임 */}
         <span
           aria-hidden="true"
-          className="absolute -inset-3 rounded-[22px] border border-white/10 bg-white/[0.03] transition-colors duration-300 group-hover:border-violet-light/40"
+          className="absolute -inset-3 rounded-[22px] border border-line bg-gradient-to-b from-white/80 to-transparent transition-colors duration-300 group-hover:border-violet/40"
         />
         <span
           aria-hidden="true"
           className={`pointer-events-none absolute -inset-2 rounded-[20px] opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${
             pulsing ? "animate-consult-glow" : ""
           }`}
-          style={{ boxShadow: "0 0 0 1px rgba(99,102,241,0.45), 0 40px 90px -34px rgba(79,70,229,0.75)" }}
+          style={{ boxShadow: "0 0 0 1px rgba(79,70,229,0.3), 0 34px 74px -32px rgba(15,23,42,0.45)" }}
         />
 
-        <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-b from-night-soft to-night shadow-[0_52px_100px_-52px_rgba(0,0,0,0.9)]">
+        <div className="relative overflow-hidden rounded-2xl border border-night-soft/60 bg-gradient-to-b from-night-soft to-night shadow-[0_44px_84px_-48px_rgba(10,14,26,0.6)] transition-shadow duration-300 group-hover:shadow-[0_48px_90px_-44px_rgba(79,70,229,0.5)]">
           <span aria-hidden="true" className="grid-bg-dark absolute inset-0 opacity-70" />
           <span
             aria-hidden="true"
@@ -151,7 +151,7 @@ const HeroConsultCard: React.FC = () => {
               </p>
               <p className="mt-2 text-[13.5px] font-semibold text-white">상담 접수증</p>
             </div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[10px] font-medium text-white/70">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10.5px] font-medium text-white/85">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
               24시간 접수
             </span>
@@ -170,26 +170,26 @@ const HeroConsultCard: React.FC = () => {
 
           <div className="relative border-t border-white/10 bg-night-deep/70 px-6 pb-5 pt-4">
             <div className="my-1 border-t border-dashed border-white/15" />
-            <dl className="mt-3 space-y-2 text-[11.5px]">
+            <dl className="mt-3 space-y-2 text-[12px]">
               {[
                 ["이용 안내", "상품권 · 결제 · 게임재화 4종"],
                 ["상담 비용", "무료"],
                 ["연결 채널", "채널톡 1:1 · 24시간"],
               ].map(([k, v]) => (
                 <div key={k} className="flex items-baseline justify-between gap-4">
-                  <dt className="text-white/40">{k}</dt>
-                  <dd className="text-right font-medium text-white/80">{v}</dd>
+                  <dt className="text-white/60">{k}</dt>
+                  <dd className="text-right font-medium text-white/90">{v}</dd>
                 </div>
               ))}
             </dl>
             <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
-              <span className="text-[10px] uppercase tracking-[0.22em] text-white/35">Click to connect</span>
-              <span className="num text-[10.5px] tabular-nums text-white/50">{site.phone}</span>
+              <span className="text-[10px] uppercase tracking-[0.22em] text-white/50">Click to connect</span>
+              <span className="num text-[11px] tabular-nums text-white/70">{site.phone}</span>
             </div>
           </div>
         </div>
 
-        <span className="mt-4 flex items-center justify-center gap-1.5 text-[11.5px] font-medium text-white/50 transition-colors duration-300 group-hover:text-white">
+        <span className="mt-4 flex items-center justify-center gap-1.5 text-[12px] font-semibold text-ink-muted transition-colors duration-300 group-hover:text-violet">
           카드를 누르면 상담창이 열립니다
           <span aria-hidden="true" className="text-[12px] transition-transform duration-300 group-hover:translate-x-0.5">
             →
@@ -201,41 +201,37 @@ const HeroConsultCard: React.FC = () => {
 };
 
 const HeroSection: React.FC = () => (
-  <section className="relative overflow-hidden bg-night text-white">
-    <div aria-hidden="true" className="grid-bg-dark pointer-events-none absolute inset-0 opacity-70" />
+  <section className="relative overflow-hidden border-b border-line bg-white">
+    <div aria-hidden="true" className="grid-bg pointer-events-none absolute inset-0 opacity-60" />
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute -right-32 -top-40 h-[640px] w-[640px] rounded-full opacity-70"
-      style={{ background: "radial-gradient(circle, rgba(79,70,229,0.5) 0%, rgba(10,14,26,0) 66%)" }}
+      className="pointer-events-none absolute -right-40 -top-52 h-[620px] w-[620px] rounded-full"
+      style={{ background: "radial-gradient(circle, rgba(79,70,229,0.18) 0%, rgba(255,255,255,0) 66%)" }}
     />
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute -left-40 top-24 h-[460px] w-[460px] rounded-full opacity-50"
-      style={{ background: "radial-gradient(circle, rgba(56,189,248,0.28) 0%, rgba(10,14,26,0) 70%)" }}
-    />
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-light/60 to-transparent"
+      className="pointer-events-none absolute -left-40 top-28 h-[440px] w-[440px] rounded-full"
+      style={{ background: "radial-gradient(circle, rgba(56,189,248,0.16) 0%, rgba(255,255,255,0) 70%)" }}
     />
 
-    <div className="wrap relative grid items-center gap-14 pb-12 pt-14 md:pb-16 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+    <div className="wrap relative grid items-center gap-14 pb-14 pt-12 md:pb-20 md:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
       <div className="animate-rise">
-        <div className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5">
-          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-sky" />
-          <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-white/65">
+        <div className="inline-flex items-center gap-2.5 rounded-full border border-line bg-white/85 px-3.5 py-1.5">
+          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-violet" />
+          <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-ink-soft">
             Voucher · Mobile · Card · Digital
           </p>
         </div>
 
-        <h1 className="display-hero mt-7 text-white">
+        <h1 className="display-hero mt-7 text-ink">
           결제와 상품권,
           <br />
-          <span className="bg-gradient-to-r from-violet-light via-sky to-violet-light bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-violet-deep via-violet to-violet-light bg-clip-text text-transparent">
             확인한 뒤 진행합니다.
           </span>
         </h1>
 
-        <p className="mt-7 max-w-xl text-[0.98rem] leading-[1.9] text-white/60 md:text-[1.02rem]">
+        <p className="lead mt-7 max-w-xl">
           상품권 매입, 휴대폰 소액결제·신용카드 상품권 구매, 정보이용료 게임재화 구매까지. 발행사와 한도를
           먼저 확인하고, 가능한 범위와 조건을 안내한 뒤 진행합니다.
         </p>
@@ -244,7 +240,7 @@ const HeroSection: React.FC = () => (
           <button
             type="button"
             onClick={() => openConsult()}
-            className="group relative flex h-[58px] items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-violet-deep via-violet to-violet-light px-7 text-[15.5px] font-bold text-white shadow-[0_24px_50px_-20px_rgba(79,70,229,1)] transition-transform duration-300 hover:-translate-y-0.5"
+            className="group relative flex h-[58px] items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-violet-deep via-violet to-violet-light px-7 text-[15.5px] font-bold text-white shadow-[0_22px_44px_-20px_rgba(79,70,229,1)] transition-transform duration-300 hover:-translate-y-0.5"
           >
             <span
               aria-hidden="true"
@@ -271,7 +267,7 @@ const HeroSection: React.FC = () => (
           </button>
           <Link
             to="/how-to-use"
-            className="inline-flex h-[58px] items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.04] px-7 text-[14.5px] font-semibold text-white/85 transition-colors hover:border-white/50 hover:text-white"
+            className="inline-flex h-[58px] items-center justify-center gap-2 rounded-xl border border-steel bg-white/80 px-7 text-[14.5px] font-semibold text-ink transition-colors hover:border-violet hover:text-violet"
           >
             이용 절차 보기
             <span aria-hidden="true" className="text-[15px]">
@@ -280,12 +276,12 @@ const HeroSection: React.FC = () => (
           </Link>
         </div>
 
-        <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] text-white/45">
+        <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[12.5px] text-ink-muted">
           <span>상담 무료</span>
-          <span aria-hidden="true" className="h-2.5 w-px bg-white/20" />
+          <span aria-hidden="true" className="h-2.5 w-px bg-steel" />
           <span>{site.hours}</span>
-          <span aria-hidden="true" className="h-2.5 w-px bg-white/20" />
-          <a href={site.phoneHref} className="num hover:text-white">
+          <span aria-hidden="true" className="h-2.5 w-px bg-steel" />
+          <a href={site.phoneHref} className="num font-medium text-ink-soft hover:text-violet">
             전화 {site.phone}
           </a>
         </p>
@@ -295,17 +291,17 @@ const HeroSection: React.FC = () => (
     </div>
 
     <div className="wrap relative">
-      <dl className="grid grid-cols-2 gap-y-8 border-t border-white/10 py-8 md:grid-cols-4 md:py-9">
+      <dl className="grid grid-cols-2 gap-y-8 border-t border-line py-8 md:grid-cols-4 md:py-9">
         {heroValues.map((v) => (
-          <div key={v.label} className="border-l border-white/10 px-4 first:border-l-0 first:pl-0 md:px-6">
-            <dt className="flex items-baseline gap-1 text-white">
-              <span className="text-[1.7rem] font-bold leading-none tracking-[-0.03em] md:text-[1.95rem]">
+          <div key={v.label} className="border-l border-line px-4 first:border-l-0 first:pl-0 md:px-6">
+            <dt className="flex items-baseline gap-1 text-ink">
+              <span className="text-[1.75rem] font-bold leading-none tracking-[-0.03em] md:text-[2rem]">
                 {v.value}
               </span>
-              <span className="text-[12px] font-semibold text-violet-light">{v.unit}</span>
+              <span className="text-[12px] font-semibold text-violet">{v.unit}</span>
             </dt>
-            <dd className="mt-2.5 text-[12.5px] font-medium text-white/80">{v.label}</dd>
-            <dd className="mt-0.5 text-[11px] text-white/40">{v.note}</dd>
+            <dd className="mt-2.5 text-[13px] font-semibold text-ink">{v.label}</dd>
+            <dd className="mt-0.5 text-[11.5px] text-ink-muted">{v.note}</dd>
           </div>
         ))}
       </dl>

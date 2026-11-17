@@ -7,11 +7,23 @@
     --violet: 79 70 229;
     --sky: 56 189 248;
     --night: 10 14 26;
+    /* 어르신 이용자를 위해 기기 다크모드를 따르지 않고 항상 밝은 화면으로 고정합니다. */
+    color-scheme: light only;
   }
 
   html {
+    color-scheme: light only;
+    background-color: #f8fafc;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+  }
+
+  /* 입력·선택 요소도 어두운 모드로 반전되지 않도록 고정 */
+  input,
+  textarea,
+  select,
+  button {
+    color-scheme: light only;
   }
 
   body {

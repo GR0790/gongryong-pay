@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  // 다크모드 미지원: 시스템 설정과 무관하게 항상 밝은 화면만 사용합니다.
+  darkMode: false,
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
     extend: {

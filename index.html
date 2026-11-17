@@ -17,7 +17,9 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0A0E1A" />
+    <!-- 밝은 화면 고정: 기기 다크모드/강제 어둡게 변환을 따르지 않습니다. -->
+    <meta name="color-scheme" content="light only" />
+    <meta name="theme-color" content="#F8FAFC" />
     <meta name="format-detection" content="telephone=yes" />
     <meta name="naver-site-verification" content="b901286c8def55a53191fea4bf2df84742d4597b" />
 
@@ -108,7 +110,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(6, 8, 15, 0.72);
+        background: rgba(15, 23, 42, 0.55);
         -webkit-backdrop-filter: blur(6px);
         backdrop-filter: blur(6px);
         z-index: 99999;
@@ -127,7 +129,8 @@
         border: 1px solid #e3e7f0;
         border-radius: 14px;
         overflow: hidden;
-        box-shadow: 0 44px 90px -28px rgba(6, 8, 15, 0.8);
+        color-scheme: light only;
+        box-shadow: 0 30px 70px -26px rgba(15, 23, 42, 0.55);
         position: relative;
         text-align: left;
       }
@@ -135,9 +138,10 @@
       .gr-modal__head {
         position: relative;
         overflow: hidden;
-        background: #0a0e1a;
+        border-bottom: 1px solid #e3e7f0;
+        background: linear-gradient(180deg, #eef0ff 0%, #f8fafc 100%);
         padding: 24px 24px 22px;
-        color: #ffffff;
+        color: #0f172a;
       }
 
       .gr-modal__head::after {
@@ -148,35 +152,35 @@
         width: 190px;
         height: 190px;
         border-radius: 999px;
-        background: radial-gradient(circle, rgba(99, 102, 241, 0.62) 0%, rgba(10, 14, 26, 0) 70%);
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(248, 250, 252, 0) 70%);
         pointer-events: none;
       }
 
       .gr-modal__kicker {
         position: relative;
         margin: 0;
-        font-size: 10px;
-        font-weight: 600;
+        font-size: 10.5px;
+        font-weight: 700;
         letter-spacing: 0.24em;
         text-transform: uppercase;
-        color: #7dd3fc;
+        color: #4f46e5;
       }
 
       .gr-modal__title {
         position: relative;
         margin: 10px 0 0;
-        font-size: 21px;
+        font-size: 22px;
         font-weight: 800;
         letter-spacing: -0.02em;
-        color: #ffffff;
+        color: #0f172a;
       }
 
       .gr-modal__desc {
         position: relative;
         margin: 8px 0 0;
-        font-size: 13px;
+        font-size: 13.5px;
         line-height: 1.65;
-        color: rgba(255, 255, 255, 0.62);
+        color: #48536b;
       }
 
       .gr-modal__close {
@@ -186,12 +190,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 28px;
-        height: 28px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        width: 30px;
+        height: 30px;
+        border: 1px solid #e3e7f0;
         border-radius: 999px;
-        background: transparent;
-        color: rgba(255, 255, 255, 0.7);
+        background: #ffffff;
+        color: #48536b;
         font-size: 15px;
         line-height: 1;
         cursor: pointer;
