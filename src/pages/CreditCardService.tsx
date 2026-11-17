@@ -46,7 +46,7 @@ const CreditCardService: React.FC = () => {
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               신용카드 결제 한도를 활용한 안전하고 빠른 현금화 서비스! 복잡한 절차
-              없이 3분 안에 신속하게 현금을 마련하세요. 전 카드사 지원, 최대
+              없이 신속하게 현금을 마련하세요. 전 카드사 지원, 최대
               1000만원까지, 지급률 82~88%!
             </p>
             <Link
@@ -152,7 +152,7 @@ const CreditCardService: React.FC = () => {
                         3
                       </div>
                       <span className="text-purple-800 font-medium">
-                        💸 3분 내 계좌 입금 완료
+                        💸 빠른 입금 안내
                       </span>
                     </div>
                   </div>
@@ -420,7 +420,7 @@ const CreditCardService: React.FC = () => {
                   소액결제 현금화
                 </h3>
                 <p className="text-gray-600 text-sm mb-3">
-                  휴대폰 소액결제 한도로 3분 이내 즉시 현금화
+                  휴대폰 소액결제 한도로 현금화 상담 가능
                 </p>
                 <span className="text-green-600 font-semibold text-sm hover:text-green-700 transition-colors">
                   소액결제현금화 방법 보기 →
@@ -478,7 +478,7 @@ const CreditCardService: React.FC = () => {
               </h2>
               <p className="text-lg md:text-xl mb-8 opacity-90">
                 보유하신 신용카드로 급한 자금 문제를 즉시 해결하세요! 전 카드사
-                지원, 지급률 82~88%, 3분 내 입금 완료! 24시간 전문 상담진이
+                지원, 지급률 82~88%, 빠른 입금 안내! 24시간 전문 상담진이
                 대기중입니다.
               </p>
               <Link

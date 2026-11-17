@@ -47,7 +47,7 @@ const InformationFeeService: React.FC = () => {
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               SKT, KT, LGU+ 통신사 정보이용료 한도를 활용! 복잡한 절차 없이
-              3분 안에 신속하게 현금화 해드립니다. 월 한도 최대 100만원까지 이용
+              신속하게 현금화를 도와드립니다. 월 한도 최대 100만원까지 이용
               가능합니다.
             </p>
             <Link
@@ -149,7 +149,7 @@ const InformationFeeService: React.FC = () => {
                         3
                       </div>
                       <span className="text-blue-800 font-medium">
-                        💸 3분 안에 계좌 입금 완료
+                        💸 빠른 입금 안내
                       </span>
                     </div>
                   </div>
@@ -191,7 +191,7 @@ const InformationFeeService: React.FC = () => {
                   <span className="text-2xl">⚡</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  🕐 초스피드 3분 처리
+                  🕐 빠른 처리 안내
                 </h3>
                 <p className="text-gray-600">
                   상담 후 결제 확인이 끝나는 대로 입금을 진행합니다. 급한 자금이 필요할 때
@@ -332,7 +332,7 @@ const InformationFeeService: React.FC = () => {
                   소액결제 현금화
                 </h3>
                 <p className="text-gray-600 text-sm mb-3">
-                  휴대폰 소액결제 한도로 3분 이내 즉시 현금화
+                  휴대폰 소액결제 한도로 현금화 상담 가능
                 </p>
                 <span className="text-green-600 font-semibold text-sm hover:text-green-700 transition-colors">
                   소액결제현금화 방법 보기 →
@@ -390,7 +390,7 @@ const InformationFeeService: React.FC = () => {
               </h2>
               <p className="text-lg md:text-xl mb-8 opacity-90">
                 SKT, KT, LGU+ 정보이용료 한도를 활용해 급한 자금 문제를
-                해결하세요. 복잡한 절차 없이 3분 만에 계좌로 입금 완료! 24시간
+                해결하세요. 복잡한 절차 없이 상담 후 계좌 입금 진행! 24시간
                 전문 상담진이 대기중입니다.
               </p>
               <Link

@@ -47,7 +47,7 @@ const MicropaymentService: React.FC = () => {
               소액결제 현금화: 휴대폰만으로 초스피드 입금 | 공룡페이
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              휴대폰만 OK! 누구나 3분 안에 비상금 해결. SKT, KT, LGU+ 모든 통신사
+              휴대폰만 OK! 누구나 빠르게 비상금 상담. SKT, KT, LGU+ 모든 통신사
               소액결제 한도를 안전하고 빠르게 현금화해드립니다.
             </p>
             <Link
@@ -59,7 +59,7 @@ const MicropaymentService: React.FC = () => {
                 alt=""
                 className="mr-2 w-5 md:w-6 h-5 md:h-6"
               />
-              3분 완성! 즉시 상담
+              빠른 상담
             </Link>
           </div>
         </section>
@@ -147,7 +147,7 @@ const MicropaymentService: React.FC = () => {
                         3
                       </div>
                       <span className="text-green-800 font-medium">
-                        💰 3분 안에 즉시 입금 완료
+                        💰 빠른 입금 안내
                       </span>
                     </div>
                   </div>
