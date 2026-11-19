@@ -224,16 +224,16 @@ const HeroSection: React.FC = () => (
         </div>
 
         <h1 className="display-hero mt-7 break-keep text-ink">
-          복잡한 절차 없이,
+          휴대폰 소액결제 · 정보이용료,
           <br />
           <span className="bg-gradient-to-r from-violet-deep via-violet to-violet-light bg-clip-text text-transparent">
-            상담부터 안내까지 한 번에.
+            남는 한도 바로 활용하세요.
           </span>
         </h1>
 
         <p className="lead mt-7 max-w-xl">
-          쓰지 않은 상품권이 남았다면 정리하는 쪽으로, 카드 할부를 검토 중이라면 총액을 계산하는 쪽으로.
-          상황에 따라 필요한 안내가 다릅니다. 네 개의 창구를 두고 한 상황에 한 곳으로만 안내합니다.
+          통신사 소액결제·정보이용료·신용카드 한도부터 미사용 상품권 매입까지 — 복잡한 절차 없이
+          채널톡 1:1 상담으로 한 번에 안내합니다.
         </p>
 
         <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
